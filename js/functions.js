@@ -9,8 +9,14 @@ function calcInhaledTHCContent(){
 		THCContentList[index].innerHTML = THCContent;
 		inhaledTHCTotals += THCContent;
 	})
+	DOMElemsToUpdate = {}
+	DOMElemsToUpdate['inhaledTHCTotal'] = inhaledTHCTotals;
+	DOMElemsToUpdate['inhaledTHCScriptDuration'] = Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
 
-	document.getElementById('inhaledTHCScriptDuration').innerText = Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
+	Object.keys(DOMElemsToUpdate).forEach(DOMElem => {
+		document.getElementById(DOMElem).innerText = DOMElemsToUpdate[DOMElem];
+	})
+	//document.getElementById('inhaledTHCScriptDuration').innerText = Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
 
 }
 
