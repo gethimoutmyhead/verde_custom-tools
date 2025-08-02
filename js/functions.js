@@ -16,17 +16,13 @@ function calcInhaledTHCContent(){
 
 function addExtraHerb(){
 	row = document.createElement('tr');
-	vals = []
-	THCStrength = document.createElement('input');
-	THCStrength.setAttribute('class', 'THCstrength');
-	THCStrength.setAttribute('type', 'number');
-	THCWeight = document.createElement('input');
-	THCWeight.setAttribute('class', 'THCweight');
-	THCWeight.setAttribute('type', 'number');
-	THCContent = document.createElement('div');
-	THCContent.setAttribute('class', 'dryHerbTHCContent');
-	vals.push(THCStrength, THCWeight, THCContent);
+	let vals = []
+	let DOMelems = []
+	DOMelems.push({'DOMElement': 'input', 'class': 'THCstrength', 'type': 'number'})
+	DOMelems.push({'DOMElement': 'input', 'class': 'THCweight', 'type': 'number'})
+	DOMelems.push({'DOMElement': 'div', 'class': 'dryHerbTHCContent'})
 
+	vals = makeNewDOMElementFromDictList(DOMelems);
 	vals.forEach(elem => {
 		column = document.createElement('td');
 		column.appendChild(elem);
@@ -36,6 +32,20 @@ function addExtraHerb(){
 	table = document.getElementById('dryherblist');
 	table.appendChild(row);
 
+}
+
+function makeNewDOMElementFromDictList(DOMElemList){
+	let vals = [];
+	DOMElemList.forEach(elem => {
+		let elemVar = elem;
+		newElem = document.createElement(elemVar['DOMElement']);
+		delete elemVar['DOMElement'];
+		Object.keys(elemVar).forEach(elemAttribute => {
+			newElem.setAttribute(elemAttribute, elemVar[elemAttribute]);
+		})
+		vals.push(newElem);
+	})
+	return vals;
 }
 
 function setTHCLimit(inhaledTHC, oralTHC){
