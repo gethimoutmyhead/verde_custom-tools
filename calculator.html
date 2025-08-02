@@ -1,0 +1,44 @@
+<html>
+	<header>
+		<title> Medicinal Cannabis THC calculator </title>
+	</header>
+
+	<body>
+		<div>
+			<div>
+				<h2> Average Usage </h2>
+				<label>Average inhaled THC per day (mg)</label><input id ="averageInhaledTHC" type="number" value="300">
+				<br>
+				<label>Average oral THC per day(mg)</label><input id="averageOralTHC" type="number" value="40">
+				<br>
+				<button onclick="WAHealthLimit()">WA Health Limits</button>
+				<button onclick="NIIMLimit()">NIIM limits</button>
+			</div>
+			<div>
+				<h2> Prescribed dry herb </h2>
+				<table id='dryherblist'>
+					<tr>
+						<th><div> THC strength (%)</div></th>
+						<th><div> dry herb weight (g) </div></th>
+						<th><div> THC content (mg) </div></th>
+					</tr>
+					<tr>
+						<td><input type="number" class="THCstrength" value="15"></td>
+						<td><input type="number" class="THCweight" value="10"></td>
+						<td><div class='dryHerbTHCContent'></td>
+					</tr>
+
+				</table>
+				<button onclick="addExtraHerb()">add another herb</button>
+				<button onclick="calcInhaledTHCContent()">Calculate</button>
+			</div>
+			<div>
+				<h2> Expected duration of script </h2>
+				<div> inhaled products expected to last </div><div id="inhaledTHCScriptDuration"></div>
+				<div> oral products expected to last </div><div id="oralTHCScriptDuration"></div>
+			</div>
+	</body>
+	<footer>
+		<script src="js/functions.js"></script>
+	</footer>
+</html>
