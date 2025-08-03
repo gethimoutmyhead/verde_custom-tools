@@ -1,36 +1,53 @@
 function calcInhaledTHCContent(){
-	THCStrengthList = document.querySelectorAll('input.dryHerbTHCstrength');
-	WeightList = document.querySelectorAll('input.dryHerbWeight');
-	THCContentList = document.querySelectorAll('div.dryHerbTHCContent');
+	dryHerbTable = document.getElementById('dryHerbTable');
 
-	let inhaledTHCTotals = 0;
-	THCStrengthList.forEach( (element, index) => {
-		THCContent = Math.ceil((element.value / 100) * WeightList[index].value * 1000);
-		THCContentList[index].innerHTML = THCContent;
-		inhaledTHCTotals += THCContent;
+	THCStrengthDOMList = Array.from(document.querySelectorAll('input.dryHerbTHCstrength'));
+	WeightDOMList = Array.from(document.querySelectorAll('input.dryHerbWeight'));
+	THCContentDOMList = Array.from(document.querySelectorAll('div.dryHerbTHCContent'));
+
+	THCStrengthList = THCStrengthDOMList.map(elem => {
+		return elem.value;
+	})
+	WeightList = WeightDOMList.map(elem => {
+		return elem.value;
 	})
 
-	THCStrengthList = document.querySelectorAll('input.inhaledConcentrateTHCConcentration');
-	WeightList = document.querySelectorAll('input.inhaledConcentrateQuantity');
-	THCContentList = document.querySelectorAll('div.inhaledConcentrateTHCContent');
+	let THCContentList = []
+	THCContentList = THCContentList.concat(THCStrengthList.map( (element, index) => {
+		return Math.ceil((element / 100) * WeightList[index] * 1000);
+	}))
+	concentratesTable = Array.from(document.getElementById('concentratesTable'));
+	THCStrengthDOMList = Array.from(document.querySelectorAll('input.inhaledConcentrateTHCConcentration'));
+	WeightDOMList = Array.from(document.querySelectorAll('input.inhaledConcentrateQuantity'));
+	THCContentDOMList = THCContentDOMList.concat(Array.from(document.querySelectorAll('div.inhaledConcentrateTHCContent')));
 
-	THCStrengthList.forEach( (element, index) => {
-		THCContent = Math.ceil((element.value) * WeightList[index].value);
-		THCContentList[index].innerHTML = THCContent;
-		inhaledTHCTotals += THCContent;
+	THCStrengthList = THCStrengthDOMList.map(elem => {
+		return elem.value;
+	})
+	WeightList = WeightDOMList.map(elem => {
+		return elem.value;
 	})
 
-	DOMElemsToUpdate = {}
+	THCContentList = THCContentList.concat(THCStrengthList.map( (element, index) => {
+		return Math.ceil((element) * WeightList[index]);
+	}))
+
+	THCContentDOMList.forEach((elem, index) => {
+		elem.innerHTML = THCContentList[index];
+	})
+
+	inhaledTHCTotals = THCContentList.reduce( (partialSum, a) => {
+		return partialSum + a;
+	}, 0);
 
 
+	DOMElemsToUpdate = {};
 	DOMElemsToUpdate['inhaledTHCTotal'] = inhaledTHCTotals;
 	DOMElemsToUpdate['inhaledTHCScriptDuration'] = Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
 
 	Object.keys(DOMElemsToUpdate).forEach(DOMElem => {
 		document.getElementById(DOMElem).innerText = DOMElemsToUpdate[DOMElem];
 	})
-	//document.getElementById('inhaledTHCScriptDuration').innerText = Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
-
 }
 
 function addExtraHerb(){
@@ -48,7 +65,7 @@ function addExtraHerb(){
 		row.appendChild(column);
 	})
 
-	table = document.getElementById('dryHerbList');
+	table = document.getElementById('dryHerbTable');
 	table.appendChild(row);
 
 }
@@ -68,7 +85,7 @@ function addExtraConcentrate(){
 		row.appendChild(column);
 	})
 
-	table = document.getElementById('concentratesList');
+	table = document.getElementById('concentratesTable');
 	table.appendChild(row);
 }
 
