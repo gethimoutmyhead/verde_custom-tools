@@ -15,23 +15,37 @@
 				<button onclick="NIIMLimit()">NIIM limits</button>
 			</div>
 			<div>
-				<h2> Prescribed dry herb </h2>
-				<table id='dryherblist'>
+				<h2> Prescribed dry herb, hash</h2>
+				<table id='dryHerbList'>
 					<tr>
 						<th><div> THC strength (%)</div></th>
 						<th><div> dry herb weight (g) </div></th>
 						<th><div> THC content (mg) </div></th>
 					</tr>
 					<tr>
-						<td><input type="number" class="THCstrength" value="15"></td>
-						<td><input type="number" class="THCweight" value="10"></td>
-						<td><div class='dryHerbTHCContent'></td>
+						<td><input type="number" class="dryHerbTHCstrength" value="15"></td>
+						<td><input type="number" class="dryHerbWeight" value="10"></td>
+						<td><div class='dryHerbTHCContent'></div></td>
 					</tr>
-
 				</table>
-				<button onclick="addExtraHerb()">add another herb</button>
-				<button onclick="calcInhaledTHCContent()">Calculate</button>
+				<button onclick="addExtraHerb()">add another dry herb/hash</button>
 			</div>
+			<div>
+				<h2> Prescribed inhaled cartridges and Extracts </h2>
+				<table id='concentratesList'>
+					<tr>
+						<th><div> THC strength (mg/g or mg/cartridge)</div></th>
+						<th><div> number of cartridges / grams of product</div></th>
+						<th><div> THC content (mg) </div></th>
+					</tr>
+					<tr>
+						<td><input type="number" class="inhaledConcentrateTHCConcentration"></td>
+						<td><input type="number" class="inhaledConcentrateQuantity"></td>
+						<td><div class="inhaledConcentrateTHCContent"></div></td>
+					</tr>
+				</table>
+				<button onclick="addExtraConcentrate()">add another cartridge/concentrate</button>
+				<button onclick="calcInhaledTHCContent()">Calculate</button>
 			<div>
 				<h2> Total THC prescribed </h2>
 				<div> Inhaled THC (mg)</div><div id='inhaledTHCTotal'></div>
