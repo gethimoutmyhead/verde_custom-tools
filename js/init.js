@@ -1,0 +1,1 @@
+document.getElementById('prescriptionDate').valueAsDate = new Date();
