@@ -6,56 +6,77 @@ Date.prototype.addDays = function(step){
 }
 
 function calcInhaledTHCContent(){
-	dryHerbTable = document.getElementById('dryHerbTable');
+	// dryHerbTable = document.getElementById('dryHerbTable');
 
-	THCStrengthDOMList = Array.from(dryHerbTable.querySelectorAll('input.dryHerbTHCstrength'));
-	WeightDOMList = Array.from(dryHerbTable.querySelectorAll('input.dryHerbWeight'));
-	THCContentDOMList = Array.from(dryHerbTable.querySelectorAll('div.dryHerbTHCContent'));
-	scriptRepeatsDOMList = Array.from(dryHerbTable.querySelectorAll('.scriptRepeats'))
-	THCStrengthList = THCStrengthDOMList.map(elem => {
-		return elem.value;
+	// THCStrengthDOMList = Array.from(dryHerbTable.querySelectorAll('input.dryHerbTHCstrength'));
+	// WeightDOMList = Array.from(dryHerbTable.querySelectorAll('input.dryHerbWeight'));
+	// THCContentDOMList = Array.from(dryHerbTable.querySelectorAll('div.dryHerbTHCContent'));
+	// scriptRepeatsDOMList = Array.from(dryHerbTable.querySelectorAll('.scriptRepeats'))
+	// THCStrengthList = THCStrengthDOMList.map(elem => {
+	// 	return elem.value;
+	// })
+	// WeightList = WeightDOMList.map(elem => {
+	// 	return elem.value;
+	// })
+	// scriptRepeatList = scriptRepeatsDOMList.map(elem => {return (Number(elem.value) + 1)})
+
+	// let TotalTHCContentList = []
+	// TotalTHCContentList = TotalTHCContentList.concat(THCStrengthList.map( (element, index) => {
+	// 	return Math.ceil((element / 100) * WeightList[index] * (10 ** 3)) * scriptRepeatList[index];
+	// }))
+	// concentratesTable = document.getElementById('concentratesTable');
+	// THCStrengthDOMList = Array.from(concentratesTable.querySelectorAll('input.inhaledConcentrateTHCConcentration'));
+	// WeightDOMList = Array.from(concentratesTable.querySelectorAll('input.inhaledConcentrateQuantity'));
+	// THCContentDOMList = THCContentDOMList.concat(Array.from(concentratesTable.querySelectorAll('div.inhaledConcentrateTHCContent')));
+
+	// THCStrengthList = THCStrengthDOMList.map(elem => {
+	// 	return elem.value;
+	// })
+	// WeightList = WeightDOMList.map(elem => {
+	// 	return elem.value;
+	// })
+
+	// TotalTHCContentList = TotalTHCContentList.concat(THCStrengthList.map( (element, index) => {
+	// 	return Math.ceil((element) * WeightList[index]);
+	// }))
+
+	// THCContentDOMList.forEach((elem, index) => {
+	// 	elem.innerHTML = TotalTHCContentList[index];
+	// })
+
+	// inhaledTHCTotals = TotalTHCContentList.reduce( (partialSum, a) => {
+	// 	return partialSum + a;
+	// }, 0);
+
+	inhaledTHCStrengthDOMList = Array.from(document.querySelectorAll('.inhaledTHCStrength'));
+	inhaledQuantityDOMList = document.querySelectorAll('.inhaledQuantity');
+	inhaledRepeatsDOMList = document.querySelectorAll('.inhaledScriptRepeats');
+	inhaledTHCContentDOMList = document.querySelectorAll('.inhaledTHCContent');
+
+	inhaledTHCContentIncRepeatsList = inhaledTHCStrengthDOMList.map( (elem, idx) => {
+		return elem.value * eval(elem.getAttribute('standardise')) * inhaledQuantityDOMList[idx].value * eval(inhaledQuantityDOMList[idx].getAttribute('standardise')) * (Number(inhaledRepeatsDOMList[idx].value)+1);
 	})
-	WeightList = WeightDOMList.map(elem => {
-		return elem.value;
+
+	inhaledTHCContentIncRepeatsList.forEach( (elem, index) => {
+		inhaledTHCContentDOMList[index].innerHTML = elem;
 	})
-	scriptRepeatList = scriptRepeatsDOMList.map(elem => {return (Number(elem.value) + 1)})
-
-	let THCContentList = []
-	THCContentList = THCContentList.concat(THCStrengthList.map( (element, index) => {
-		return Math.ceil((element / 100) * WeightList[index] * (10 ** 3)) * scriptRepeatList[index];
-	}))
-	concentratesTable = document.getElementById('concentratesTable');
-	THCStrengthDOMList = Array.from(concentratesTable.querySelectorAll('input.inhaledConcentrateTHCConcentration'));
-	WeightDOMList = Array.from(concentratesTable.querySelectorAll('input.inhaledConcentrateQuantity'));
-	THCContentDOMList = THCContentDOMList.concat(Array.from(concentratesTable.querySelectorAll('div.inhaledConcentrateTHCContent')));
-
-	THCStrengthList = THCStrengthDOMList.map(elem => {
-		return elem.value;
+	inhaledTHCTotalsIncRepeats = inhaledTHCContentIncRepeatsList.reduce( (accumulator, currentvalue) => {return accumulator + currentvalue}, 0);
+	
+	inhaledTHCContentPerDispenseList = inhaledTHCStrengthDOMList.map( (elem, idx) => {
+		return elem.value * eval(elem.getAttribute('standardise')) * inhaledQuantityDOMList[idx].value * eval(inhaledQuantityDOMList[idx].getAttribute('standardise'));
 	})
-	WeightList = WeightDOMList.map(elem => {
-		return elem.value;
-	})
-
-	THCContentList = THCContentList.concat(THCStrengthList.map( (element, index) => {
-		return Math.ceil((element) * WeightList[index]);
-	}))
-
-	THCContentDOMList.forEach((elem, index) => {
-		elem.innerHTML = THCContentList[index];
-	})
-
-	inhaledTHCTotals = THCContentList.reduce( (partialSum, a) => {
-		return partialSum + a;
-	}, 0);
-
+	inhaledTHCTotalsPerDispense = inhaledTHCContentPerDispenseList.reduce( (accumulator, currentvalue) => {return accumulator + currentvalue}, 0);
+	
+	//inhaledTHCScriptDuration = inhaledTHCTotalsIncRepeats / ;
 	prescribeDate = document.getElementById('prescriptionDate').valueAsDate;
-	inhaledTHCScriptDuration = Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
+	inhaledTHCScriptDuration = Math.ceil(inhaledTHCTotalsIncRepeats / document.getElementById('averageInhaledTHC').value);
+	inhaledDurationPerDispense = Math.ceil(inhaledTHCTotalsPerDispense / document.getElementById('averageInhaledTHC').value);
 	scriptFinishDate = prescribeDate.addDays(inhaledTHCScriptDuration)
 
 	DOMElemsToUpdate = {};
-	DOMElemsToUpdate['inhaledTHCTotal'] = inhaledTHCTotals;
-	DOMElemsToUpdate['inhaledTHCScriptDuration'] = inhaledTHCScriptDuration.toString() + " " + scriptFinishDate;//Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
-
+	DOMElemsToUpdate['inhaledTHCTotal'] = inhaledTHCTotalsIncRepeats;
+	DOMElemsToUpdate['inhaledTHCTotalScriptDuration'] = "(" + inhaledTHCScriptDuration.toString() + " days)" + scriptFinishDate.toLocaleString('en-UK', {'weekday': 'short', 'day': 'numeric', 'month': 'short', 'year': 'numeric'});//Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
+	DOMElemsToUpdate['inhaledTHCPerDispenseScriptDuration'] = "(" + inhaledDurationPerDispense.toString() + " days)"
 	Object.keys(DOMElemsToUpdate).forEach(DOMElem => {
 		document.getElementById(DOMElem).innerText = DOMElemsToUpdate[DOMElem];
 	})
@@ -65,10 +86,10 @@ function addExtraHerb(){
 	row = document.createElement('tr');
 	let vals = []
 	let DOMelems = []
-	DOMelems.push({'DOMElement': 'input', 'class': 'dryHerbTHCstrength', 'type': 'number'})
-	DOMelems.push({'DOMElement': 'input', 'class': 'dryHerbWeight', 'type': 'number'})
-	DOMelems.push({'DOMElement': 'input', 'class': 'scriptRepeats', 'type': 'number', 'value': '0'})
-	DOMelems.push({'DOMElement': 'div', 'class': 'dryHerbTHCContent'})
+	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledTHCstrength', 'type': 'number', 'standardise': '10**-2'})
+	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledQuantity', 'type': 'number', 'standardise': '10**3'})
+	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledScriptRepeats', 'type': 'number', 'value': '0'})
+	DOMelems.push({'DOMElement': 'div', 'class': 'inhaledTHCContent'})
 
 
 	vals = makeNewDOMElementFromDictList(DOMelems);
@@ -87,9 +108,10 @@ function addExtraConcentrate(){
 	row = document.createElement('tr');
 	let vals = []
 	let DOMelems = []
-	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledConcentrateTHCConcentration', 'type': 'number'})
-	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledConcentrateQuantity', 'type': 'number'})
-	DOMelems.push({'DOMElement': 'div', 'class': 'inhaledConcentrateTHCContent'})
+	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledTHCStrength', 'type': 'number', 'standardise': '1'})
+	DOMelems.push({'DOMElement': 'input', 'class': 'inhaledQuantity', 'type': 'number','standardise':'1'})
+	DOMelems.push({'DOMElement':'input','class':'inhaledScriptRepeats','type':'number','value':'0'})
+	DOMelems.push({'DOMElement': 'div', 'class': 'inhaledTHCContent'})
 
 	vals = makeNewDOMElementFromDictList(DOMelems);
 	vals.forEach(elem => {
