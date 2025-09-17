@@ -15,16 +15,22 @@
 				<button onclick="NIIMLimit()">NIIM limits</button>
 			</div>
 			<div>
+				Prescription Date
+				<input id="prescriptionDate" type="date"></input>
+			</div>
+			<div>
 				<h2> Prescribed dry herb, hash</h2>
 				<table id='dryHerbTable'>
 					<tr>
 						<th><div> THC strength (%)</div></th>
 						<th><div> dry herb weight (g) </div></th>
+						<th><div> repeats </div></th>
 						<th><div> THC content (mg) </div></th>
 					</tr>
 					<tr>
 						<td><input type="number" class="dryHerbTHCstrength" value="15"></td>
 						<td><input type="number" class="dryHerbWeight" value="10"></td>
+						<td><input type="number" class="scriptRepeats" value="0"></td>
 						<td><div class='dryHerbTHCContent'></div></td>
 					</tr>
 				</table>
@@ -59,5 +65,6 @@
 	</body>
 	<footer>
 		<script src="js/functions.js"></script>
+		<script src="js/init.js"></script>
 	</footer>
 </html>
