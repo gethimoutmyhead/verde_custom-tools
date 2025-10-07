@@ -6,47 +6,6 @@ Date.prototype.addDays = function(step){
 }
 
 function calcInhaledTHCContent(){
-	// dryHerbTable = document.getElementById('dryHerbTable');
-
-	// THCStrengthDOMList = Array.from(dryHerbTable.querySelectorAll('input.dryHerbTHCstrength'));
-	// WeightDOMList = Array.from(dryHerbTable.querySelectorAll('input.dryHerbWeight'));
-	// THCContentDOMList = Array.from(dryHerbTable.querySelectorAll('div.dryHerbTHCContent'));
-	// scriptRepeatsDOMList = Array.from(dryHerbTable.querySelectorAll('.scriptRepeats'))
-	// THCStrengthList = THCStrengthDOMList.map(elem => {
-	// 	return elem.value;
-	// })
-	// WeightList = WeightDOMList.map(elem => {
-	// 	return elem.value;
-	// })
-	// scriptRepeatList = scriptRepeatsDOMList.map(elem => {return (Number(elem.value) + 1)})
-
-	// let TotalTHCContentList = []
-	// TotalTHCContentList = TotalTHCContentList.concat(THCStrengthList.map( (element, index) => {
-	// 	return Math.ceil((element / 100) * WeightList[index] * (10 ** 3)) * scriptRepeatList[index];
-	// }))
-	// concentratesTable = document.getElementById('concentratesTable');
-	// THCStrengthDOMList = Array.from(concentratesTable.querySelectorAll('input.inhaledConcentrateTHCConcentration'));
-	// WeightDOMList = Array.from(concentratesTable.querySelectorAll('input.inhaledConcentrateQuantity'));
-	// THCContentDOMList = THCContentDOMList.concat(Array.from(concentratesTable.querySelectorAll('div.inhaledConcentrateTHCContent')));
-
-	// THCStrengthList = THCStrengthDOMList.map(elem => {
-	// 	return elem.value;
-	// })
-	// WeightList = WeightDOMList.map(elem => {
-	// 	return elem.value;
-	// })
-
-	// TotalTHCContentList = TotalTHCContentList.concat(THCStrengthList.map( (element, index) => {
-	// 	return Math.ceil((element) * WeightList[index]);
-	// }))
-
-	// THCContentDOMList.forEach((elem, index) => {
-	// 	elem.innerHTML = TotalTHCContentList[index];
-	// })
-
-	// inhaledTHCTotals = TotalTHCContentList.reduce( (partialSum, a) => {
-	// 	return partialSum + a;
-	// }, 0);
 
 	inhaledTHCStrengthDOMList = Array.from(document.querySelectorAll('.inhaledTHCStrength'));
 	inhaledQuantityDOMList = document.querySelectorAll('.inhaledQuantity');
@@ -75,7 +34,7 @@ function calcInhaledTHCContent(){
 
 	DOMElemsToUpdate = {};
 	DOMElemsToUpdate['inhaledTHCTotal'] = inhaledTHCTotalsIncRepeats;
-	DOMElemsToUpdate['inhaledTHCTotalScriptDuration'] = "(" + inhaledTHCScriptDuration.toString() + " days)" + scriptFinishDate.toLocaleString('en-UK', {'weekday': 'short', 'day': 'numeric', 'month': 'short', 'year': 'numeric'});//Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
+	DOMElemsToUpdate['inhaledTHCTotalScriptDuration'] = scriptFinishDate.toLocaleString('en-UK', {'weekday': 'short', 'day': 'numeric', 'month': 'short', 'year': 'numeric'}) + "(" + inhaledTHCScriptDuration.toString() + " days)"; //Math.ceil(inhaledTHCTotals / document.getElementById('averageInhaledTHC').value);
 	DOMElemsToUpdate['inhaledTHCPerDispenseScriptDuration'] = "(" + inhaledDurationPerDispense.toString() + " days)"
 	Object.keys(DOMElemsToUpdate).forEach(DOMElem => {
 		document.getElementById(DOMElem).innerText = DOMElemsToUpdate[DOMElem];
