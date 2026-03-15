@@ -7,3 +7,9 @@ An online calculator that works out
 
 
 aim: track how long a patient's script should last, and when to schedule their repeat interval
+
+## Version history
+
+### Dev Fork
+2026-03-15
+* re-design of the main page using bootstrap css5 to ensure its mobile first, responsive design
