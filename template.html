@@ -46,11 +46,11 @@
 			</form>
 			<div class='row border rounded border-primary'>
 				<div class='col-12 border-bottom border-primary'>
-					<h3 class=' text-center text-md-start my-1'> Dry herb for inhalation</h3>
+					<h3 class=' text-center text-md-start my-1'> Dry Herb for inhalation</h3>
 				</div>
 				<div class='col-12'>
 					<div class='row d-none d-xl-flex align-items-center'>
-						<div class='col-6'>
+						<div class='col-5'>
 							Product Name
 						</div>
 						<div class='col-xl-1'>
@@ -70,7 +70,7 @@
 						</div>
 					</div>
 					<form class='row my-3 border-primary' id='dryherb-01'>
-						<div class='form-floating col-12 col-md-6 my-1'>
+						<div class='form-floating d-flex col-12 col-md-5 my-1'>
 							<input id="dryherb-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
 							<label for="dryherb-01_name">Dry herb product name</label>
 						</div>
@@ -82,18 +82,20 @@
 							<input id="dryherb-01_weight" class="form-control" type="text" placeholder="dryherb-01_weight" >
 							<label for="dryherb-01_weight" class='d-xl-none'>Pack Weight(g)</label>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
 							<input id="dryherb-01_units" data-toggle="tooltip" title="qty of packs per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
 							<label for="dryherb-01_units"  class='d-xl-none'>Units (#)</label>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
 							<input id="dryherb-01_repeats" class="form-control" type="text" placeholder="dryherb-01_repeats" >
 							<label for="dryherb-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
 						</div>
-						<div class='col-12 col-md-6 col-xl-1 mt-3'>
+						<div class='col-1 d-xl-none'></div>
+						<div class='col-12 col-md-6 col-xl-2 mt-3'>
 							<div class='row align-items-center'>
 								<div class='col-6 d-xl-none'>THC content(mg): </div>
-								<div class='col-4 col-xl-8'>50mg</div>
+								<div class='col-4 col-xl-8'>50000mg</div>
 								<div class="col-2 col-xl-1">
 									<button class="btn btn-danger" type="button">
 										<i class="bi bi-trash3"></i>
@@ -103,15 +105,48 @@
 						</div>
 						<hr class='d-xl-none text-primary my-3'>
 					</form>
-					<div class='row justify-content-center mb-3'>
-						<div class='col-12 col-md-6 d-grid '>
-							<button class='btn btn-primary' type='button'>
-								Add dry herb
-								<i class="bi bi-leaf"></i>
-							</button>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Dry Herb Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								weight (g)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6'>
+								10 g
+							</div>
+							<div class='col-6'>
+								1000 mg
+							</div>
 						</div>
 					</div>
-
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary' type='button'>
+							Add dry herb
+							<i class="bi bi-leaf"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid'>
+						<button class='btn btn-success'>
+							<div class='row align-items-center'>
+								<div class='col-8'>
+									Compute Intervals
+								</div>
+								<div class='col-4'>
+									<i class="bi bi-calculator h4"></i>
+								</div>
+							</div>
+						</button>
+					</div>
 				</div>
 			</div>
 			<div class='row border rounded border-primary my-3'>
@@ -120,7 +155,7 @@
 				</div>
 				<div class='col-12'>
 					<div class='row d-none d-xl-flex align-items-center'>
-						<div class='col-6'>
+						<div class='col-5'>
 							Product Name
 						</div>
 						<div class='col-xl-2'>
@@ -138,7 +173,7 @@
 						<div class='col-xl-1'></div>
 					</div>
 					<form class='row my-3 border-primary' id='vape-01'>
-						<div class='form-floating col-12 col-md-6 my-1'>
+						<div class='form-floating col-12 col-md-5 my-1'>
 							<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
 							<label for="vape-01_name">Vape cartridge name</label>
 						</div>
@@ -146,19 +181,20 @@
 							<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
 							<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/g)</label>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
 							<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
 							<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
 							<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
 							<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
 						</div>
-						<div class='col-6 col-xl-1 mt-3'>
+						<div class='col-1 d-sm-none d-md-flex d-xl-none'></div>
+						<div class='col-6 col-xl-2 mt-3'>
 							<div class='row align-items-center'>
-								<div class='col-5 d-xl-none'>THC content(mg): </div>
-								<div class='col-4 col-xl-8'>50mg</div>
-								<div class="col-3 col-xl-1">
+								<div class='col-5 col-md-6 d-xl-none'>THC content(mg): </div>
+								<div class='col-4 col-md-4 col-xl-8'>50000mg</div>
+								<div class="col-3 col-md-2 col-xl-1">
 									<button class="btn btn-danger" type="button">
 										<i class="bi bi-trash3"></i>
 									</button>
@@ -168,19 +204,258 @@
 						<hr class='d-xl-none text-primary my-3'>
 					</form>
 				</div>
-
-					<div class='row justify-content-center mb-3'>
-						<div class='col-12 col-md-6 d-grid '>
-							<button class='btn btn-primary' type='button'>
-								Add cartridge
-								<i class="bi bi-cloud-fog2"></i>
-							</button>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Vape Cartridge Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								vials (#)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6'>
+								24
+							</div>
+							<div class='col-6'>
+								1000 mg
+							</div>
 						</div>
 					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary' type='button'>
+							Add cartridge
+							<i class="bi bi-cloud-fog2"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid'>
+						<button class='btn btn-success'>
+							<div class='row align-items-center'>
+								<div class='col-8'>
+									Compute Intervals
+								</div>
+								<div class='col-4'>
+									<i class="bi bi-calculator h4"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class='row border rounded border-primary'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'> Cannabis oil for oral use</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-5'>
+							Cannabis Oil Name
+						</div>
+						<div class='col-xl-1'>
+							strength (mg/mL)
+						</div>
+						<div class='col-xl-1'>
+							Volume (mL)
+						</div>
+						<div class='col-xl-1'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats (#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+					</div>
+					<form class='row my-3 border-primary' id='oil-01'>
+						<div class='form-floating col-12 col-md-5 my-1'>
+							<input id="oil-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
+							<label for="oil-01_name">Cannabis Oil Name</label>
+						</div>
+						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+							<input id="oil-01_strength" class="form-control" type="text" placeholder="oil-01_strength" >
+							<label for="oil-01_strength" class='d-xl-none'>strength (mg/mL)</label>
+						</div>
+						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+							<input id="oil-volume" class="form-control" type="text" placeholder="oil-01_weight" >
+							<label for="oil-01_weight" class='d-xl-none'>Volume (mL)</label>
+						</div>
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
+							<input id="oil-01_units" data-toggle="tooltip" title="qty of vials per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
+							<label for="oil-01_units"  class='d-xl-none'>Units (#)</label>
+						</div>
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
+							<input id="oil-01_repeats" class="form-control" type="text" placeholder="oil-01_repeats" >
+							<label for="oil-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						</div>
+						<div class='col-1 d-xl-none'></div>
+						<div class='col-12 col-md-6 col-xl-2 mt-3'>
+							<div class='row align-items-center'>
+								<div class='col-6 d-xl-none'>THC content(mg): </div>
+								<div class='col-4 col-xl-8'>50000 mg</div>
+								<div class="col-2 col-xl-1 float-xl-end">
+									<button class="btn btn-danger" type="button">
+										<i class="bi bi-trash3"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<hr class='d-xl-none text-primary my-3'>
+					</form>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Cannabis Oil Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								volume (mL)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6'>
+								10 g
+							</div>
+							<div class='col-6'>
+								50000 mg
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary' type='button'>
+							Add cannabis oil product
+							<i class="bi bi-droplet-half"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid'>
+						<button class='btn btn-success'>
+							<div class='row align-items-center'>
+								<div class='col-8'>
+									Compute Intervals
+								</div>
+								<div class='col-4'>
+									<i class="bi bi-calculator h4"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
 
 			</div>
 
-			
+			<div class='row border rounded border-primary my-3'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'>Edibles for oral use</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-5'>
+							Product Name
+						</div>
+						<div class='col-xl-2'>
+							THC strength (mg/unit)
+						</div>
+						<div class='col-xl-1' data-toggle='tooltip' title='Units released per dispense'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats (#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+						<div class='col-xl-1'></div>
+					</div>
+					<form class='row my-3 border-primary' id='vape-01'>
+						<div class='form-floating col-12 col-md-5 my-1'>
+							<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
+							<label for="vape-01_name">Edible product name</label>
+						</div>
+						<div class='form-floating col-6 col-md-6 col-xl-2 my-1'>
+							<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
+							<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/unit)</label>
+						</div>
+
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
+							<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
+							<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
+						</div>
+						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
+							<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
+							<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						</div>
+						<div class='col-1 d-sm-none d-md-flex d-xl-none'></div>
+						<div class='col-6 col-xl-2 mt-3'>
+							<div class='row align-items-center'>
+								<div class='col-5 col-md-6 d-xl-none'>THC content(mg): </div>
+								<div class='col-4 col-xl-8'>50mg</div>
+								<div class="col-3 col-md-2 col-xl-1">
+									<button class="btn btn-danger" type="button">
+										<i class="bi bi-trash3"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<hr class='d-xl-none text-primary my-3'>
+					</form>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Edibles Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								Units (#)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6'>
+								200
+							</div>
+							<div class='col-6'>
+								4500 mg
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary' type='button'>
+							Add edible product
+							<i class="bi bi-plus-circle"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid'>
+						<button class='btn btn-success'>
+							<div class='row align-items-center'>
+								<div class='col-8'>
+									Compute Intervals
+								</div>
+								<div class='col-4'>
+									<i class="bi bi-calculator h4"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
+
+
+			</div>
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<script>
 			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
