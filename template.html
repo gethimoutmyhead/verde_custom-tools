@@ -7,6 +7,7 @@
 
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<title>CannCulator 2.0 </title>
 	</head>
 	<header>
@@ -43,9 +44,9 @@
 					</div>
 				</div>
 			</form>
-			<div class='row border border-primary rounded'>
+			<div class='row border rounded border-primary'>
 				<div class='col-12 border-bottom border-primary'>
-					<h3 class=' text-center text-md-start my-1'> Dry herb </h3>
+					<h3 class=' text-center text-md-start my-1'> Dry herb for inhalation</h3>
 				</div>
 				<div class='col-12'>
 					<div class='row d-none d-xl-flex align-items-center'>
@@ -56,7 +57,7 @@
 							strength (% w/w)
 						</div>
 						<div class='col-xl-1'>
-							weight (g)
+							Pack weight (g)
 						</div>
 						<div class='col-xl-1'>
 							Units (#)
@@ -68,7 +69,7 @@
 							THC content (mg)
 						</div>
 					</div>
-					<form class='row my-3 border border-primary rounded d-flex' id='dryherb-01'>
+					<form class='row my-3 border-primary' id='dryherb-01'>
 						<div class='form-floating col-12 col-md-6 my-1'>
 							<input id="dryherb-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
 							<label for="dryherb-01_name">Dry herb product name</label>
@@ -79,51 +80,114 @@
 						</div>
 						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
 							<input id="dryherb-01_weight" class="form-control" type="text" placeholder="dryherb-01_weight" >
-							<label for="dryherb-01_weight" class='d-xl-none'>Weight(g)</label>
+							<label for="dryherb-01_weight" class='d-xl-none'>Pack Weight(g)</label>
 						</div>
 						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
-							<input id="dryherb-01_units" class="form-control" type="text" placeholder="dryherb-01_units" >
-							<label for="dryherb-01_units" class='d-xl-none'>Units (#)</label>
+							<input id="dryherb-01_units" data-toggle="tooltip" title="qty of packs per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
+							<label for="dryherb-01_units"  class='d-xl-none'>Units (#)</label>
 						</div>
 						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
 							<input id="dryherb-01_repeats" class="form-control" type="text" placeholder="dryherb-01_repeats" >
-							<label for="dryherb-01_repeats" class='d-xl-none'>Repeats (#)</label>
+							<label for="dryherb-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
 						</div>
 						<div class='col-12 col-md-6 col-xl-1 mt-3'>
 							<div class='row align-items-center'>
 								<div class='col-6 d-xl-none'>THC content(mg): </div>
-								<div class='col-6 col-xl-12'>50mg</div>
+								<div class='col-4 col-xl-8'>50mg</div>
+								<div class="col-2 col-xl-1">
+									<button class="btn btn-danger" type="button">
+										<i class="bi bi-trash3"></i>
+									</button>
+								</div>
 							</div>
 						</div>
-						<div class="col-12 col-xl-1">
-							<div class="d-grid d-md-flex justify-content-md-end py-2">
-								<button class="btn btn-primary" type="button">
-									+
-								</button>
-							</div>
-						</div>
+						<hr class='d-xl-none text-primary my-3'>
 					</form>
-					<table class='table row d-grid'>
-						<thead>
-							<tr>
-								<th scope='col'>% strength</th>
-								<th scope='col'>Weight per pack (g)</th>
-								<th scope='col'># of packs</th>
-								<th scope='col'>Repeats</th>
-								<th scope='col'>THC in script (mg)</th>
-							</tr>
-							<tr>
-								<td class='col-2' scope='col'><input type="text"></td>
-								<td scope='col'><input type="text"></td>
-								<td scope='col'><input type="text"></td>
-								<td scope='col'><input type="text"></td>
-								<td scope='col'><input type="text">	</td>
-							</tr>
-						</thead>
-					</table>
+					<div class='row justify-content-center mb-3'>
+						<div class='col-12 col-md-6 d-grid '>
+							<button class='btn btn-primary' type='button'>
+								Add dry herb
+								<i class="bi bi-leaf"></i>
+							</button>
+						</div>
+					</div>
+
 				</div>
 			</div>
+			<div class='row border rounded border-primary my-3'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'>Vaporiser Cartridges for inhalation</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-6'>
+							Product Name
+						</div>
+						<div class='col-xl-2'>
+							THC strength (mg/g)
+						</div>
+						<div class='col-xl-1' data-toggle='tooltip' title='Units released per dispense'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats (#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+						<div class='col-xl-1'></div>
+					</div>
+					<form class='row my-3 border-primary' id='vape-01'>
+						<div class='form-floating col-12 col-md-6 my-1'>
+							<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
+							<label for="vape-01_name">Vape cartridge name</label>
+						</div>
+						<div class='form-floating col-6 col-md-6 col-xl-2 my-1'>
+							<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
+							<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/g)</label>
+						</div>
+						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+							<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
+							<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
+						</div>
+						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
+							<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
+							<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						</div>
+						<div class='col-6 col-xl-1 mt-3'>
+							<div class='row align-items-center'>
+								<div class='col-5 d-xl-none'>THC content(mg): </div>
+								<div class='col-4 col-xl-8'>50mg</div>
+								<div class="col-3 col-xl-1">
+									<button class="btn btn-danger" type="button">
+										<i class="bi bi-trash3"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<hr class='d-xl-none text-primary my-3'>
+					</form>
+				</div>
+
+					<div class='row justify-content-center mb-3'>
+						<div class='col-12 col-md-6 d-grid '>
+							<button class='btn btn-primary' type='button'>
+								Add cartridge
+								<i class="bi bi-cloud-fog2"></i>
+							</button>
+						</div>
+					</div>
+
+			</div>
+
+			
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script>
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+			var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+ 				return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+		</script>
 
 	</body>
 
