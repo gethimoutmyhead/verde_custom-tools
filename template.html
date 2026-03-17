@@ -70,26 +70,36 @@
 						</div>
 					</div>
 					<form class='row my-3 border-primary' id='dryherb-01'>
-						<div class='form-floating d-flex col-12 col-md-5 my-1'>
-							<input id="dryherb-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
-							<label for="dryherb-01_name">Dry herb product name</label>
+						<div class='col-12 col-md-5 my-1'>
+							<div class='form-floating'>
+								<input id="dryherb-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
+								<label for="dryherb-01_name">Dry herb product name</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
-							<input id="dryherb-01_strength" class="form-control" type="text" placeholder="dryherb-01_strength" >
-							<label for="dryherb-01_strength" class='d-xl-none'>strength (% w/w)</label>
+						<div class='col-6 col-md-3 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="dryherb-01_strength" class="form-control" type="text" placeholder="dryherb-01_strength" >
+								<label for="dryherb-01_strength" class='d-xl-none'>strength (% w/w)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
-							<input id="dryherb-01_weight" class="form-control" type="text" placeholder="dryherb-01_weight" >
-							<label for="dryherb-01_weight" class='d-xl-none'>Pack Weight(g)</label>
+						<div class='col-6 col-md-3 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="dryherb-01_weight" class="form-control" type="text" placeholder="dryherb-01_weight" >
+								<label for="dryherb-01_weight" class='d-xl-none'>Pack Weight(g)</label>
+							</div>
 						</div>
 
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="dryherb-01_units" data-toggle="tooltip" title="qty of packs per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
-							<label for="dryherb-01_units"  class='d-xl-none'>Units (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="dryherb-01_units" data-toggle="tooltip" title="qty of packs per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
+								<label for="dryherb-01_units"  class='d-xl-none'>Units (#)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="dryherb-01_repeats" class="form-control" type="text" placeholder="dryherb-01_repeats" >
-							<label for="dryherb-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="dryherb-01_repeats" class="form-control" type="text" placeholder="dryherb-01_repeats" >
+								<label for="dryherb-01_repeats" class='d-xl-none ml-5'>Repeats(#)</label>
+							</div>
 						</div>
 						<div class='col-1 d-xl-none'></div>
 						<div class='col-12 col-md-6 col-xl-2 mt-3'>
@@ -273,7 +283,7 @@
 							THC content (mg)
 						</div>
 					</div>
-					<form class='row my-3 border-primary' id='oil-01'>
+					<form class='row border-primary' id='oil-01'>
 						<div class='form-floating col-12 col-md-5 my-1'>
 							<input id="oil-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
 							<label for="oil-01_name">Cannabis Oil Name</label>
@@ -453,6 +463,72 @@
 					</div>
 				</div>
 
+
+			</div>
+			<div class='row border border-primary rounded'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class='text-center text-md-start'> Dosage Limits </h3>
+				</div>
+				<div class='col-12 col-md-6'>
+					<div class='row'>
+						<h4 class='text-center'>Inhaled</h4>
+						<div class='col-4'>
+							<form class='row'>
+								<input />
+							</form>
+							<form class='row'>
+								<input />
+							</form>
+						</div>
+						<div class='col-4'>
+
+						</div>
+						<div class='col-2'>
+							<div class='row'>
+								<button class='btn btn-primary'>300mg</button>
+								<button class='btn btn-primary'>500mg</button>
+
+							</div>
+						</div>
+					</div>
+					<div class="row fw-bold border-bottom pb-2 mb-3">
+       					 <div class="col-4">Average</div>
+      					 <div class="col-4">Maximum</div>
+     					 <div class="col-4"></div>
+ 					</div>
+
+				    <div class="row align-items-center">
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="avgInput" placeholder="mg/day">
+				                <label for="avgInput">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="maxInput" placeholder="mg/day">
+				                <label for="maxInput">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="row g-1">
+				                <div class="col-6"><button class="btn btn-sm btn-success w-100">100</button></div>
+				                <div class="col-6"><button class="btn btn-sm btn-success w-100">200</button></div>
+				                <div class="col-6"><button class="btn btn-sm btn-warning w-100">285</button></div>
+				                <div class="col-6"><button class="btn btn-sm btn-warning w-100">300</button></div>
+				                <div class="col-6"><button class="btn btn-sm btn-danger w-100">400</button></div>
+				                <div class="col-6"><button class="btn btn-sm btn-danger w-100">500</button></div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class='col-12 col-md-6'>
+					<div class='row'>
+						<h4 class='text-center'>Oral</h4>
+					</div>
+				</div>
 
 			</div>
 
