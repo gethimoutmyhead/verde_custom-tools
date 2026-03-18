@@ -27,11 +27,12 @@
 					</div>
 				</div>
 			</div>
-
 			<form class='row my-3 border border-primary rounded'>
-				<div class='form-floating col-12 col-md-6 my-1'>
-					<input id="productName2" class="form-control" type="text" placeholder="fasf" >
-					<label for="productName2">Product Name</label>
+				<div class='col-12 col-md-6 my-1'>
+					<div class='form-floating'>
+						<input id="productName2" class="form-control" type="text" placeholder="fasf" >
+						<label for="productName2">Product Name</label>
+					</div>
 				</div>
 				<div class='col-12 col-md-4 my-1'>
 					<p>Product details here</p>
@@ -141,7 +142,7 @@
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
 						<button class='btn btn-primary' type='button'>
-							Add dry herb
+							<span>Add dry herb</span>
 							<i class="bi bi-leaf"></i>
 						</button>
 					</div>
@@ -183,21 +184,29 @@
 						<div class='col-xl-1'></div>
 					</div>
 					<form class='row my-3 border-primary' id='vape-01'>
-						<div class='form-floating col-12 col-md-5 my-1'>
-							<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
-							<label for="vape-01_name">Vape cartridge name</label>
+						<div class='col-12 col-md-5 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
+								<label for="vape-01_name">Vape cartridge name</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-6 col-xl-2 my-1'>
-							<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
-							<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/g)</label>
+						<div class='col-6 col-md-6 col-xl-2 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
+								<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/g)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
-							<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
+								<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
-							<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
+								<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+							</div>
 						</div>
 						<div class='col-1 d-sm-none d-md-flex d-xl-none'></div>
 						<div class='col-6 col-xl-2 mt-3'>
@@ -239,7 +248,7 @@
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
 						<button class='btn btn-primary' type='button'>
-							Add cartridge
+							<span>Add cartridge</span>
 							<i class="bi bi-cloud-fog2"></i>
 						</button>
 					</div>
@@ -257,7 +266,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class='row border rounded border-primary'>
 				<div class='col-12 border-bottom border-primary'>
 					<h3 class=' text-center text-md-start my-1'> Cannabis oil for oral use</h3>
@@ -284,25 +292,35 @@
 						</div>
 					</div>
 					<form class='row border-primary' id='oil-01'>
-						<div class='form-floating col-12 col-md-5 my-1'>
-							<input id="oil-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
-							<label for="oil-01_name">Cannabis Oil Name</label>
+						<div class='col-12 col-md-5 my-1'>
+							<div class='form-floating'>
+								<input id="oil-01_name" class="form-control" type="text" placeholder="dryherb-01_name" >
+								<label for="oil-01_name">Cannabis Oil Name</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
-							<input id="oil-01_strength" class="form-control" type="text" placeholder="oil-01_strength" >
-							<label for="oil-01_strength" class='d-xl-none'>strength (mg/mL)</label>
+						<div class='col-6 col-md-3 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="oil-01_strength" class="form-control" type="text" placeholder="oil-01_strength" >
+								<label for="oil-01_strength" class='d-xl-none'>strength (mg/mL)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-3 col-xl-1 my-1'>
-							<input id="oil-volume" class="form-control" type="text" placeholder="oil-01_weight" >
-							<label for="oil-01_weight" class='d-xl-none'>Volume (mL)</label>
+						<div class='col-6 col-md-3 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="oil-volume" class="form-control" type="text" placeholder="oil-01_weight" >
+								<label for="oil-01_weight" class='d-xl-none'>Volume (mL)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="oil-01_units" data-toggle="tooltip" title="qty of vials per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
-							<label for="oil-01_units"  class='d-xl-none'>Units (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="oil-01_units" data-toggle="tooltip" title="qty of vials per dispense" class="form-control" type="text" placeholder="dryherb-01_units" >
+								<label for="oil-01_units"  class='d-xl-none'>Units (#)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="oil-01_repeats" class="form-control" type="text" placeholder="oil-01_repeats" >
-							<label for="oil-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="oil-01_repeats" class="form-control" type="text" placeholder="oil-01_repeats" >
+								<label for="oil-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+							</div>
 						</div>
 						<div class='col-1 d-xl-none'></div>
 						<div class='col-12 col-md-6 col-xl-2 mt-3'>
@@ -344,7 +362,7 @@
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
 						<button class='btn btn-primary' type='button'>
-							Add cannabis oil product
+							<span>Add cannabis oil product</span>
 							<i class="bi bi-droplet-half"></i>
 						</button>
 					</div>
@@ -361,9 +379,7 @@
 						</button>
 					</div>
 				</div>
-
 			</div>
-
 			<div class='row border rounded border-primary my-3'>
 				<div class='col-12 border-bottom border-primary'>
 					<h3 class=' text-center text-md-start my-1'>Edibles for oral use</h3>
@@ -388,22 +404,30 @@
 						<div class='col-xl-1'></div>
 					</div>
 					<form class='row my-3 border-primary' id='vape-01'>
-						<div class='form-floating col-12 col-md-5 my-1'>
-							<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
-							<label for="vape-01_name">Edible product name</label>
+						<div class='col-12 col-md-5 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_name" class="form-control" type="text" placeholder="vape-01_name" >
+								<label for="vape-01_name">Edible product name</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-6 col-xl-2 my-1'>
-							<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
-							<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/unit)</label>
+						<div class='col-6 col-md-6 col-xl-2 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_strength" class="form-control" type="text" placeholder="vape-01_strength" >
+								<label for="vape-01_strength" class='d-xl-none'>THC strength (mg/unit)</label>
+							</div>
 						</div>
 
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
-							<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_units" data-toggle="tooltip" title="qty of units per dispense" class="form-control" type="text" placeholder="vape-01_units" >
+								<label for="vape-01_units"  class='d-xl-none'>Units (#)</label>
+							</div>
 						</div>
-						<div class='form-floating col-6 col-md-2 col-xl-1 my-1'>
-							<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
-							<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+						<div class='col-6 col-md-2 col-xl-1 my-1'>
+							<div class='form-floating'>
+								<input id="vape-01_repeats" class="form-control" type="text" placeholder="vape-01_repeats" >
+								<label for="vape-01_repeats" class='d-xl-none ml-5'>Repeats (#)</label>
+							</div>
 						</div>
 						<div class='col-1 d-sm-none d-md-flex d-xl-none'></div>
 						<div class='col-6 col-xl-2 mt-3'>
@@ -445,7 +469,7 @@
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
 						<button class='btn btn-primary' type='button'>
-							Add edible product
+							<span>Add edible product</span>
 							<i class="bi bi-plus-circle"></i>
 						</button>
 					</div>
@@ -462,33 +486,30 @@
 						</button>
 					</div>
 				</div>
-
-
 			</div>
 			<div class='row border border-primary rounded'>
 				<div class='col-12 border-bottom border-primary'>
-					<h3 class='text-center text-md-start'> Dosage Limits </h3>
+					<h3 class='text-center text-md-start'> Dosage Limits and Prescription Date</h3>
 				</div>
 				<div class='col-12 col-md-6'>
-					<div class='row'>
-						<h4 class='text-center'>Inhaled</h4>
-						<div class='col-4'>
-							<form class='row'>
-								<input />
-							</form>
-							<form class='row'>
-								<input />
-							</form>
-						</div>
-						<div class='col-4'>
-
-						</div>
-						<div class='col-2'>
-							<div class='row'>
-								<button class='btn btn-primary'>300mg</button>
-								<button class='btn btn-primary'>500mg</button>
-
+					<form class='row'>
+						<div class='col pt-4'>
+							<div class='form-floating'>
+								<input class='form-control' id='prescriptionDate' type='date' placeholder="prescriptionDate">
+								<label for='prescriptionDate'>Prescription Date </label>
 							</div>
+						</div>
+					</form>
+				</div>
+				<div class='col-6 d-none d-md-flex'></div>
+
+				<div class='col-12 col-md-6 border-primary border-bottom pb-3'>
+					<div class='row'>
+						<div class='col-12'>
+							<h4 class='text-center'>Inhaled</h4>
+						</div>
+						<div class='col-12'>
+							<hr>
 						</div>
 					</div>
 					<div class="row fw-bold border-bottom pb-2 mb-3">
@@ -500,15 +521,15 @@
 				    <div class="row align-items-center">
 				        <div class="col-4">
 				            <div class="form-floating">
-				                <input type="number" class="form-control" id="avgInput" placeholder="mg/day">
-				                <label for="avgInput">mg/day</label>
+				                <input type="number" class="form-control" id="avgInhaledTHC" placeholder="mg/day">
+				                <label for="avgInhaledTHc">mg/day</label>
 				            </div>
 				        </div>
 
 				        <div class="col-4">
 				            <div class="form-floating">
-				                <input type="number" class="form-control" id="maxInput" placeholder="mg/day">
-				                <label for="maxInput">mg/day</label>
+				                <input type="number" class="form-control" id="maxInhaledTHC" placeholder="mg/day">
+				                <label for="maxInhaledTHC">mg/day</label>
 				            </div>
 				        </div>
 
@@ -526,12 +547,47 @@
 				</div>
 				<div class='col-12 col-md-6'>
 					<div class='row'>
-						<h4 class='text-center'>Oral</h4>
+						<div class='col-12'>
+							<h4 class='text-center'>Oral</h4>
+						</div>
+						<div class='col-12'>
+							<hr>
+						</div>
 					</div>
+					<div class="row fw-bold border-bottom pb-2 mb-3">
+       					 <div class="col-4">Average</div>
+      					 <div class="col-4">Maximum</div>
+     					 <div class="col-4"></div>
+ 					</div>
+
+				    <div class="row align-items-center">
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="avgOralTHC" placeholder="mg/day">
+				                <label for="avgOralTHC">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="maxOralTHC" placeholder="mg/day">
+				                <label for="maxOralTHC">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="row g-1">
+				                <div class="col-6"><button class="btn btn-md btn-success w-100">10</button></div>
+				                <div class="col-6"><button class="btn btn-md btn-success w-100">20</button></div>
+				                <div class="col-6"><button class="btn btn-md btn-warning w-100">30</button></div>
+				                <div class="col-6"><button class="btn btn-md btn-danger w-100">40</button></div>
+
+				            </div>
+				        </div>
+				    </div>
 				</div>
-
 			</div>
-
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<script>
 			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
