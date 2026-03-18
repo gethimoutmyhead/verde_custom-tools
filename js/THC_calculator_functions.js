@@ -59,4 +59,7 @@ function dict_readAndsumTHCContentInScript(formElem_script){
 	return (scriptDetails)
 }
 
+// function to calculate intervals
+
+// function to write executive summary of scripts
 
