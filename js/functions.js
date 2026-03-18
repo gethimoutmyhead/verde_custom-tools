@@ -146,16 +146,23 @@ function dumpStringToConsole(mystring_dict){
 	console.log(mystring)
 }
 
+function dumpToConsole(toDump){
+	bool_logThisActivity = false
+	if (bool_logThisActivity){
+		console.log(toDump)	
+	}	
+}
+
 
 async function writeStringToClipboard_promise(functionArguments_dict){
 	text_string = functionArguments_dict['text_string'];
 	sendToClipboard_promise = navigator.clipboard.writeText(text_string).then(
 		() => {
-			console.log('success')
+			dumpToConsole('success')
 			return ({'reply': 'SUCCESS: copypasta sent'})
 		},
 		() => {
-			console.log('failure')
+			dumpToConsole('failure')
 			return ({'reply': 'FAIL: string not written to clipboard'})
 		}
 	);
@@ -164,8 +171,8 @@ async function writeStringToClipboard_promise(functionArguments_dict){
 
 
 function makeNewDOMElementFromDict_DOMElem(DOMElem_dict){
-		let elemVar = DOMElem_dict;
-		newElem = document.createElement(elemVar['tagName']);
+		const elemVar = DOMElem_dict;
+		const newElem = document.createElement(elemVar['tagName']);
 		if (elemVar['properties']){
 			Object.keys(elemVar['properties']).forEach(property => {
 				newElem[property] = elemVar['properties'][property]
@@ -180,6 +187,28 @@ function makeNewDOMElementFromDict_DOMElem(DOMElem_dict){
 				newElem.setAttribute(elemAttribute, elemVar['attributes'][elemAttribute]);
 			})
 		}
+		if (elemVar['childNodes']){
+			array_childNodes = elemVar['childNodes'].map(makeNewDOMElementFromDict_DOMElem)
+			array_childNodes.forEach(childNode => newElem.appendChild(childNode))
+		}
 
 		return newElem
+}
+
+function removeFadeOut( el, speed ) {
+    var seconds = speed/1000;
+    el.style.transition = "opacity "+seconds+"s ease";
+    el.style.visibility = 'visible';
+ 	el.style.opacity = 1
+    setTimeout(function() {
+        el.parentNode.removeChild(el);
+    }, speed);
+}
+
+function disableKeypressOnElement(DOMElem, arrayOfInts_keyCodes){
+	DOMElem.addEventListener('keydown', function(e){
+		if ((arrayOfInts_keyCodes).includes(e.keyCode)) {
+			e.preventDefault()
+		}
+	})
 }
