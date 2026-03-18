@@ -66,8 +66,3 @@ function dict_readAndsumTHCContentInScript(formElem_script){
 }
 
 
-
-function updateTHCContentInScript(formElem_script, scriptSumAndDetail = null){
-	const details = (scriptSumAndDetail) ? scriptSumAndDetail : dict_readAndsumTHCContentInScript(formElem_script)
-	formElem_script.querySelector('.THCTotal').innerText = `${details['sumTHCTotal']} mg`
-}
