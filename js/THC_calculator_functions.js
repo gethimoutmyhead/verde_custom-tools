@@ -1,18 +1,12 @@
-function dict_calculateDryHerbTotals(listOfDOMElems_dryHerbScripts){
-	// returns: {THCTotal: ###, 'dryWeight': ###}
+function dict_sumScriptsInTable(tableName){
+		const tableDOM = document.getElementById(tableName)
+		const arrayOfScriptDOMs = [...tableDOM.querySelectorAll('.scriptForm')]
+		arrayOfScriptObjects = arrayOfScriptDOMs.map(dict_readAndsumTHCContentInScript)
 
-}
+		const THCSums = arrayOfScriptObjects.reduce((sumTHC, scriptObject) => scriptObject['sumTHCTotal'] + sumTHC, 0,)
+		const sumTotalQty = arrayOfScriptObjects.reduce((sumQty, scriptObject) => scriptObject['sumQty'] + sumQty, 0,)
 
-function dict_calculateVapeTotals(listOfDOMElems_vapeScripts){
-	// returns: {THCTotal: ###, 'qty': ###}
-}
-
-function dict_calculateCannabisOilTotals(listOfDOMElems_oilScripts){
-	// returns: {THCTotal: ###, 'volume': ###}
-}
-
-function dict_calculateEdibleTotals(listOfDOMElems_edibleScripts){
-	// returns: {THCTotal: ###, 'qty': ###}
+		return {'THCSums': THCSums, 'sumTotalQty': sumTotalQty, 'unitMeasure': arrayOfScriptObjects[0]['unitMeasure'], 'scriptObjectArray': arrayOfScriptObjects}
 }
 
 function dict_readAndsumTHCContentInScript(formElem_script){
