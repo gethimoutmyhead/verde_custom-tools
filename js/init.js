@@ -38,3 +38,26 @@ document.getElementById('prescriptionDate').valueAsDate = new Date();
 		// })
 		// add code to sum all the individual script tables here
 	})
+scriptTypes = ['dryHerb', 'vapeCartridge', 'cannabisOil', 'edibles']
+scriptTypes.forEach(scriptType => {
+	console.log(scriptType)
+	const buttonClassName = `add_${scriptType}`
+	const tableName = `${scriptType}Table`
+	const listName = `${scriptType}List`
+	console.log(buttonClassName)
+
+	Array.from(document.querySelectorAll(`.${buttonClassName}`)).forEach((elem) => {
+		console.log(elem)
+		elem.addEventListener('click', () => {
+		const z = {...dict_scriptFormTemplates[scriptType]}
+		const zDOM = makeNewDOMElementFromDict_DOMElem(z)
+		zDOM.querySelector('.deleteForm').addEventListener('click', () => {
+			zDOM.closest('form').remove()
+			updateCalculationsInTable(tableName)
+		})
+	document.getElementById(listName).appendChild(zDOM)
+	})
+})
+})
+
+
