@@ -8,6 +8,19 @@
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<style>
+							/* Hide arrows for all browsers */
+				input[type=number]::-webkit-inner-spin-button,
+				input[type=number]::-webkit-outer-spin-button {
+				    -webkit-appearance: none;
+				    margin: 0;
+				}
+				 
+				input[type=number] {
+				    -moz-appearance: textfield;
+				    appearance: textfield;
+				}
+		</style>
 		<title>CannCulator 2.0 </title>
 	</head>
 	<header>
@@ -30,6 +43,7 @@
 			<form class='row my-3 border border-primary rounded' id='universalProductSearch'>
 				<div class='col-12 col-md-6 my-1'>
 					<div class='form-floating'>
+
 						<input id="productName" class="form-control" type="text" placeholder="productName" >
 						<label for="productName">Product Name</label>
 					</div>
@@ -87,8 +101,8 @@
 						</div>
 						<div class='col-6 col-md-3 col-xl-1 my-1'>
 							<div class='form-floating'>
-								<input id="dryherb-01_weight" class="form-control unitQty" type="number" placeholder="dryherb-01_weight" >
-								<label for="dryherb-01_weight" class='d-xl-none'>Pack Weight(g)</label>
+									<input id="dryherb-01_weight" class="form-control unitQty" type="number" placeholder="dryherb-01_weight" >
+									<label for="dryherb-01_weight" class='d-xl-none'>Pack Weight(g)</label>
 							</div>
 						</div>
 
@@ -110,7 +124,7 @@
 								<div class='col-6 d-xl-none'>THC content(mg): </div>
 								<div class='col-4 col-xl-8 THCTotal'>50000mg</div>
 								<div class="col-2 col-xl-1">
-									<button class="btn btn-danger" type="button">
+									<button class="btn btn-danger deleteForm" type="button">
 										<i class="bi bi-trash3"></i>
 									</button>
 								</div>
@@ -143,7 +157,7 @@
 				</div>
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
-						<button class='btn btn-primary' type='button'>
+						<button class='btn btn-primary add_dryHerb' type='button'>
 							<span>Add dry herb</span>
 							<i class="bi bi-leaf"></i>
 						</button>
@@ -251,7 +265,7 @@
 				</div>
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
-						<button class='btn btn-primary' type='button'>
+						<button class='btn btn-primary add_vapeCartridge' type='button'>
 							<span>Add cartridge</span>
 							<i class="bi bi-cloud-fog2"></i>
 						</button>
@@ -367,7 +381,7 @@
 				</div>
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
-						<button class='btn btn-primary' type='button'>
+						<button class='btn btn-primary add_cannabisOil' type='button'>
 							<span>Add cannabis oil product</span>
 							<i class="bi bi-droplet-half"></i>
 						</button>
@@ -476,7 +490,7 @@
 				</div>
 				<div class='row justify-content-center mb-3'>
 					<div class='col-7 col-md-6 col-lg-4 d-grid '>
-						<button class='btn btn-primary' type='button'>
+						<button class='btn btn-primary add_edibles' type='button'>
 							<span>Add edible product</span>
 							<i class="bi bi-plus-circle"></i>
 						</button>
@@ -615,6 +629,7 @@
 		</script>
 		<script src='js/functions.js'></script>
 		<script src='js/THC_calculator_functions.js'></script>
+		<script src='js/scriptTemplates.js'></script>
 		<script src='js/functions_screenUpdate.js'></script>
 		<script src='js/init.js'></script>
 
