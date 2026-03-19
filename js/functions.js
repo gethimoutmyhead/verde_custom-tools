@@ -195,6 +195,25 @@ function makeNewDOMElementFromDict_DOMElem(DOMElem_dict){
 		return newElem
 }
 
+function dict_deconstructDOMElement(DOMElem){
+	const tagName = DOMElem.tagName
+	const attributes = (DOMElem.attributes) ? [...DOMElem.attributes].reduce((newObj, attribute) => {
+		newObj[attribute['name']] = attribute['nodeValue']
+		return newObj
+	}, {},) : null
+	const filteredChildNodes = (DOMElem.childNodes) ? [...DOMElem.childNodes].filter(node => node.nodeType != Node.TEXT_NODE) : []
+	childNodes = filteredChildNodes.map(dict_deconstructDOMElement)//(DOMElem.childNodes) ? [...DOMElem.childNodes].map(dict_deconstructDOMElement) : null
+	
+	const propertyNames = ['innerText']
+	const properties = (childNodes.length == 0) ? 
+			propertyNames.reduce((newObj, propertyName) => {
+			newObj[propertyName] = DOMElem[propertyName]
+			return newObj
+		}, {}) : null
+
+	return {'tagName': tagName, 'attributes': attributes, 'properties': properties, 'childNodes': childNodes}
+}
+
 function removeFadeOut( el, speed ) {
     var seconds = speed/1000;
     el.style.transition = "opacity "+seconds+"s ease";
@@ -212,3 +231,4 @@ function disableKeypressOnElement(DOMElem, arrayOfInts_keyCodes){
 		}
 	})
 }
+

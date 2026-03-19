@@ -11,12 +11,18 @@ aim: track how long a patient's script should last, and when to schedule their r
 ## Version history
 
 ### Dev Fork
+
+2026-03-19
+* built DOM deconstructor
+
 2026-03-18
 * template is now working
 * auto calculation per line functioning
+* to-do - function that deconstructs a DOM element into an key:value paired object
 * still to add - add new script, delete existing script, repeat interval calculations, executive summary of scripts
 * logins
 * search function for script names
 * auto-generate names for scripts
+
 2026-03-15
 * re-design of the main page using bootstrap css5 to ensure its mobile first, responsive design

@@ -1,7 +1,8 @@
 
-function updateTHCContentInScript(formElem_script, scriptSumAndDetail = null){
-	const details = (scriptSumAndDetail) ? scriptSumAndDetail : dict_readAndsumTHCContentInScript(formElem_script)
-	formElem_script.querySelector('.THCTotal').innerText = `${details['sumTHCTotal']} mg`
+function updateTHCContentInScript(formElem_script, scriptSumAndDetail = dict_readAndsumTHCContentInScript(formElem_script)){
+	// const details = (scriptSumAndDetail) ? scriptSumAndDetail : dict_readAndsumTHCContentInScript(formElem_script)
+	// const details = dict_readAndsumTHCContentInScript(formElem_script)
+	formElem_script.querySelector('.THCTotal').innerText = `${scriptSumAndDetail['sumTHCTotal']} mg`
 }
 
 function updateCalculationsInTable(tableName){
@@ -16,9 +17,10 @@ function updateCalculationsInTable(tableName){
 		tableDOM.querySelector('.sumUnitTotals').innerText = `${tableSums['sumTotalQty']} ${tableSums['unitMeasure']}`
 		tableDOM.querySelector('.sumTHCTotals').innerText = `${tableSums['THCSums']} mg`
 
-		arrayOfScriptDOMs.forEach( (scriptDOM, idx) => {
-			updateTHCContentInScript(scriptDOM, tableDOM['scriptObjectArray'])
-		})
+		arrayOfScriptDOMs.forEach(scriptDOM => updateTHCContentInScript(scriptDOM))
+		// arrayOfScriptDOMs.forEach( (scriptDOM, idx) => {
+		// 	updateTHCContentInScript(scriptDOM, tableDOM['scriptObjectArray'])
+		// })
 
 }
 

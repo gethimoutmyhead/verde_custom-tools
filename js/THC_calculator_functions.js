@@ -6,7 +6,7 @@ function dict_sumScriptsInTable(tableName){
 		const THCSums = arrayOfScriptObjects.reduce((sumTHC, scriptObject) => scriptObject['sumTHCTotal'] + sumTHC, 0,)
 		const sumTotalQty = arrayOfScriptObjects.reduce((sumQty, scriptObject) => scriptObject['sumQty'] + sumQty, 0,)
 
-		return {'THCSums': THCSums, 'sumTotalQty': sumTotalQty, 'unitMeasure': arrayOfScriptObjects[0]['unitMeasure'], 'scriptObjectArray': arrayOfScriptObjects}
+		return {'THCSums': THCSums, 'sumTotalQty': sumTotalQty, 'unitMeasure': arrayOfScriptObjects[0]['unitMeasure']}
 }
 
 function dict_readAndsumTHCContentInScript(formElem_script){

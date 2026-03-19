@@ -1,0 +1,313 @@
+{
+  "tagName": "FORM",
+  "attributes": {
+    "class": "row my-3 border-primary scriptForm",
+    "id": "dryherb-02",
+    "producttype": "dryHerb",
+    "thcconversionfactor": "10",
+    "unitmeasure": "g"
+  },
+  "properties": null,
+  "childNodes": [
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-12 col-md-5 my-1"
+      },
+      "properties": null,
+      "childNodes": [
+        {
+          "tagName": "DIV",
+          "attributes": {
+            "class": "form-floating"
+          },
+          "properties": null,
+          "childNodes": [
+            {
+              "tagName": "INPUT",
+              "attributes": {
+                "id": "dryherb-02_name",
+                "class": "form-control productName",
+                "type": "text",
+                "placeholder": "dryherbName"
+              },
+              "properties": {
+                "innerText": ""
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "LABEL",
+              "attributes": {
+                "for": "dryherb-02_name"
+              },
+              "properties": {
+                "innerText": "Dry herb product name"
+              },
+              "childNodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-6 col-md-3 col-xl-1 my-1"
+      },
+      "properties": null,
+      "childNodes": [
+        {
+          "tagName": "DIV",
+          "attributes": {
+            "class": "form-floating"
+          },
+          "properties": null,
+          "childNodes": [
+            {
+              "tagName": "INPUT",
+              "attributes": {
+                "id": "dryherb-02_strength",
+                "class": "form-control strength",
+                "type": "number",
+                "placeholder": "dryherb-02_strength"
+              },
+              "properties": {
+                "innerText": ""
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "LABEL",
+              "attributes": {
+                "for": "dryherb-02_strength",
+                "class": "d-xl-none"
+              },
+              "properties": {
+                "innerText": "strength (% w/w)"
+              },
+              "childNodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-6 col-md-3 col-xl-1 my-1"
+      },
+      "properties": null,
+      "childNodes": [
+        {
+          "tagName": "DIV",
+          "attributes": {
+            "class": "form-floating"
+          },
+          "properties": null,
+          "childNodes": [
+            {
+              "tagName": "INPUT",
+              "attributes": {
+                "id": "dryherb-02_weight",
+                "class": "form-control unitQty",
+                "type": "number",
+                "placeholder": "dryherb-02_weight"
+              },
+              "properties": {
+                "innerText": ""
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "LABEL",
+              "attributes": {
+                "for": "dryherb-02_weight",
+                "class": "d-xl-none"
+              },
+              "properties": {
+                "innerText": "Pack Weight(g)"
+              },
+              "childNodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-6 col-md-2 col-xl-1 my-1"
+      },
+      "properties": null,
+      "childNodes": [
+        {
+          "tagName": "DIV",
+          "attributes": {
+            "class": "form-floating"
+          },
+          "properties": null,
+          "childNodes": [
+            {
+              "tagName": "INPUT",
+              "attributes": {
+                "id": "dryherb-02_units",
+                "data-toggle": "tooltip",
+                "title": "",
+                "class": "form-control unitsPerDispense",
+                "type": "text",
+                "placeholder": "dryherb-02_units",
+                "data-bs-original-title": "qty of packs per dispense",
+                "aria-label": "qty of packs per dispense"
+              },
+              "properties": {
+                "innerText": ""
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "LABEL",
+              "attributes": {
+                "for": "dryherb-02_units",
+                "class": "d-xl-none"
+              },
+              "properties": {
+                "innerText": "Units (#)"
+              },
+              "childNodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-6 col-md-2 col-xl-1 my-1"
+      },
+      "properties": null,
+      "childNodes": [
+        {
+          "tagName": "DIV",
+          "attributes": {
+            "class": "form-floating"
+          },
+          "properties": null,
+          "childNodes": [
+            {
+              "tagName": "INPUT",
+              "attributes": {
+                "id": "dryherb-02_repeats",
+                "class": "form-control repeats",
+                "type": "text",
+                "placeholder": "dryherb-02_repeats"
+              },
+              "properties": {
+                "innerText": ""
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "LABEL",
+              "attributes": {
+                "for": "dryherb-02_repeats",
+                "class": "d-xl-none ml-5"
+              },
+              "properties": {
+                "innerText": "Repeats(#)"
+              },
+              "childNodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-1 d-xl-none"
+      },
+      "properties": {
+        "innerText": ""
+      },
+      "childNodes": []
+    },
+    {
+      "tagName": "DIV",
+      "attributes": {
+        "class": "col-12 col-md-6 col-xl-2 mt-3"
+      },
+      "properties": null,
+      "childNodes": [
+        {
+          "tagName": "DIV",
+          "attributes": {
+            "class": "row align-items-center"
+          },
+          "properties": null,
+          "childNodes": [
+            {
+              "tagName": "DIV",
+              "attributes": {
+                "class": "col-6 d-xl-none"
+              },
+              "properties": {
+                "innerText": "THC content(mg):"
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "DIV",
+              "attributes": {
+                "class": "col-4 col-xl-8 THCTotal"
+              },
+              "properties": {
+                "innerText": "9600 mg"
+              },
+              "childNodes": []
+            },
+            {
+              "tagName": "DIV",
+              "attributes": {
+                "class": "col-2 col-xl-1"
+              },
+              "properties": null,
+              "childNodes": [
+                {
+                  "tagName": "BUTTON",
+                  "attributes": {
+                    "class": "btn btn-danger",
+                    "type": "button"
+                  },
+                  "properties": null,
+                  "childNodes": [
+                    {
+                      "tagName": "I",
+                      "attributes": {
+                        "class": "bi bi-trash3"
+                      },
+                      "properties": {
+                        "innerText": ""
+                      },
+                      "childNodes": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tagName": "HR",
+      "attributes": {
+        "class": "d-xl-none text-primary my-3"
+      },
+      "properties": {
+        "innerText": ""
+      },
+      "childNodes": []
+    }
+  ]
+}
