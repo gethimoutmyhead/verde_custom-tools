@@ -12,8 +12,12 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ### Dev Fork
 
+
 2026-03-19
 * built DOM deconstructor
+* add new script added
+* delete existing script added
+* automatically recalculates subtotals when things are added and removed
 
 2026-03-18
 * template is now working
