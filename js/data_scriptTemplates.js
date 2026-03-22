@@ -277,7 +277,7 @@ dict_scriptFormTemplates =
                 "properties": null,
                 "childNodes": [
                   {
-                    "tagName": "BUTTON",
+                    "tagName": "div",
                     "attributes": {
                       "class": "btn btn-danger deleteForm",
                       "type": "button"
@@ -549,7 +549,7 @@ dict_scriptFormTemplates =
               "properties": null,
               "childNodes": [
                 {
-                  "tagName": "BUTTON",
+                  "tagName": "div",
                   "attributes": {
                     "class": "btn btn-danger deleteForm",
                     "type": "button"
@@ -864,7 +864,7 @@ dict_scriptFormTemplates =
               "properties": null,
               "childNodes": [
                 {
-                  "tagName": "BUTTON",
+                  "tagName": "div",
                   "attributes": {
                     "class": "btn btn-danger deleteForm",
                     "type": "button"
@@ -1135,7 +1135,7 @@ dict_scriptFormTemplates =
               "properties": null,
               "childNodes": [
                 {
-                  "tagName": "BUTTON",
+                  "tagName": "div",
                   "attributes": {
                     "class": "btn btn-danger deleteForm",
                     "type": "button"
