@@ -63,3 +63,111 @@ function dict_readAndsumTHCContentInScript(formElem_script){
 
 // function to write executive summary of scripts
 
+function dictList_readAggregatePrescriptionData(){
+	const arrayOfScriptDOMs = [...document.querySelectorAll('.scriptForm')]
+
+	const arrayOfDOMs_THCScripts = arrayOfScriptDOMs.filter(scriptDOM => {
+		return (productTypesWithTHC.includes(scriptDOM.getAttribute('productType')))
+	})
+
+	const cannabisScripts = arrayOfDOMs_THCScripts.map(dict_readAndsumTHCContentInScript)
+	return cannabisScripts
+}
+
+function dictList_readDrugDoseRange(){
+	const doseRange = {}
+	doseRange['inhaledTHC'] = {}
+	doseRange['inhaledTHC']['average'] = Number(document.getElementById('avgInhaledTHC').value)
+	doseRange['inhaledTHC']['maximum'] = Number(document.getElementById('maxInhaledTHC').value)
+	doseRange['inhaledTHC']['unitMeasure'] = 'mg'
+
+	doseRange['oralTHC'] = {}
+	doseRange['oralTHC']['average'] = Number(document.getElementById('avgOralTHC').value)
+	doseRange['oralTHC']['maximum'] = Number(document.getElementById('maxOralTHC').value)
+	doseRange['oralTHC']['unitMeasure'] = 'mg'
+
+	return doseRange
+}
+
+async function scriptSummariser(aggregatePrescriptionData, drugDosageRange = dictList_readDrugDoseRange()){
+	const inhaledCannabisScripts = aggregatePrescriptionData.filter(script => {
+		return (inhaledTHCProductTypes.includes(script['productType']))
+	})
+	const scriptSummary = {}
+	if (inhaledCannabisScripts.length > 0){
+		avgDosage = drugDosageRange['inhaledTHC']['average'] || 150
+		maxDosage = drugDosageRange['inhaledTHC']['maximum'] || 300
+		
+		scriptSummary['inhaledCannabis'] = {}
+		scriptSummary['inhaledCannabis']['THCSum'] = inhaledCannabisScripts.reduce((sumTHC, script) => sumTHC + script['sumTHCTotal'], 0)
+
+		scriptSummary['inhaledCannabis']['doseRange'] = {}
+		scriptSummary['inhaledCannabis']['doseRange']['average'] = {}
+		scriptSummary['inhaledCannabis']['doseRange']['maximum'] = {}
+		
+		scriptSummary['inhaledCannabis']['doseRange']['average']['dosage'] = avgDosage
+		scriptSummary['inhaledCannabis']['doseRange']['maximum']['dosage'] = maxDosage
+		scriptSummary['inhaledCannabis']['doseRange']['average']['durationOfSupply_days'] = Math.ceil(scriptSummary['inhaledCannabis']['THCSum'] / avgDosage)
+		scriptSummary['inhaledCannabis']['doseRange']['maximum']['durationOfSupply_days']  = Math.ceil(scriptSummary['inhaledCannabis']['THCSum'] / maxDosage)
+
+		inhaledCannabisScripts.forEach(script => {
+			script['repeatInterval'] = 	Math.ceil(scriptSummary['inhaledCannabis']['doseRange']['maximum']['durationOfSupply_days'] / (script['repeats'] + 1))
+		})
+		// scriptSummary['inhaledCannabis']['scriptList'] = inhaledCannabisScripts
+
+		inhaledTHCProductTypes.forEach(productType => {
+			const scriptOfType = inhaledCannabisScripts.filter(script => {return (script['productType'] == productType)})
+			if (scriptOfType.length > 0){
+				scriptSummary['inhaledCannabis'][productType] = {}
+				scriptSummary['inhaledCannabis'][productType]['scriptList'] = scriptOfType
+				scriptSummary['inhaledCannabis'][productType]['unitType'] = scriptOfType[0]['unitMeasure']
+				scriptSummary['inhaledCannabis'][productType]['sumQty'] = scriptOfType.reduce((sumQty, script) => sumQty + script['sumQty'], 0)
+				scriptSummary['inhaledCannabis'][productType]['usageNotes'] = ''
+				averageUse = scriptSummary['inhaledCannabis'][productType]['sumQty'] / scriptSummary['inhaledCannabis']['doseRange']['average']['durationOfSupply_days']
+				let usageNotes = ''
+				console.log(productType)
+				usageNotes += `At average use, consumes ${averageUse} ${scriptSummary['inhaledCannabis'][productType]['unitType']} per day of ${scriptTypesAndMeta[productType]['displayName']}\n`.repeat((averageUse >= 1))
+				usageNotes += `At average use, 5 ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(averageUse * 5)}  days \n`.repeat((averageUse < 1 && averageUse > 0.5))
+				usageNotes += `At average use, 1 ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(1 / averageUse)}  days \n`.repeat((averageUse <= 0.5))
+				scriptSummary['inhaledCannabis'][productType]['usageNotes'] += usageNotes
+
+			}
+		})
+	}
+
+	const oralCannabisScripts = aggregatePrescriptionData.filter(script => {
+		return (oralTHCProductTypes.includes(script['productType']))
+	})
+	if (oralCannabisScripts.length > 0){
+		avgDosage = drugDosageRange['oralTHC']['average'] || 10
+		maxDosage = drugDosageRange['oralTHC']['maximum'] || 40
+		
+		scriptSummary['oralCannabis'] = {}
+		scriptSummary['oralCannabis']['THCSum'] = oralCannabisScripts.reduce((sumTHC, script) => sumTHC + script['sumTHCTotal'], 0)
+
+		scriptSummary['oralCannabis']['doseRange'] = {}
+		scriptSummary['oralCannabis']['doseRange']['average'] = {}
+		scriptSummary['oralCannabis']['doseRange']['maximum'] = {}
+		
+		scriptSummary['oralCannabis']['doseRange']['average']['dosage'] = avgDosage
+		scriptSummary['oralCannabis']['doseRange']['maximum']['dosage'] = maxDosage
+		scriptSummary['oralCannabis']['doseRange']['average']['durationOfSupply_days'] = Math.ceil(scriptSummary['oralCannabis']['THCSum'] / avgDosage)
+		scriptSummary['oralCannabis']['doseRange']['maximum']['durationOfSupply_days']  = Math.ceil(scriptSummary['oralCannabis']['THCSum'] / maxDosage)
+
+		oralCannabisScripts.forEach(script => {
+			script['repeatInterval'] = 	Math.ceil(scriptSummary['oralCannabis']['doseRange']['maximum']['durationOfSupply_days'] / (script['repeats'] + 1))
+		})
+		// scriptSummary['oralCannabis']['scriptList'] = oralCannabisScripts
+
+		oralTHCProductTypes.forEach(productType => {
+			const scriptOfType = oralCannabisScripts.filter(script => {return (script['productType'] == productType)})
+			if (scriptOfType.length > 0){
+				scriptSummary['oralCannabis'][productType] = {}
+				scriptSummary['oralCannabis'][productType]['scriptList'] = scriptOfType
+				scriptSummary['oralCannabis'][productType]['unitType'] = scriptOfType[0]['unitMeasure']
+				scriptSummary['oralCannabis'][productType]['sumQty'] = scriptOfType.reduce((sumQty, script) => sumQty + script['sumQty'], 0)
+			}
+		})
+	}
+	return scriptSummary
+}

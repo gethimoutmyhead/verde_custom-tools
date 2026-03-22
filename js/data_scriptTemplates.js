@@ -320,7 +320,7 @@ dict_scriptFormTemplates =
     "class": "row my-3 border-primary scriptForm",
     "id": "cannabisVapeCartridge-00",
     "thcconversionfactor": "1",
-    "producttype": "Vape cartridges",
+    "producttype": "cannabisVapeCartridge",
     "unitmeasure": "cartridges"
   },
   "properties": null,

@@ -18,6 +18,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 * autoFill a default variable name, and focuses on the new element. user can press tab and go to the next form element, or immediately type a new name (useful when the product name autofill gets added)
 * added a to do list to the readme file 
 * switched the deleteform buttons from <button> to <div>, to avoid keyb users accidentally deleting scripts
+* early version of exec summary is now functional
 * some refactoring, changed filenames to make more sense, split up the functions more
 
 2026-03-19
