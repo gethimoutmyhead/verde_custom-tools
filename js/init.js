@@ -1,63 +1,14 @@
 document.getElementById('prescriptionDate').valueAsDate = new Date();
 
-// [...document.querySelectorAll('.scriptForm')].forEach(scriptForm => {
-// 	updateTHCContentInScript(scriptForm)
-// 	scriptForm.addEventListener('input', () => {
-// 		updateTHCContentInScript(scriptForm)
-// 	})
-// })
 
-['dryHerbTable', 'vapeCartridgeTable','cannabisOilTable','ediblesTable'].forEach(scriptList =>
-	{
-		const scriptListDOM = document.getElementById(scriptList)
-		const arrayOfScriptDOMs = [...scriptListDOM.querySelectorAll('.scriptForm')]
-		arrayOfScriptObjects = arrayOfScriptDOMs.map(dict_readAndsumTHCContentInScript)
+// const scriptTypes = ['cannabisDryHerb', 'cannabisVapeCartridge', 'cannabisOil', 'cannabisEdibles']
+const scriptTypesAndMeta = 
+{
+	'cannabisDryHerb': {'displayName': 'Cannabis Dry Herb'},
+	'cannabisVapeCartridge': {'displayName': 'Cannabis Vape Cartridge'},
+	'cannabisOil': {'displayName': 'Cannabis Oil'},
+	'cannabisEdibles': {'displayName': 'Cannabis Edibles'},
 
-		const THCSums = arrayOfScriptObjects.reduce((sumTHC, scriptObject) => scriptObject['sumTHCTotal'] + sumTHC, 0,)
-		const sumTotalQty = arrayOfScriptObjects.reduce((sumQty, scriptObject) => scriptObject['sumQty'] + sumQty, 0,)
-		scriptListDOM.querySelector('.sumUnitTotals').innerText = `${sumTotalQty} ${arrayOfScriptObjects[0]['unitMeasure']}`
-		scriptListDOM.querySelector('.sumTHCTotals').innerText = `${THCSums} mg`
-
-		// console.log(`${scriptList} - ${THCSums}mg - ${sumTotalQty} ${arrayOfScriptObjects[0]['unitMeasure']}`)
-		// console.log(arrayOfScriptObjects[0])
-
-
-		arrayOfScriptDOMs.forEach( (scriptDOM, idx) => {
-			updateTHCContentInScript(scriptDOM, arrayOfScriptObjects[idx])
-		})
-
-		scriptListDOM.addEventListener('input', () => {
-			updateCalculationsInTable(scriptList)
-		})
-
-		// arrayOfScriptDOMs.forEach(scriptDOM => {
-		// 	// updateTHCContentInScript(scriptForm)
-		// 	scriptDOM.addEventListener('input', () => {
-		// 		updateTHCContentInScript(scriptDOM)
-		// 	})
-		// })
-		// add code to sum all the individual script tables here
-	})
-scriptTypes = ['dryHerb', 'vapeCartridge', 'cannabisOil', 'edibles']
-scriptTypes.forEach(scriptType => {
-	console.log(scriptType)
-	const buttonClassName = `add_${scriptType}`
-	const tableName = `${scriptType}Table`
-	const listName = `${scriptType}List`
-	console.log(buttonClassName)
-
-	Array.from(document.querySelectorAll(`.${buttonClassName}`)).forEach((elem) => {
-		console.log(elem)
-		elem.addEventListener('click', () => {
-		const z = {...dict_scriptFormTemplates[scriptType]}
-		const zDOM = makeNewDOMElementFromDict_DOMElem(z)
-		zDOM.querySelector('.deleteForm').addEventListener('click', () => {
-			zDOM.closest('form').remove()
-			updateCalculationsInTable(tableName)
-		})
-	document.getElementById(listName).appendChild(zDOM)
-	})
-})
-})
-
-
+}
+scriptTableIds = Object.keys(scriptTypesAndMeta).map(script => script.concat('Table'))
+scriptTableIds.forEach(updateCalculationsInTable)

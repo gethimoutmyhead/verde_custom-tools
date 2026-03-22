@@ -1,11 +1,11 @@
 dict_scriptFormTemplates = 
 {
-  'dryHerb': {
+  'cannabisDryHerb': {
     "tagName": "FORM",
     "attributes": {
       "class": "row my-3 border-primary scriptForm",
-      "id": "dryherb-00",
-      "producttype": "dryHerb",
+      "id": "cannabisDryHerb-00",
+      "producttype": "cannabisDryHerb",
       "thcconversionfactor": "10",
       "unitmeasure": "g"
     },
@@ -28,10 +28,10 @@ dict_scriptFormTemplates =
               {
                 "tagName": "INPUT",
                 "attributes": {
-                  "id": "dryherb-00_name",
+                  "id": "cannabisDryHerb-00_name",
                   "class": "form-control productName",
                   "type": "text",
-                  "placeholder": "dryherbName"
+                  "placeholder": "cannabisDryHerbName"
                 },
                 "properties": {
                   "innerText": ""
@@ -41,7 +41,7 @@ dict_scriptFormTemplates =
               {
                 "tagName": "LABEL",
                 "attributes": {
-                  "for": "dryherb-00_name"
+                  "for": "cannabisDryHerb-00_name"
                 },
                 "properties": {
                   "innerText": "Dry herb product name"
@@ -69,10 +69,10 @@ dict_scriptFormTemplates =
               {
                 "tagName": "INPUT",
                 "attributes": {
-                  "id": "dryherb-00_strength",
+                  "id": "cannabisDryHerb-00_strength",
                   "class": "form-control strength",
                   "type": "number",
-                  "placeholder": "dryherb-00_strength"
+                  "placeholder": "cannabisDryHerb-00_strength"
                 },
                 "properties": {
                   "innerText": ""
@@ -82,7 +82,7 @@ dict_scriptFormTemplates =
               {
                 "tagName": "LABEL",
                 "attributes": {
-                  "for": "dryherb-00_strength",
+                  "for": "cannabisDryHerb-00_strength",
                   "class": "d-xl-none"
                 },
                 "properties": {
@@ -111,20 +111,20 @@ dict_scriptFormTemplates =
               {
                 "tagName": "INPUT",
                 "attributes": {
-                  "id": "dryherb-00_weight",
+                  "id": "cannabisDryHerb-00_weight",
                   "class": "form-control unitQty",
                   "type": "number",
-                  "placeholder": "dryherb-00_weight"
+                  "placeholder": "cannabisDryHerb-00_weight"
                 },
                 "properties": {
-                  "innerText": ""
+                  "innerText": "",
                 },
                 "childNodes": []
               },
               {
                 "tagName": "LABEL",
                 "attributes": {
-                  "for": "dryherb-00_weight",
+                  "for": "cannabisDryHerb-00_weight",
                   "class": "d-xl-none"
                 },
                 "properties": {
@@ -153,24 +153,25 @@ dict_scriptFormTemplates =
               {
                 "tagName": "INPUT",
                 "attributes": {
-                  "id": "dryherb-00_units",
+                  "id": "cannabisDryHerb-00_units",
                   "data-toggle": "tooltip",
                   "title": "",
                   "class": "form-control unitsPerDispense",
                   "type": "number",
-                  "placeholder": "dryherb-00_units",
+                  "placeholder": "cannabisDryHerb-00_units",
                   "data-bs-original-title": "qty of packs per dispense",
                   "aria-label": "qty of packs per dispense"
                 },
                 "properties": {
-                  "innerText": ""
+                  "innerText": "",
+                  "value": 1,
                 },
                 "childNodes": []
               },
               {
                 "tagName": "LABEL",
                 "attributes": {
-                  "for": "dryherb-00_units",
+                  "for": "cannabisDryHerb-00_units",
                   "class": "d-xl-none"
                 },
                 "properties": {
@@ -199,10 +200,10 @@ dict_scriptFormTemplates =
               {
                 "tagName": "INPUT",
                 "attributes": {
-                  "id": "dryherb-00_repeats",
+                  "id": "cannabisDryHerb-00_repeats",
                   "class": "form-control repeats",
                   "type": "number",
-                  "placeholder": "dryherb-00_repeats"
+                  "placeholder": "cannabisDryHerb-00_repeats"
                 },
                 "properties": {
                   "innerText": ""
@@ -212,7 +213,7 @@ dict_scriptFormTemplates =
               {
                 "tagName": "LABEL",
                 "attributes": {
-                  "for": "dryherb-00_repeats",
+                  "for": "cannabisDryHerb-00_repeats",
                   "class": "d-xl-none ml-5"
                 },
                 "properties": {
@@ -264,7 +265,7 @@ dict_scriptFormTemplates =
                   "class": "col-4 col-xl-8 THCTotal"
                 },
                 "properties": {
-                  "innerText": "9600 mg"
+                  "innerText": "0 mg"
                 },
                 "childNodes": []
               },
@@ -313,11 +314,11 @@ dict_scriptFormTemplates =
       }
     ]
   },
-  'vapeCartridge': {
+  'cannabisVapeCartridge': {
   "tagName": "FORM",
   "attributes": {
     "class": "row my-3 border-primary scriptForm",
-    "id": "vape-00",
+    "id": "cannabisVapeCartridge-00",
     "thcconversionfactor": "1",
     "producttype": "Vape cartridges",
     "unitmeasure": "cartridges"
@@ -341,10 +342,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "vape-00_name",
+                "id": "cannabisVapeCartridge-00_name",
                 "class": "form-control productName",
                 "type": "text",
-                "placeholder": "vape-00_name"
+                "placeholder": "cannabisVapeCartridge-00_name"
               },
               "properties": {
                 "innerText": ""
@@ -354,7 +355,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "vape-00_name"
+                "for": "cannabisVapeCartridge-00_name"
               },
               "properties": {
                 "innerText": "Vape cartridge name"
@@ -382,10 +383,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "vape-00_strength",
+                "id": "cannabisVapeCartridge-00_strength",
                 "class": "form-control strength",
                 "type": "number",
-                "placeholder": "vape-00_strength"
+                "placeholder": "cannabisVapeCartridge-00_strength"
               },
               "properties": {
                 "innerText": ""
@@ -395,7 +396,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "vape-00_strength",
+                "for": "cannabisVapeCartridge-00_strength",
                 "class": "d-xl-none"
               },
               "properties": {
@@ -424,24 +425,25 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "vape-00_units",
+                "id": "cannabisVapeCartridge-00_units",
                 "data-toggle": "tooltip",
                 "title": "",
                 "class": "form-control unitsPerDispense",
                 "type": "number",
-                "placeholder": "vape-00_units",
+                "placeholder": "cannabisVapeCartridge-00_units",
                 "data-bs-original-title": "qty of units per dispense",
                 "aria-label": "qty of units per dispense"
               },
               "properties": {
-                "innerText": ""
+                "innerText": "",
+                "value": 1,
               },
               "childNodes": []
             },
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "vape-00_units",
+                "for": "cannabisVapeCartridge-00_units",
                 "class": "d-xl-none"
               },
               "properties": {
@@ -470,10 +472,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "vape-00_repeats",
+                "id": "cannabisVapeCartridge-00_repeats",
                 "class": "form-control repeats",
                 "type": "number",
-                "placeholder": "vape-00_repeats"
+                "placeholder": "cannabisVapeCartridge-00_repeats"
               },
               "properties": {
                 "innerText": ""
@@ -483,7 +485,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "vape-00_repeats",
+                "for": "cannabisVapeCartridge-00_repeats",
                 "class": "d-xl-none ml-5"
               },
               "properties": {
@@ -535,7 +537,7 @@ dict_scriptFormTemplates =
                 "class": "col-4 col-md-4 col-xl-8 THCTotal"
               },
               "properties": {
-                "innerText": "1176 mg"
+                "innerText": "0 mg"
               },
               "childNodes": []
             },
@@ -588,9 +590,9 @@ dict_scriptFormTemplates =
   "tagName": "FORM",
   "attributes": {
     "class": "row border-primary scriptForm",
-    "id": "oil-00",
+    "id": "cannabisOil-00",
     "thcconversionfactor": "1",
-    "producttype": "cannabis-oil",
+    "producttype": "cannabisOil",
     "unitmeasure": "mL"
   },
   "properties": null,
@@ -612,10 +614,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "oil-00_name",
+                "id": "cannabisOil-00_name",
                 "class": "form-control productName",
                 "type": "text",
-                "placeholder": "oil-00_name"
+                "placeholder": "cannabisOil-00_name"
               },
               "properties": {
                 "innerText": ""
@@ -625,7 +627,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "oil-00_name"
+                "for": "cannabisOil-00_name"
               },
               "properties": {
                 "innerText": "Cannabis Oil Name"
@@ -653,10 +655,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "oil-00_strength",
-                "class": "form-control oil-00_strength strength",
+                "id": "cannabisOil-00_strength",
+                "class": "form-control cannabisOil-00_strength strength",
                 "type": "number",
-                "placeholder": "oil-00_strength"
+                "placeholder": "cannabisOil-00_strength"
               },
               "properties": {
                 "innerText": ""
@@ -666,7 +668,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "oil-00_strength",
+                "for": "cannabisOil-00_strength",
                 "class": "d-xl-none"
               },
               "properties": {
@@ -695,10 +697,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "oil-00_volume",
+                "id": "cannabisOil-00_volume",
                 "class": "form-control unitQty",
                 "type": "number",
-                "placeholder": "oil-00_weight"
+                "placeholder": "cannabisOil-00_volume"
               },
               "properties": {
                 "innerText": ""
@@ -708,7 +710,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "oil-00_volume",
+                "for": "cannabisOil-00_volume",
                 "class": "d-xl-none"
               },
               "properties": {
@@ -737,28 +739,30 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "oil-00_units",
+                "id": "cannabisOil-00_units",
                 "data-toggle": "tooltip",
                 "title": "",
                 "class": "form-control unitsPerDispense",
                 "type": "number",
-                "placeholder": "oil-00_units",
+                "placeholder": "cannabisOil-00_units",
                 "data-bs-original-title": "qty of vials per dispense",
                 "aria-label": "qty of vials per dispense"
               },
               "properties": {
-                "innerText": ""
+                "innerText": "",
+                "value": 1,
               },
               "childNodes": []
             },
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "oil-00_units",
+                "for": "cannabisOil-00_units",
                 "class": "d-xl-none "
               },
               "properties": {
-                "innerText": "Units (#)"
+                "innerText": "Units (#)",
+                "value": 1,
               },
               "childNodes": []
             }
@@ -783,10 +787,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "oil-00_repeats",
+                "id": "cannabisOil-00_repeats",
                 "class": "form-control repeats",
                 "type": "number",
-                "placeholder": "oil-00_repeats"
+                "placeholder": "cannabisOil-00_repeats"
               },
               "properties": {
                 "innerText": ""
@@ -796,7 +800,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "oil-00_repeats",
+                "for": "cannabisOil-00_repeats",
                 "class": "d-xl-none ml-5"
               },
               "properties": {
@@ -897,12 +901,12 @@ dict_scriptFormTemplates =
     }
   ]
   },
-  'edibles': {
+  'cannabisEdibles': {
   "tagName": "FORM",
   "attributes": {
     "class": "row my-3 border-primary scriptForm",
-    "id": "edible-00",
-    "producttype": "edible",
+    "id": "cannabisEdibles-00",
+    "producttype": "cannabisEdibles",
     "unitmeasure": "doses",
     "thcconversionfactor": "1"
   },
@@ -925,10 +929,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "edible-00_name",
+                "id": "cannabisEdibles-00_name",
                 "class": "form-control productName",
                 "type": "text",
-                "placeholder": "edible-00_name"
+                "placeholder": "cannabisEdibles-00_name"
               },
               "properties": {
                 "innerText": ""
@@ -938,7 +942,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "edible-00_name"
+                "for": "cannabisEdibles-00_name"
               },
               "properties": {
                 "innerText": "Edible product name"
@@ -966,10 +970,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "edible-00_strength",
+                "id": "cannabisEdibles-00_strength",
                 "class": "form-control strength",
                 "type": "number",
-                "placeholder": "edible-00_strength"
+                "placeholder": "cannabisEdibles-00_strength"
               },
               "properties": {
                 "innerText": ""
@@ -979,7 +983,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "edible-00_strength",
+                "for": "cannabisEdibles-00_strength",
                 "class": "d-xl-none"
               },
               "properties": {
@@ -1008,12 +1012,12 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "edible-00_units",
+                "id": "cannabisEdibles-00_units",
                 "data-toggle": "tooltip",
                 "title": "",
                 "class": "form-control unitsPerDispense",
                 "type": "number",
-                "placeholder": "edible-00_units",
+                "placeholder": "cannabisEdibles-00_units",
                 "data-bs-original-title": "qty of units per dispense",
                 "aria-label": "qty of units per dispense"
               },
@@ -1025,7 +1029,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "edible-00_units",
+                "for": "cannabisEdibles-00_units",
                 "class": "d-xl-none"
               },
               "properties": {
@@ -1054,10 +1058,10 @@ dict_scriptFormTemplates =
             {
               "tagName": "INPUT",
               "attributes": {
-                "id": "edible-00_repeats",
+                "id": "cannabisEdibles-00_repeats",
                 "class": "form-control repeats",
                 "type": "number",
-                "placeholder": "edible-00_repeats"
+                "placeholder": "cannabisEdibles-00_repeats"
               },
               "properties": {
                 "innerText": ""
@@ -1067,7 +1071,7 @@ dict_scriptFormTemplates =
             {
               "tagName": "LABEL",
               "attributes": {
-                "for": "edible-00_repeats",
+                "for": "cannabisEdibles-00_repeats",
                 "class": "d-xl-none ml-5"
               },
               "properties": {
