@@ -17,7 +17,7 @@ function updateCalculationsInTable(tableName){
 		tableDOM.querySelector('.sumUnitTotals').innerText = `${tableSums['sumTotalQty']} ${tableSums['unitMeasure']}`
 		tableDOM.querySelector('.sumTHCTotals').innerText = `${tableSums['THCSums']} mg`
 
-		arrayOfScriptDOMs.forEach(scriptDOM => updateTHCContentInScript(scriptDOM))
+		arrayOfScriptDOMs.forEach((scriptDOM, idx) => updateTHCContentInScript(scriptDOM, tableSums[idx]))
 		// arrayOfScriptDOMs.forEach( (scriptDOM, idx) => {
 		// 	updateTHCContentInScript(scriptDOM, tableDOM['scriptObjectArray'])
 		// })

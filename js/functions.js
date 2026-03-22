@@ -232,3 +232,37 @@ function disableKeypressOnElement(DOMElem, arrayOfInts_keyCodes){
 	})
 }
 
+
+function object_deepReplaceStringValues(data, searchFor, replaceWith) {
+/**
+ * Recursively searches and replaces partial strings within an object.
+ * @param {Object|Array} data - The target object or array.
+ * @param {string} searchFor - The substring to find.
+ * @param {string} replaceWith - The string to swap in.
+ * @returns {Object|Array} - The new object with strings replaced.
+ */
+
+  // Handle Arrays: Map through each element
+  if (Array.isArray(data)) {
+    return data.map(item => object_deepReplaceStringValues(item, searchFor, replaceWith));
+  }
+
+  // Handle Objects: Check if it's a non-null object
+  if (typeof data === 'object' && data !== null) {
+    const processedObject = {};
+
+    for (const [key, value] of Object.entries(data)) {
+      processedObject[key] = object_deepReplaceStringValues(value, searchFor, replaceWith);
+    }
+
+    return processedObject;
+  }
+
+  // Handle Strings: Perform the actual replacement
+  if (typeof data === 'string') {
+    return data.replaceAll(searchFor, replaceWith);
+  }
+
+  // Return primitives (numbers, booleans, etc.) as-is
+  return data;
+}
