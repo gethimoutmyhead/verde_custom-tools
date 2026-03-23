@@ -232,6 +232,12 @@ function disableKeypressOnElement(DOMElem, arrayOfInts_keyCodes){
 	})
 }
 
+function clearDOMContents(DOMElem){
+	while (DOMElem.lastElementChild) {
+		DOMElem.removeChild(DOMElem.lastElementChild);
+	}
+}
+
 
 function object_deepReplaceStringValues(data, searchFor, replaceWith) {
 /**

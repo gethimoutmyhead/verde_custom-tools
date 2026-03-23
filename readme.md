@@ -12,6 +12,8 @@ aim: track how long a patient's script should last, and when to schedule their r
 ## Version history
 
 ### Dev Fork
+2026-03-23
+* added repeat interval and executive summary calculator
 
 2026-03-22
 * changed variable names for templates to cannabis@@@ so more flexibility to handle non-cannabis S8 in the future
@@ -40,8 +42,6 @@ aim: track how long a patient's script should last, and when to schedule their r
 * re-design of the main page using bootstrap css5 to ensure its mobile first, responsive design
 
 ## To Do
-repeat interval calculations
-executive summary of scripts
 logins
 search function for script names
 autofill based on drug formulary
@@ -49,6 +49,11 @@ on autofill, cursor jumps straight to repeats
 
 
 ## Completed
+2026-03-23
+repeat interval calculations
+executive summary of scripts
+
+2026-03-22 or earlier
 function that deconstructs a DOM element into an key:value paired object
 add new script
 delete existing script
