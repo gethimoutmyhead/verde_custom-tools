@@ -1,74 +1,483 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">	
+	<head>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="noindex, nofollow" />
+
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<style>
+							/* Hide arrows for all browsers */
+				input[type=number]::-webkit-inner-spin-button,
+				input[type=number]::-webkit-outer-spin-button {
+				    -webkit-appearance: none;
+				    margin: 0;
+				}
+				 
+				input[type=number] {
+				    -moz-appearance: textfield;
+				    appearance: textfield;
+				}
+		</style>
+		<title>CannCulator 2.0 </title>
+	</head>
 	<header>
-		<title> Medicinal Cannabis THC calculator </title>
 	</header>
 
 	<body>
-		<div>
-			<div>
-				<h2> Average Usage </h2>
-				<label>Average inhaled THC per day (mg)</label><input id ="averageInhaledTHC" type="number" value="300" />
-				<br>
-				<label>Average oral THC per day(mg)</label><input id="averageOralTHC" type="number" value="40" />
-				<br>
-				<button onclick="WAHealthLimit()">WA Health Limits</button>
-				<button onclick="NIIMLimit()">NIIM limits</button>
+		<div class="container">
+			<div class="row my-2 border border-primary rounded">
+				<div class="col-12 col-md-8 py-2">
+					<div class="text-center">CANNCULATOR</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div class="text-end">
+						Version 2.0
+						<br>
+						by Shashi Ponraja
+					</div>
+				</div>
 			</div>
-			<div>
-				Prescription Date
-				<input id="prescriptionDate" type="date"></input>
+			<form class='row my-3 border border-primary rounded' id='universalProductSearch'>
+				<div class='col-12 col-md-6 my-1'>
+					<div class='form-floating'>
+
+						<input id="productName" class="form-control" type="text" placeholder="productName" >
+						<label for="productName">Product Name</label>
+					</div>
+				</div>
+				<div class='col-12 col-md-5 my-1'>
+					<p>Product details here</p>
+				</div>
+				<div class="col-12 col-md-1">
+					<div class="justify-content-md-end py-2">
+						<button class="btn btn-primary w-100 h-100" type="button">
+							+
+						</button>
+					</div>
+				</div>
+			</form>
+			<div class='row border rounded border-primary' id='cannabisDryHerbTable'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'> Dry Herb for inhalation</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-5'>
+							Product Name
+						</div>
+						<div class='col-xl-1'>
+							strength (% w/w)
+						</div>
+						<div class='col-xl-1'>
+							Pack weight (g)
+						</div>
+						<div class='col-xl-1'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats(#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+					</div>
+				</div>
+				<div class='col-12' id='cannabisDryHerbList'>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Dry Herb Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								weight (g)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6 sumUnitTotals'>
+								0 g
+							</div>
+							<div class='col-6 sumTHCTotals'>
+								0 mg
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary add_cannabisDryHerb' type='button'>
+							<span>Add dry herb</span>
+							<i class="bi bi-leaf"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid mr-2'>
+						<button class='btn btn-success set-dosage-limits'>
+							<div class='row align-items-center'>
+								<div class='col-8 text-end'>
+									Dose Limits
+								</div>
+								<div class='col-4 justify-content-start'>
+									<i class="bi bi-flask" style="font-size: 1.5rem;"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
 			</div>
-			<div>
-				<h2> Prescribed dry herb, hash</h2>
-				<table id='dryHerbTable'>
-					<tr>
-						<th><div> THC strength (%)</div></th>
-						<th><div> dry herb weight (g) </div></th>
-						<th><div> repeats </div></th>
-						<th><div> THC content (mg) </div></th>
-					</tr>
-					<tr>
-						<td><input type="number" class="inhaledTHCStrength" value="" standardise="10**-2"></td>
-						<td><input type="number" class="inhaledQuantity" value="" standardise="10**3"></td>
-						<td><input type="number" class="inhaledScriptRepeats" value="0"></td>
-						<td><div class='inhaledTHCContent'></div></td>
-					</tr>
-				</table>
-				<button onclick="addExtraHerb()">add another dry herb/hash</button>
+			<div class='row border rounded border-primary my-3' id='cannabisVapeCartridgeTable'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'>Vaporiser Cartridges for inhalation</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-5'>
+							Product Name
+						</div>
+						<div class='col-xl-2'>
+							THC strength (mg/g)
+						</div>
+						<div class='col-xl-1' data-toggle='tooltip' title='Units released per dispense'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats(#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+						<div class='col-xl-1'></div>
+					</div>
+				</div>
+				<div class='col-12' id='cannabisVapeCartridgeList'>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Vape Cartridge Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								vials (#)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6 sumUnitTotals'>
+								0
+							</div>
+							<div class='col-6 sumTHCTotals'>
+								0 mg
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary add_cannabisVapeCartridge' type='button'>
+							<span>Add cartridge</span>
+							<i class="bi bi-cloud-fog2"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid mr-2'>
+						<button class='btn btn-success set-dosage-limits'>
+							<div class='row align-items-center'>
+								<div class='col-8 text-end'>
+									Dose Limits
+								</div>
+								<div class='col-4 justify-content-start'>
+									<i class="bi bi-flask" style="font-size: 1.5rem;"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
 			</div>
-			<div>
-				<h2> Prescribed inhaled cartridges and Extracts </h2>
-				<table id='concentratesTable'>
-					<tr>
-						<th><div> THC strength (mg/g or mg/cartridge)</div></th>
-						<th><div> no. of cartridges / grams of product</div></th>
-						<th><div> repeats </div></th>
-						<th><div> THC content (mg) </div></th>
-					</tr>
-					<tr>
-						<td><input type="number" class="inhaledTHCStrength" standardise="1"></td>
-						<td><input type="number" class="inhaledQuantity" standardise="1"></td>
-						<td><input type="number" class="inhaledScriptRepeats"></td>
-						<td><div class="inhaledTHCContent"></div></td>
-					</tr>
-				</table>
-				<button onclick="addExtraConcentrate()">add another cartridge/concentrate</button>
-				<button onclick="calcInhaledTHCContent()">Calculate</button>
-			<div>
-				<h2> Total THC prescribed </h2>
-				<div> Inhaled THC (mg)</div><div id='inhaledTHCTotal'></div>
-				<div> oral THC (mg) </div><div id='oralTHCTotal'></div>
+			<div class='row border rounded border-primary' id='cannabisOilTable'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'> Cannabis oil for oral use</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-5'>
+							Cannabis Oil Name
+						</div>
+						<div class='col-xl-1'>
+							strength (mg/mL)
+						</div>
+						<div class='col-xl-1'>
+							Volume (mL)
+						</div>
+						<div class='col-xl-1'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats(#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+					</div>
+				</div>
+				<div class='col-12' id='cannabisOilList'>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Cannabis Oil Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								volume (mL)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6 sumUnitTotals'>
+								0 g
+							</div>
+							<div class='col-6 sumTHCTotals'>
+								0 mg
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 d-grid '>
+						<button class='btn btn-primary add_cannabisOil' type='button'>
+							<span>Add cannabis oil product</span>
+							<i class="bi bi-droplet-half"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid mr-2'>
+						<button class='btn btn-success set-dosage-limits'>
+							<div class='row align-items-center'>
+								<div class='col-8 text-end'>
+									Dose Limits
+								</div>
+								<div class='col-4 justify-content-start'>
+									<i class="bi bi-flask" style="font-size: 1.5rem;"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
 			</div>
-			<div>
-				<h2> Expected duration of script </h2>
-				<div> inhaled products expected to last </div>
-				<div> per dispense</div><div id="inhaledTHCPerDispenseScriptDuration"></div>
-				<div> total script</div><div id="inhaledTHCTotalScriptDuration"></div>
-				<div> oral products expected to last </div><div id="oralTHCScriptDuration"></div>
+			<div class='row border rounded border-primary my-3' id='cannabisEdiblesTable'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class=' text-center text-md-start my-1'>Edibles for oral use</h3>
+				</div>
+				<div class='col-12'>
+					<div class='row d-none d-xl-flex align-items-center'>
+						<div class='col-5'>
+							Product Name
+						</div>
+						<div class='col-xl-2'>
+							THC strength (mg/unit)
+						</div>
+						<div class='col-xl-1' data-toggle='tooltip' title='Units released per dispense'>
+							Units (#)
+						</div>
+						<div class='col-xl-1'>
+							Repeats(#)
+						</div>
+						<div class='col-xl-1'>
+							THC content (mg)
+						</div>
+						<div class='col-xl-1'></div>
+					</div>
+				</div>
+				<div class='col-12' id='cannabisEdiblesList'>
+				</div>
+				<div class='row mb-3'>
+					<div class='col-12 col-md-6'>
+						<h3 class='text-center text-md-start'>Edibles Total</h3>
+					</div>
+					<div class='col-12 col-md-6'>
+						<div class='row'>
+							<div class='col-6'>
+								Doses (#)
+							</div>
+							<div class='col-6'>
+								THC content (mg)
+							</div>
+							<hr>
+							<div class='col-6 sumUnitTotals'>
+								0
+							</div>
+							<div class='col-6 sumTHCTotals'>
+								0 mg
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='row justify-content-center mb-3'>
+					<div class='col-7 col-md-6 col-lg-4 '>
+						<button class='btn btn-primary add_cannabisEdibles w-100 h-100' type='button'>
+							<span>Add edible product</span>
+							<i class="bi bi-plus-circle"></i>
+						</button>
+					</div>
+					<div class='col-4 col-md-4 col-lg-2 d-grid mr-2'>
+						<button class='btn btn-success set-dosage-limits'>
+							<div class='row align-items-center'>
+								<div class='col-8 text-end'>
+									Dose Limits
+								</div>
+								<div class='col-4 justify-content-start'>
+									<i class="bi bi-flask" style="font-size: 1.5rem;"></i>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
 			</div>
+			<div class='row border border-primary rounded' id='dosageLimitsTable'>
+				<div class='col-12 border-bottom border-primary'>
+					<h3 class='text-center text-md-start'> Dosage Limits and Prescription Date</h3>
+				</div>
+				<div class='col-12 col-md-6'>
+					<form class='row'>
+						<div class='col pt-4'>
+							<div class='form-floating'>
+								<input class='form-control' id='prescriptionDate' type='date' placeholder="prescriptionDate">
+								<label for='prescriptionDate'>Prescription Date </label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class='col-6 d-none d-md-flex'></div>
+
+				<div class='col-12 col-md-6 pb-3'>
+					<div class='row'>
+						<div class='col-12'>
+							<h4 class='text-center'>Inhaled</h4>
+						</div>
+						<div class='col-12'>
+							<hr>
+						</div>
+					</div>
+					<div class="row fw-bold border-bottom pb-2 mb-3">
+       					 <div class="col-4">Average</div>
+      					 <div class="col-4">Maximum</div>
+     					 <div class="col-4"></div>
+ 					</div>
+
+				    <div class="row align-items-center">
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="avgInhaledTHC" placeholder="mg/day" value='150'>
+				                <label for="avgInhaledTHC">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="maxInhaledTHC" placeholder="mg/day" value='300'>
+				                <label for="maxInhaledTHC">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="row g-1">
+				                <div class="col-6"><div class="setMaxInhaledTHC btn btn-sm btn-success w-100">100</div></div>
+				                <div class="col-6"><div class="setMaxInhaledTHC btn btn-sm btn-success w-100">200</div></div>
+				                <div class="col-6"><div class="setMaxInhaledTHC btn btn-sm btn-warning w-100">285</div></div>
+				                <div class="col-6"><div class="setMaxInhaledTHC btn btn-sm btn-warning w-100">300</div></div>
+				                <div class="col-6"><div class="setMaxInhaledTHC btn btn-sm btn-danger w-100">400</div></div>
+				                <div class="col-6"><div class="setMaxInhaledTHC btn btn-sm btn-danger w-100">500</div></div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class='col-12 col-md-6'>
+					<div class='row'>
+						<div class='col-12'>
+							<h4 class='text-center'>Oral</h4>
+						</div>
+						<div class='col-12'>
+							<hr>
+						</div>
+					</div>
+					<div class="row fw-bold border-bottom pb-2 mb-3">
+       					 <div class="col-4">Average</div>
+      					 <div class="col-4">Maximum</div>
+     					 <div class="col-4"></div>
+ 					</div>
+
+				    <div class="row align-items-center">
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="avgOralTHC" placeholder="mg/day" value='10'>
+				                <label for="avgOralTHC">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="form-floating">
+				                <input type="number" class="form-control" id="maxOralTHC" placeholder="mg/day" value='30'>
+				                <label for="maxOralTHC">mg/day</label>
+				            </div>
+				        </div>
+
+				        <div class="col-4">
+				            <div class="row g-1">
+				                <div class="col-6"><div class="setMaxOralTHC btn btn-md btn-success w-100">10</div></div>
+				                <div class="col-6"><div class="setMaxOralTHC btn btn-md btn-success w-100">20</div></div>
+				                <div class="col-6"><div class="setMaxOralTHC btn btn-md btn-warning w-100">30</div></div>
+				                <div class="col-6"><div class="setMaxOralTHC btn btn-md btn-danger w-100">40</div></div>
+
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<div class='col-12'>
+					<div class='row justify-content-center mt-3 mb-3'>
+						<div class='col-10 col-md-8 col-lg-6'>
+							<button class='btn btn-success w-100' id='prescriptions-summary'>
+								<span>Script Intervals and Summary</span>
+								<i class="bi bi-prescription" style='font-size: 2rem;'></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='row border border-primary rounded my-3'>
+				<div class='col-12 border-bottom border-primary text-center text-md-start'>
+					<h3> Summary and Interval calculation </h3>
+				</div>
+				<div class='col-12'>
+					<p id='summary'>
+						Summary lives here.its a good place to be
+					</p>
+
+				</div>
+			</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script>
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+			var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+ 				return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+		</script>
+		<script src='js/data_scriptTemplates.js'></script>
+		<script src='js/data_scriptDataTypes.js'></script>
+		<script src='js/functions.js'></script>
+		<script src='js/functions_drug-calculations.js'></script>
+		<script src='js/functions_screenUpdate.js'></script>
+		<script src='js/init.js'></script>
+		<script src="js/init_DOM-addEventListeners.js"></script>
+
 	</body>
+
 	<footer>
-		<script src="js/functions.js"></script>
-		<script src="js/init.js"></script>
+
 	</footer>
 </html>
