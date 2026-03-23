@@ -6,24 +6,28 @@ const scriptTypesAndMeta =
 		'displayName': 'Cannabis Dry Herb',
 		'S8drugs': ['Tetrahydrocannabinol'],
 		'administrationMethod': 'inhalation',
+		'strengthUnit': '%',
 	},
 	'cannabisVapeCartridge': 
 	{
 		'displayName': 'Cannabis Vape Cartridge',
 		'S8drugs': ['Tetrahydrocannabinol'],
 		'administrationMethod': 'inhalation',
+		'strengthUnit': 'mg/cart',
 	},
 	'cannabisOil': 
 	{
 		'displayName': 'Cannabis Oil',
 		'S8drugs': ['Tetrahydrocannabinol'],
 		'administrationMethod': 'oral',
+		'strengthUnit': 'mg/mL',
 	},
 	'cannabisEdibles': 
 	{
 		'displayName': 'Cannabis Edibles',
 		'S8drugs': ['Tetrahydrocannabinol'],
 		'administrationMethod': 'oral',
+		'strengthUnit': 'mg/dose',
 	},
 }
 

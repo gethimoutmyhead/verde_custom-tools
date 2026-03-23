@@ -50,3 +50,6 @@ Object.keys(scriptTypesAndMeta).forEach(scriptType =>
 		})
 	})
 
+document.getElementById('prescriptions-summary').addEventListener('click', () => {
+	updatePrescriptionSummary()
+})

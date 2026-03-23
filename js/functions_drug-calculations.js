@@ -53,7 +53,7 @@ function dict_readAndsumTHCContentInScript(formElem_script){
 	key.forEach((elem, idx) => {
 		scriptDetails[elem] = det[idx]
 	});
-	scriptDetails['unitQty'] = formElem_script.querySelector('.unitQty') ? formElem_script.querySelector('.unitQty').value : 1;
+	scriptDetails['unitQty'] = formElem_script.querySelector('.unitQty') ? Number(formElem_script.querySelector('.unitQty').value) : 1;
 	scriptDetails['sumQty'] = scriptDetails['unitsPerDispense'] * scriptDetails['unitQty'] * ((scriptDetails['repeats']) + 1)
 	scriptDetails['sumTHCTotal'] = scriptDetails['sumQty'] * scriptDetails['strength'] * eval(scriptDetails['THCConversionFactor'])
 	return (scriptDetails)
@@ -76,14 +76,22 @@ function dictList_readAggregatePrescriptionData(){
 
 function dictList_readDrugDoseRange(){
 	const doseRange = {}
+	averageInhaled = Math.min(Number(document.getElementById('avgInhaledTHC').value), Number(document.getElementById('maxInhaledTHC').value))
+	maximumInhaled = Math.max(Number(document.getElementById('avgInhaledTHC').value), Number(document.getElementById('maxInhaledTHC').value))
+
+
 	doseRange['inhaledTHC'] = {}
-	doseRange['inhaledTHC']['average'] = Number(document.getElementById('avgInhaledTHC').value)
-	doseRange['inhaledTHC']['maximum'] = Number(document.getElementById('maxInhaledTHC').value)
+	doseRange['inhaledTHC']['average'] = averageInhaled || 150
+	doseRange['inhaledTHC']['maximum'] = maximumInhaled || 300
 	doseRange['inhaledTHC']['unitMeasure'] = 'mg'
 
+
+	averageOral = Math.min(Number(document.getElementById('avgOralTHC').value), Number(document.getElementById('maxOralTHC').value))
+	maximumOral = Math.max(Number(document.getElementById('avgOralTHC').value), Number(document.getElementById('maxOralTHC').value))
+
 	doseRange['oralTHC'] = {}
-	doseRange['oralTHC']['average'] = Number(document.getElementById('avgOralTHC').value)
-	doseRange['oralTHC']['maximum'] = Number(document.getElementById('maxOralTHC').value)
+	doseRange['oralTHC']['average'] = Number(averageOral) || 10
+	doseRange['oralTHC']['maximum'] = Number(maximumOral) || 40
 	doseRange['oralTHC']['unitMeasure'] = 'mg'
 
 	return doseRange
@@ -123,13 +131,31 @@ async function scriptSummariser(aggregatePrescriptionData, drugDosageRange = dic
 				scriptSummary['inhaledCannabis'][productType]['unitType'] = scriptOfType[0]['unitMeasure']
 				scriptSummary['inhaledCannabis'][productType]['sumQty'] = scriptOfType.reduce((sumQty, script) => sumQty + script['sumQty'], 0)
 				scriptSummary['inhaledCannabis'][productType]['usageNotes'] = ''
-				averageUse = scriptSummary['inhaledCannabis'][productType]['sumQty'] / scriptSummary['inhaledCannabis']['doseRange']['average']['durationOfSupply_days']
+				averageUnitsPerDay = scriptSummary['inhaledCannabis'][productType]['sumQty'] / scriptSummary['inhaledCannabis']['doseRange']['average']['durationOfSupply_days']
+				maximumUnitsPerDay = scriptSummary['inhaledCannabis'][productType]['sumQty'] / scriptSummary['inhaledCannabis']['doseRange']['maximum']['durationOfSupply_days']
+	
 				let usageNotes = ''
-				console.log(productType)
-				usageNotes += `At average use, consumes ${averageUse} ${scriptSummary['inhaledCannabis'][productType]['unitType']} per day of ${scriptTypesAndMeta[productType]['displayName']}\n`.repeat((averageUse >= 1))
-				usageNotes += `At average use, 5 ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(averageUse * 5)}  days \n`.repeat((averageUse < 1 && averageUse > 0.5))
-				usageNotes += `At average use, 1 ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(1 / averageUse)}  days \n`.repeat((averageUse <= 0.5))
+				// console.log(productType)
+
+				usageNotes += `At average ${avgDosage} mg/day of THC, consumes ${averageUnitsPerDay.toPrecision(3)} ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} per day \n`.repeat((averageUnitsPerDay >= 1))
+				unitsForEstimates = 1
+				if ((averageUnitsPerDay > 0.1) && (averageUnitsPerDay < 1)){
+					unitsForEstimates = scriptSummary['inhaledCannabis'][productType]['sumQty'] > 10 ? 10 : Math.min(5, scriptSummary['inhaledCannabis'][productType]['sumQty'])
+				}
+				usageNotes += `At average ${avgDosage} mg/day of THC, ${unitsForEstimates} ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} consumed every ${Math.ceil(unitsForEstimates / averageUnitsPerDay)}  days \n`.repeat(averageUnitsPerDay < 1)
+				// usageNotes += `At average ${scriptSummary['inhaledCannabis']['doseRange']['average']['durationOfSupply_days']} mg/day of THC, 1 ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(1 / averageUnitsPerDay)}  days \n`.repeat((averageUnitsPerDay <= 0.1))
 				scriptSummary['inhaledCannabis'][productType]['usageNotes'] += usageNotes
+
+				usageNotes = ''
+				usageNotes += `At maximum ${maxDosage} mg/day of THC, consumes ${maximumUnitsPerDay.toPrecision(3)} ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} per day \n`.repeat((maximumUnitsPerDay >= 1))
+				unitsForEstimates = 1
+				if ((maximumUnitsPerDay > 0.1) && (maximumUnitsPerDay < 1)){
+					unitsForEstimates = scriptSummary['inhaledCannabis'][productType]['sumQty'] > 10 ? 10 : Math.min(5, scriptSummary['inhaledCannabis'][productType]['sumQty'])
+				}
+				usageNotes += `At maximum ${maxDosage} mg/day of THC, ${unitsForEstimates} ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} consumed every ${Math.ceil(unitsForEstimates / maximumUnitsPerDay)}  days \n`.repeat(maximumUnitsPerDay < 1)
+				// usageNotes += `At average use, 1 ${scriptSummary['inhaledCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(1 / maximumUnitsPerDay)}  days \n`.repeat((maximumUnitsPerDay <= 0.1))
+				scriptSummary['inhaledCannabis'][productType]['usageNotes'] += usageNotes
+
 
 			}
 		})
@@ -166,6 +192,33 @@ async function scriptSummariser(aggregatePrescriptionData, drugDosageRange = dic
 				scriptSummary['oralCannabis'][productType]['scriptList'] = scriptOfType
 				scriptSummary['oralCannabis'][productType]['unitType'] = scriptOfType[0]['unitMeasure']
 				scriptSummary['oralCannabis'][productType]['sumQty'] = scriptOfType.reduce((sumQty, script) => sumQty + script['sumQty'], 0)
+				scriptSummary['oralCannabis'][productType]['usageNotes'] = ''
+				averageUnitsPerDay = scriptSummary['oralCannabis'][productType]['sumQty'] / scriptSummary['oralCannabis']['doseRange']['average']['durationOfSupply_days']
+				maximumUnitsPerDay = scriptSummary['oralCannabis'][productType]['sumQty'] / scriptSummary['oralCannabis']['doseRange']['maximum']['durationOfSupply_days']
+				usageNotes = ''
+				
+				// console.log(productType)
+
+				usageNotes += `At average ${avgDosage} mg/day of THC, consumes ${averageUnitsPerDay.toPrecision(3)} ${scriptSummary['oralCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} per day \n`.repeat((averageUnitsPerDay >= 1))
+				unitsForEstimates = 1
+				if ((averageUnitsPerDay > 0.1) && (averageUnitsPerDay < 1)){
+					unitsForEstimates = scriptSummary['oralCannabis'][productType]['sumQty'] > 10 ? 10 : Math.min(5, scriptSummary['oralCannabis'][productType]['sumQty'])
+				}
+				usageNotes += `At average ${avgDosage} mg/day of THC, ${unitsForEstimates} ${scriptSummary['oralCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} consumed every ${Math.ceil(unitsForEstimates / averageUnitsPerDay)}  days \n`.repeat(averageUnitsPerDay < 1)
+				// usageNotes += `At average use, 1 ${scriptSummary['oralCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(1 / averageUnitsPerDay)}  days \n`.repeat((averageUnitsPerDay <= 0.1))
+				scriptSummary['oralCannabis'][productType]['usageNotes'] += usageNotes
+
+				usageNotes = ''
+				usageNotes += `At maximum ${maxDosage} mg/day of THC, consumes ${maximumUnitsPerDay.toPrecision(3)} ${scriptSummary['oralCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} per day \n`.repeat((maximumUnitsPerDay >= 1))
+				unitsForEstimates = 1
+				if ((maximumUnitsPerDay > 0.1) && (maximumUnitsPerDay < 1)){
+					unitsForEstimates = scriptSummary['oralCannabis'][productType]['sumQty'] > 10 ? 10 : Math.min(5, scriptSummary['oralCannabis'][productType]['sumQty'])
+				}
+				usageNotes += `At maximum ${maxDosage} mg/day of THC, ${unitsForEstimates} ${scriptSummary['oralCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} consumed every ${Math.ceil(unitsForEstimates / maximumUnitsPerDay)}  days \n`.repeat(maximumUnitsPerDay < 1)
+				// usageNotes += `At average use, 1 ${scriptSummary['oralCannabis'][productType]['unitType']} of ${scriptTypesAndMeta[productType]['displayName']} is consumed every ${Math.ceil(1 / maximumUnitsPerDay)}  days \n`.repeat((maximumUnitsPerDay <= 0.1))
+				scriptSummary['oralCannabis'][productType]['usageNotes'] += usageNotes
+				
+
 			}
 		})
 	}
