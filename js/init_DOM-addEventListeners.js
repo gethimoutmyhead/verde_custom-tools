@@ -53,3 +53,47 @@ Object.keys(scriptTypesAndMeta).forEach(scriptType =>
 document.getElementById('prescriptions-summary').addEventListener('click', () => {
 	updatePrescriptionSummary()
 })
+
+
+doseInputIds = ['avgInhaledTHC', 'maxInhaledTHC']
+doseInputIds.forEach(doseInputId => {
+	document.getElementById(doseInputId).addEventListener('input', () => {
+		dose = document.getElementById(doseInputId).value
+		if (Number(dose) > 500){
+			// console.log(`${doseInputId} exceeded 500`)
+			let displayDict = {}
+			displayDict['tagName'] = 'div'
+			displayDict['attributes'] = {'class': 'row'}
+			displayDict['childNodes'] = []
+			displayDict['childNodes'].push({})
+			displayDict['childNodes'][0]['tagName'] = 'div'
+			displayDict['childNodes'][0]['attributes'] = {'class': 'col justify-content-center'}
+			displayDict['childNodes'][0]['childNodes'] = []
+			displayDict['childNodes'][0]['childNodes'].push({})
+			displayDict['childNodes'][0]['childNodes'].push({})
+			displayDict['childNodes'][0]['childNodes'][0]['tagName'] = 'img'
+			displayDict['childNodes'][0]['childNodes'][0]['attributes'] = 
+			{
+				'src': 'https://i.kym-cdn.com/entries/icons/original/000/027/666/crow_of_judgement.jpg',
+				'style': 'max-height: 100%; max-width: 100%; object-fit: container;',
+			}
+			displayDict['childNodes'][0]['childNodes'][1]['tagName'] = 'p'
+			displayDict['childNodes'][0]['childNodes'][1]['properties'] = 
+			{
+				'innerText': `${doseInputId} value ${dose} exceeded 500mg/day`
+			}
+			displayDict['childNodes'][0]['childNodes'][1]['attributes'] = 
+			{
+				'class': 'text-center',
+			}
+			
+			
+			clearDOMContents(document.getElementById('modal_crowOfJudgment').querySelector('.modal-body'))
+			document.getElementById('modal_crowOfJudgment').querySelector('.modal-body').appendChild(makeNewDOMElementFromDict_DOMElem(displayDict))
+			// document.getElementById('modal_crowOfJudgment').modal()
+			let myModal = new bootstrap.Modal(document.getElementById('modal_crowOfJudgment'), {});
+			myModal.show();
+		}
+	})
+	
+})
