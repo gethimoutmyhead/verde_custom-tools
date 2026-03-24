@@ -12,6 +12,9 @@ aim: track how long a patient's script should last, and when to schedule their r
 ## Version history
 
 ### Dev Fork
+2026-03-24
+* added a modal if average or max doses exceed a certain limit
+
 2026-03-23
 * added repeat interval and executive summary calculator
 
