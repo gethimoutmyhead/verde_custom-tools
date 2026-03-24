@@ -55,11 +55,16 @@ document.getElementById('prescriptions-summary').addEventListener('click', () =>
 })
 
 
-doseInputIds = ['avgInhaledTHC', 'maxInhaledTHC']
+doseInputIds = [
+	{'id': 'avgInhaledTHC', 'maxDose': 500}, 
+	{'id': 'maxInhaledTHC', 'maxDose': 500},
+	{'id': 'avgOralTHC', 'maxDose': 40},
+	{'id': 'maxOralTHC', 'maxDose': 40}
+]
 doseInputIds.forEach(doseInputId => {
-	document.getElementById(doseInputId).addEventListener('input', () => {
-		dose = document.getElementById(doseInputId).value
-		if (Number(dose) > 500){
+	document.getElementById(doseInputId['id']).addEventListener('input', () => {
+		dose = document.getElementById(doseInputId['id']).value
+		if (Number(dose) > doseInputId['maxDose']){
 			// console.log(`${doseInputId} exceeded 500`)
 			let displayDict = {}
 			displayDict['tagName'] = 'div'
@@ -80,7 +85,7 @@ doseInputIds.forEach(doseInputId => {
 			displayDict['childNodes'][0]['childNodes'][1]['tagName'] = 'p'
 			displayDict['childNodes'][0]['childNodes'][1]['properties'] = 
 			{
-				'innerText': `${doseInputId} value ${dose} exceeded 500mg/day`
+				'innerText': `${doseInputId['id']} value ${dose} exceeds ${doseInputId['maxDose']}mg/day`
 			}
 			displayDict['childNodes'][0]['childNodes'][1]['attributes'] = 
 			{
