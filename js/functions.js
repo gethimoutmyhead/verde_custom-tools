@@ -172,6 +172,12 @@ async function writeStringToClipboard_promise(functionArguments_dict){
 
 function makeNewDOMElementFromDict_DOMElem(DOMElem_dict){
 		const elemVar = DOMElem_dict;
+
+		if (typeof elemVar === 'string' || elemVar instanceof String){
+			return document.createTextNode(elemVar)
+		}
+
+
 		const newElem = document.createElement(elemVar['tagName']);
 		if (elemVar['properties']){
 			Object.keys(elemVar['properties']).forEach(property => {
@@ -272,3 +278,19 @@ function object_deepReplaceStringValues(data, searchFor, replaceWith) {
   // Return primitives (numbers, booleans, etc.) as-is
   return data;
 }
+
+function breakByComma(DOMElem){
+	text = DOMElem.innerText
+	textSplitByComma = text.split(',')
+	textSplit = Array.from(textSplitByComma.map(text => text + ","))
+	textSplit[textSplit.length - 1] = textSplit.at(-1).substring(0, textSplit.at(-1).length - 1)
+	DOMElem.innerText=''
+	textSplit.map(textSegment => {
+		j = document.createElement('span')
+		j.setAttribute('style','white-space:nowrap')
+		j.innerText = textSegment
+		DOMElem.appendChild(j)
+		DOMElem.appendChild(document.createTextNode('\n'))
+	})
+}
+document.querySelectorAll('.breakByComma').forEach(elem => breakByComma(elem))

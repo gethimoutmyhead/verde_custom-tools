@@ -24,6 +24,30 @@ function updateCalculationsInTable(tableName){
 
 }
 
+function v3_updateCalculationsInTable(tableName){
+	const tableDOM = document.getElementById(tableName)
+	const arrayOfScriptDOMs = [...tableDOM.querySelectorAll('.scriptForm')]
+		// arrayOfScriptObjects = arrayOfScriptDOMs.map(dict_readAndsumTHCContentInScript)
+
+		// const THCSums = arrayOfScriptObjects.reduce((sumTHC, scriptObject) => scriptObject['sumTHCTotal'] + sumTHC, 0,)
+		// const sumTotalQty = arrayOfScriptObjects.reduce((sumQty, scriptObject) => scriptObject['sumQty'] + sumQty, 0,)
+	tableSums = dict_sumScriptsInTable(tableName)
+
+	tableDOM.querySelector('.sumUnitTotals').innerText = `${tableSums['sumTotalQty']} ${tableSums['unitMeasure']}`
+	tableDOM.querySelector('.sumTHCTotals').innerText = `${tableSums['THCSums']} mg`
+
+	arrayOfScriptDOMs.forEach((scriptDOM, idx) => {
+		scriptSums = dict_readAndsumTHCContentInScript(scriptDOM)
+		scriptDOM.querySelector('.unitQtyTotal').innerHTML = `${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`
+		scriptDOM.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
+	})
+		// updateTHCContentInScript(scriptDOM))
+	// arrayOfScriptDOMs.forEach((scriptDOM, idx) => scriptDOM.querySelector('.unitQtyTotal').innerHTML = `${tableSums['sumTotalQty'][idx]} ${tableSums[idx]['unitMeasure']}`)
+		// arrayOfScriptDOMs.forEach( (scriptDOM, idx) => {
+		// 	updateTHCContentInScript(scriptDOM, tableDOM['scriptObjectArray'])
+		// })
+}
+
 function updatePrescriptionSummary(){
 	summaryDOM = document.getElementById('summary')
 	clearDOMContents(summaryDOM)

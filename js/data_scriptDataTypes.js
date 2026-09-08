@@ -29,6 +29,13 @@ const scriptTypesAndMeta =
 		'administrationMethod': 'oral',
 		'strengthUnit': 'mg/dose',
 	},
+	'oregano':
+	{
+		'displayName': 'Oregano Dry Herb',
+		'S8drugs': [],
+		'administrationMethod': 'oral',
+		'strengthUnit': 'mg/g'
+	}
 }
 
 const productTypesWithTHC = Object.keys(scriptTypesAndMeta).filter(scriptType => {
@@ -42,3 +49,27 @@ const inhaledTHCProductTypes = productTypesWithTHC.filter(productType => {
 const oralTHCProductTypes = productTypesWithTHC.filter(productType => {
 	return (scriptTypesAndMeta[productType]['administrationMethod'] == 'oral')
 })
+
+const productTypeGroups = {
+	'inhaledTHC': {
+		'scriptTypes': Object.keys(scriptTypesAndMeta).filter(scriptType =>
+		{
+			checks = []
+			checks.push(scriptTypesAndMeta[scriptType]['S8drugs'].includes('Tetrahydrocannabinol'))
+			checks.push(scriptTypesAndMeta[scriptType]['administrationMethod'] == 'inhalation')
+			return !checks.includes(false)
+		}),
+		'doseSettingsSelector': '#inhaledTHCDoseSettings'
+	},
+	'oralTHC': {
+		'scriptTypes': Object.keys(scriptTypesAndMeta).filter(scriptType =>
+		{
+			checks = []
+			checks.push(scriptTypesAndMeta[scriptType]['S8drugs'].includes('Tetrahydrocannabinol'))
+			checks.push(scriptTypesAndMeta[scriptType]['administrationMethod'] == 'oral')
+			return !checks.includes(false)
+		}),
+		'doseSettingsSelector': '#oralTHCDoseSettings'
+	}
+
+}

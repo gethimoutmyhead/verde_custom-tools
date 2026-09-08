@@ -10,6 +10,11 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 
 ## Version history
+### V3 Fork
+2026-09-08
+* whole new interface again
+* live calculation of repeat intervals
+* need to add buttons to add more scripts
 
 ### Dev Fork
 2026-03-24

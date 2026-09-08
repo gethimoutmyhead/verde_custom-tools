@@ -224,3 +224,25 @@ async function scriptSummariser(aggregatePrescriptionData, drugDosageRange = dic
 	}
 	return scriptSummary
 }
+
+
+function calculateTHCRepeatIntervals(listOfDOMElems_scriptList, max_daily_dosage){
+	
+	// scriptList = document.querySelectorAll('.scriptForm')
+	// filteredScriptList = scriptList.filter(script => {
+	// 	productType.includes(script.getAttribute('productType'))
+	// })
+	const scriptList = listOfDOMElems_scriptList
+	calculatedContent = scriptList.map(dict_readAndsumTHCContentInScript)
+	totalTHC = calculatedContent.reduce((sumTHC, script) => {
+		return sumTHC + script['sumTHCTotal']
+	}, 0)
+	durationToLast = Math.ceil(totalTHC / max_daily_dosage)
+	repeatIntervals = scriptList.map(script => {
+		dispenses = parseInt(script.querySelector('.repeats').value) + 1
+		repeatInterval = (dispenses > 1) ? Math.ceil(durationToLast / (dispenses)) : undefined
+		summary = (dispenses > 1) ? `${dispenses} dispenses over ${durationToLast} days` : 'no repeats'
+		return {'repeatInterval': repeatInterval, 'summary': summary}
+	})
+	return Array.from(repeatIntervals)
+}
