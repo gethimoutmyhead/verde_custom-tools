@@ -32,7 +32,7 @@ function updateScriptCalculations(scriptType){
 	j = document.querySelector(productTypeGroups[matchedGroups[0]]['doseSettingsSelector'])
 	console.log(j)
 	maxDose= j.querySelector('input.maxDose.dosePerDay').value
-
+	console.log(maxDose)
 	updateRepeatIntervals(matchedProductTypes, maxDose)
 
 }

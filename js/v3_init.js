@@ -1,6 +1,6 @@
 document.getElementById('prescriptionDate').valueAsDate = new Date();
 
-['cannabisDryHerb', 'cannabisVapeCartridge'].forEach(scriptType => {
+['cannabisDryHerb', 'cannabisVapeCartridge', 'cannabisOil', 'cannabisEdibles'].forEach(scriptType => {
 	tableId = `${scriptType}Table`
 	document.getElementById(tableId).addEventListener('input', () => {
 		updateScriptCalculations(scriptType)
@@ -10,7 +10,10 @@ document.getElementById('prescriptionDate').valueAsDate = new Date();
 document.getElementById('inhaledTHCDoseSettings').addEventListener('input', () => {
 	updateScriptCalculations('cannabisDryHerb')
 })
-z=['cannabisDryHerb', 'cannabisVapeCartridge']
+document.getElementById('oralTHCDoseSettings').addEventListener('input', () => {
+	updateScriptCalculations('cannabisOil')
+})
+z=['cannabisDryHerb', 'cannabisVapeCartridge', 'cannabisOil', 'cannabisEdibles']
 z.forEach(scriptType => {
 	updateScriptCalculations(scriptType)
 })
