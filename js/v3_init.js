@@ -17,6 +17,11 @@ z=['cannabisDryHerb', 'cannabisVapeCartridge', 'cannabisOil', 'cannabisEdibles']
 z.forEach(scriptType => {
 	updateScriptCalculations(scriptType)
 })
+z=['cannabisDryHerb', 'cannabisVapeCartridge', 'cannabisOil', 'cannabisEdibles']
+z.forEach(scriptType => {
+	scriptDOM = makeNewDOMElementFromDict_DOMElem(dict_scriptFormTemplates[scriptType])
+	document.querySelector(`#${scriptType}Table tbody`).appendChild(scriptDOM)
+})
 // scriptTableIds = Object.keys(scriptTypesAndMeta).map(script => script.concat('Table'))
 // scriptTableIds.forEach(updateCalculationsInTable)
 
