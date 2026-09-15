@@ -28,7 +28,7 @@
 			<div class='row' id='inhaledTHCDoseSettings'>
 				<p class='inhaledTHC'>
 					<span class='nowrap'>
-						Average inhaled THC dosage
+						Average inhaled THC daily dosage
 						<input class='plainInput avgDose dosePerDay'>
 						mg
 					</span>
@@ -37,7 +37,7 @@
 				</p>
 				<p>
 					<span class='nowrap'>
-						Max inhaled THC dosage
+						Max inhaled THC daily dosage
 						<input type='value' class='plainInput maxDose dosePerDay' value=300>
 						mg
 					</span>
@@ -48,138 +48,99 @@
 			
 		</div>
 
-
-		<div>
-			<table class='striped' id='cannabisDryHerbTable'>
-				<thead>
-					<tr>
-						<th style='width: 70%'> Dry herb prescription</th>
-						<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
-						<th style='width: 10%'> Weight </th>
-						<th style='width: 10%'> THC content </th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class='scriptForm'producttype='cannabisDryHerb' thcconversionFactor='10' unitMeasure='g'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'>%THC, </span>
-									<span class='nowrap'><input class='plainInput unitQty'>g, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
-					<tr class='scriptForm'producttype='cannabisDryHerb' thcconversionFactor='10' unitMeasure='g'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'>%THC, </span>
-									<span class='nowrap'><input class='plainInput unitQty'>g, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td> Script Totals </td>
-						<td></td>
-						<td class='sumUnitTotals'></td>
-						<td class='sumTHCTotals'></td>
-					</tr>
-				</tfoot>
-			</table>
-			<table class='striped' id='cannabisVapeCartridgeTable'>
-				<thead>
-					<tr>
-						<th style='width: 70%'> Cannabinoid Vape Cartridge Prescription</th>
-						<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
-						<th style='width: 10%'> Quantity </th>
-						<th style='width: 10%'> THC content </th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class='scriptForm'producttype='cannabisVapeCartridge' thcconversionFactor='1' unitMeasure='vials'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'> mg/vial THC, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
-					<tr class='scriptForm'producttype='cannabisVapeCartridge' thcconversionFactor='1' unitMeasure='vials'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'> mg/vial THC, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td> Script Totals </td>
-						<td></td>
-						<td class='sumUnitTotals'></td>
-						<td class='sumTHCTotals'></td>
-					</tr>
-				</tfoot>
-			</table>
-			<div class='row'>
-				<p>
-					First dispense on <input id='prescriptionDate2' class='plainInput' type='date'>
-				</p>
-			</div>
-			<div class='row' id='oralTHCDoseSettings'>
-				<p class='oralTHC'>
-					<span class='nowrap'>
-						Average inhaled THC dosage
-						<input class='plainInput avgDose dosePerDay'>
-						mg
-					</span>
-					<span class='nowrap avgScriptDuration'>
-					</span>
-				</p>
-				<p>
-					<span class='nowrap'>
-						Max inhaled THC dosage
-						<input type='value' class='plainInput maxDose dosePerDay' value=300>
-						mg
-					</span>
-					<span class='nowrap maxScriptDuration'>
-					</span>
-				</p>
-			</div>
-			
+		<div class='row'>
+				<div class='col-md-none col-lg-1'>
+				</div>
+				<div class='col-md-12 col-lg-10'>
+					<table id='cannabisDryHerbTable' class='mb-1'>
+						<thead>
+							<tr>
+								<th style='width: 70%'> Dry herb prescription</th>
+								<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
+								<th style='width: 10%'> Weight </th>
+								<th style='width: 10%'> THC content </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr></tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan=4 class='align-items-center'>
+									<button class='btn btn-primary add_cannabisDryHerb' type='button'>
+										<span>Add dry herb</span>
+										<i class="bi bi-leaf"></i>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td> Script Totals </td>
+								<td></td>
+								<td class='sumUnitTotals'></td>
+								<td class='sumTHCTotals'></td>
+							</tr>
+						</tfoot>
+					</table>
+					<table id='cannabisVapeCartridgeTable'>
+						<thead>
+							<tr>
+								<th style='width: 70%'> Cannabinoid Vape Cartridge Prescription</th>
+								<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
+								<th style='width: 10%'> Quantity </th>
+								<th style='width: 10%'> THC content </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr></tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>
+									<button class='btn btn-primary add_cannabisVapeCartridge' type='button'>
+										<span>Add cartridge</span>
+										<i class="bi bi-cloud-fog2"></i>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td> Script Totals </td>
+								<td></td>
+								<td class='sumUnitTotals'></td>
+								<td class='sumTHCTotals'></td>
+							</tr>
+						</tfoot>
+					</table>
+					<div class='row'>
+						<p>
+							First dispense on <input id='prescriptionDate2' class='plainInput' type='date'>
+						</p>
+					</div>
+					<div class='row' id='oralTHCDoseSettings'>
+						<p class='oralTHC'>
+							<span class='nowrap'>
+								Average oral THC daily dosage
+								<input class='plainInput avgDose dosePerDay'>
+								mg
+							</span>
+							<span class='nowrap avgScriptDuration'>
+							</span>
+						</p>
+						<p>
+							<span class='nowrap'>
+								Max oral THC daily dosage
+								<input type='value' class='plainInput maxDose dosePerDay' value=40>
+								mg
+							</span>
+							<span class='nowrap maxScriptDuration'>
+							</span>
+						</p>
+					</div>
+					
+				</div>
+				<div class='col-md-none col-lg-1'>
+				</div>
 		</div>
-			<table class='striped' id='cannabisOilTable'>
+			<table id='cannabisOilTable' class='mb-1'>
 				<thead>
 					<tr>
 						<th style='width: 70%'> Cannabis Oil</th>
@@ -189,40 +150,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class='scriptForm'producttype='cannabisOil' thcconversionFactor='1' unitMeasure='mL'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'>mg/mL THC, </span>
-									<span class='nowrap'><input class='plainInput unitQty'>mL, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
-					<tr class='scriptForm'producttype='cannabisOil' thcconversionFactor='1' unitMeasure='mL'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'>mg/mL THC, </span>
-									<span class='nowrap'><input class='plainInput unitQty'>mL, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
+					<tr></tr>
 				</tbody>
 				<tfoot>
+					<tr>
+						<td colspan=4>
+							<button class='btn btn-primary add_cannabisOil' class='align-items-center' type='button'>
+							<span>Add cannabis oil product</span>
+							<i class="bi bi-droplet-half"></i>
+							</button>
+						</td>
+					</tr>
 					<tr>
 						<td> Script Totals </td>
 						<td></td>
@@ -231,7 +169,7 @@
 					</tr>
 				</tfoot>
 			</table>
-			<table class='striped' id='cannabisEdiblesTable'>
+			<table id='cannabisEdiblesTable'>
 				<thead>
 					<tr>
 						<th style='width: 70%'> Cannabinoid edibles</th>
@@ -241,38 +179,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class='scriptForm'producttype='cannabisEdibles' thcconversionFactor='1' unitMeasure='doses'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'> mg/dose THC, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
-					<tr class='scriptForm'producttype='cannabisEdibles' thcconversionFactor='1' unitMeasure='doses'>
-						<td>
-							<form >
-								<p>
-									<input class='plainInput productName' type='text'>,						
-									<span class='nowrap'><input class='plainInput strength'> mg/vial THC, </span>
-									<span class='nowrap'>qty <input class='plainInput unitsPerDispense' type='value' value='1'>, </span>
-									<span class='nowrap'> with <input class='plainInput repeats' type='value' value='0'>repeats </span>
-								</p>
-							</form>
-						</td>
-						<td class='repeatInterval'></td>
-						<td class='unitQtyTotal'></td>
-						<td class='THCTotal'></td>
-					</tr>
+					<tr></tr>
 				</tbody>
 				<tfoot>
+					<tr>
+						<td>
+							<button class='btn btn-primary add_cannabisEdibles' type='button'>
+								<span>Add edible product</span>
+								<i class="bi bi-plus-circle"></i>
+							</button>
+						</td>
+					</tr>
 					<tr>
 						<td> Script Totals </td>
 						<td></td>

@@ -8,9 +8,16 @@ An online calculator that works out
 
 aim: track how long a patient's script should last, and when to schedule their repeat interval
 
+## To-do
+* add tooltip information
+* add auto-complete drug formulary
+* https://starlog.is/articles/developer-tools/words-metaphone use metaphone for drug match
+* re-size product names
 
 ## Version history
 ### V3 Fork
+2026-09-11
+* added form templates
 2026-09-08
 * whole new interface again
 * live calculation of repeat intervals

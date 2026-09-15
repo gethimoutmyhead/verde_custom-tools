@@ -57,7 +57,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                       },
                       "childNodes": []
                     },
-                    '% THC',
+                    '% THC,',
                   ]
                 },
                 {
@@ -67,7 +67,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                   },
                   "properties": null,
                   "childNodes": [
-                    ',',
+                    ' ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -79,7 +79,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                       "childNodes": [
                       ]
                     },
-                    'g, ',
+                    'g,',
                   ]
                 },
                 {
@@ -89,7 +89,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                   },
                   "properties": null,
                   "childNodes": [
-                    'qty', 
+                    ' qty', 
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -102,7 +102,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                       },
                       "childNodes": []
                     },
-                    ', ',
+                    ',',
                   ]
                 },
                 {
@@ -112,7 +112,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                   },
                   "properties": null,
                   "childNodes": [
-                    'with ',
+                    ' with ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -125,7 +125,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                       },
                       "childNodes": []
                     },
-                    'dispenses',
+                    ' repeats',
                   ]
                 }
               ]
@@ -202,7 +202,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                   },
                   "childNodes": []
                 },
-                ', ',
+                ',',
                 {
                   "tagName": "SPAN",
                   "attributes": {
@@ -210,6 +210,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                   },
                   "properties": null,
                   "childNodes": [
+                    ' ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -220,7 +221,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                       },
                       "childNodes": []
                     },
-                    'mg/vial, '
+                    'mg/vial,'
                   ]
                 },
                 {
@@ -230,7 +231,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                   },
                   "properties": null,
                   "childNodes": [
-                    'qty ,',
+                    ' qty ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -242,7 +243,8 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                         "innerText": ""
                       },
                       "childNodes": []
-                    }
+                    },
+                    ',',
                   ]
                 },
                 {
@@ -252,7 +254,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                   },
                   "properties": null,
                   "childNodes": [
-                    'with ',
+                    ' with ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -264,7 +266,8 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                         "innerText": ""
                       },
                       "childNodes": []
-                    }
+                    },
+                    ' repeats'
                   ]
                 }
               ]
@@ -336,7 +339,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   },
                   "childNodes": []
                 },
-                ', ',
+                ',',
                 {
                   "tagName": "SPAN",
                   "attributes": {
@@ -344,6 +347,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   },
                   "properties": null,
                   "childNodes": [
+                    ' ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -364,6 +368,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   },
                   "properties": null,
                   "childNodes": [
+                    ' ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -374,7 +379,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                       },
                       "childNodes": []
                     },
-                    'mL, ',
+                    'mL,',
                   ]
                 },
                 {
@@ -384,7 +389,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   },
                   "properties": null,
                   "childNodes": [
-                    'qty ',
+                    ' qty ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -397,7 +402,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                       },
                       "childNodes": []
                     },
-                    ', ',
+                    ',',
                   ]
                 },
                 {
@@ -407,7 +412,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   },
                   "properties": null,
                   "childNodes": [
-                    'with ',
+                    ' with ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -494,7 +499,7 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                   },
                   "childNodes": []
                 },
-                ', ',
+                ',',
                 {
                   "tagName": "SPAN",
                   "attributes": {
@@ -502,6 +507,7 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                   },
                   "properties": null,
                   "childNodes": [
+                    ' ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -512,17 +518,17 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                       },
                       "childNodes": []
                     },
-                    ' mg THC/dose, ',
+                    ' mg THC/dose,',
                   ]
                 },
                 {
                   "tagName": "SPAN",
-                  "attributes": {
+                   "attributes": {
                     "class": "nowrap"
                   },
                   "properties": null,
                   "childNodes": [
-                    'qty ',
+                    ' qty ',
                     {
                       "tagName": "INPUT",
                       "attributes": {
@@ -534,7 +540,8 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                         "innerText": ""
                       },
                       "childNodes": []
-                    }
+                    },
+                    ',',
                   ]
                 },
                 {
@@ -544,7 +551,7 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                   },
                   "properties": null,
                   "childNodes": [
-                    'with ',
+                    ' with ',
                     {
                       "tagName": "INPUT",
                       "attributes": {

@@ -1,8 +1,25 @@
 body {
 	font-family: "Times New Roman";
 }
-tr th{
+thead tr th{
+	background-color: DFDFDF;
+	border-bottom: solid 1px;
+	border-bottom-color: A0A0A0;
+}
+thead tr th:nth-of-type(1){
+	border-radius: 15px 0px 0px 0px;
+
+}
+
+thead tr th:nth-last-of-type(1){
+	border-radius: 0px 15px 0px 0px;
+
+}
+
+thead tr th{
 	text-align: center;
+/*	border: none;
+	border: solid 5px;*/
 }
 td {
 	text-align: center;
@@ -13,11 +30,32 @@ td form.scriptForm {
 	overflow-wrap: break-word;
 }
 
+tr.scriptForm td{
+	border-bottom: solid 1px;
+	border-bottom-color: DFDFDF;
+}
+tr.scriptForm td:nth-of-type(1){
+	border-left: solid 1px;
+	border-color: DFDFDF;
+}
+tr.scriptForm td:nth-last-of-type(1){
+	border-right: solid 1px;
+	border-color: DFDFDF;
+}
+tr.scriptForm:focus-within {
+	background-color: F0F0F0;
+	border-bottom: solid 2px;
+	border-bottom-color: 9F9F9F;
+}
 tfoot tr td:0{
 	text-align: start;
 }
-tfoot tr{
-	background-color: C0C0C0;
+tfoot tr:nth-of-type(2) td{
+	background-color: D0D0D0;
+}
+tfoot {
+	border-bottom: solid 1px;
+	border-bottom-color: black;
 }
 .nowrap{
 	white-space: nowrap;
@@ -44,6 +82,6 @@ input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dose
 	min-width: 3ch;
 	text-align: center;
 }
-.striped tbody tr:nth-child(odd){
+/*.striped tbody tr:nth-child(odd){
 	background-color: #D0D0D0;
-}
+}*/
