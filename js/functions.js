@@ -294,3 +294,13 @@ function breakByComma(DOMElem){
 	})
 }
 document.querySelectorAll('.breakByComma').forEach(elem => breakByComma(elem))
+
+function flashDOMElem(el){
+	const original = el.style.backgroundColor;
+	el.style.transition = 'none';
+	el.style.backgroundColor = '#fff3a0'; // highlight colour
+	void el.offsetWidth; // force reflow so the fade starts from the highlight
+	el.style.transition = 'background-color 500ms ease-out';
+	el.style.backgroundColor = original || '';
+	setTimeout(() => { el.style.transition = ''; }, 520);
+};

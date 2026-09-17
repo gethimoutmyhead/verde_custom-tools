@@ -16,6 +16,12 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ## Version history
 ### V3 Fork
+2026-09-18
+* better looking tables
+* animation on updated columns
+* calculation duration of script
+* auto-calc repeats
+
 2026-09-11
 * added form templates
 2026-09-08

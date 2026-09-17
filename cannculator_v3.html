@@ -1,8 +1,10 @@
 <html>
 	<head>
 
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<!-- 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"> -->
+			<link rel='stylesheet' href="css/bootstrap.min.css">
+			<link rel='stylesheet' href='css/bootstrap-icons.min.css'>
 		<link rel='stylesheet' href='css/style.css'>
 	</head>
 	<header>
@@ -25,182 +27,220 @@
 			</div>
 
 
-		<div class='row'>
+			<div class='row'>
 				<div class='col-md-none col-lg-1'>
 				</div>
 				<div class='col-md-12 col-lg-10'>
-					<p>
-						First dispense on <input id='prescriptionDate' class='plainInput' type='date'>
-					</p>
-					<div id='inhaledTHCDoseSettings'>
-						<p class='inhaledTHC'>
-							<span class='nowrap'>
-								Average inhaled THC daily dosage
-								<input class='plainInput avgDose dosePerDay'>
-								mg
-							</span>
-							<span class='nowrap' id='avgInhaledTHCScriptDuration'>
-							</span>
-						</p>
-						<p>
-							<span class='nowrap'>
-								Max inhaled THC daily dosage
-								<input type='value' class='plainInput maxDose dosePerDay' value=300>
-								mg
-							</span>
-							<span class='nowrap' id='maxInhaledTHCScriptDuration'>
-							</span>
-						</p>
-					</div>
-			
+					<div class='row mb-1' id='inhaledTHCDoseSettings'>
+						<div class='col-12'>
+							<h4>THC by inhalation</h4>
+						</div>
+						<div class='col-4'>
+							<div>
+								First dispense on <input class='prescriptionDate plainInput' type='date'>
+							</div>
+						</div>
+						<div class='col-4'>
+							<p>
+								<span class='nowrap'>
+									Average 
+									<input class='plainInput avgDose dosePerDay' value=150>
+									mg/day THC 				
+								</span>
+								<span class='nowrap avgScriptDuration'>
+								</span>
+							</p>
+						</div>
+						<div class='col-4'>
+							<p>
+								<span class='nowrap'>
+									Max 
+									<input type='value' class='plainInput maxDose dosePerDay' value=300>
+									mg/day THC
+								</span>
+								<span class='nowrap maxScriptDuration'>
+								</span>
+							</p>
+						</div>
 
-					<table id='cannabisDryHerbTable' class='mb-1 scriptTable'>
-						<thead>
-							<tr>
-								<th style='width: 70%'> Dry herb prescription</th>
-								<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
-								<th style='width: 10%'> Weight </th>
-								<th style='width: 10%'> THC content </th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr></tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan=4 class='align-items-center'>
-									<button class='btn btn-primary add_cannabisDryHerb' type='button'>
-										<span>Add dry herb</span>
-										<i class="bi bi-leaf"></i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td> Script Totals </td>
-								<td></td>
-								<td class='sumUnitTotals'></td>
-								<td class='sumTHCTotals'></td>
-							</tr>
-						</tfoot>
-					</table>
-					<table id='cannabisVapeCartridgeTable' class='scriptTable'>
-						<thead>
-							<tr>
-								<th style='width: 70%'> Cannabinoid Vape Cartridge Prescription</th>
-								<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
-								<th style='width: 10%'> Quantity </th>
-								<th style='width: 10%'> THC content </th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr></tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan=4 class='align-items-center'>
-									<button class='btn btn-primary add_cannabisVapeCartridge' type='button'>
-										<span>Add cartridge</span>
-										<i class="bi bi-cloud-fog2"></i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td> Script Totals </td>
-								<td></td>
-								<td class='sumUnitTotals'></td>
-								<td class='sumTHCTotals'></td>
-							</tr>
-						</tfoot>
-					</table>
-					<div class='row'>
-						<p>
-							First dispense on <input id='prescriptionDate2' class='plainInput' type='date'>
-						</p>
+					</div>
+
+<!-- 					<div id='inhaledTHCDoseSettings'>
+
+
+					</div> -->
+			
+					<div class='row inhaledTHCScripts'>
+						<div class='col-12'>
+							<table id='cannabisDryHerbTable' class='mb-1 scriptTable'>
+								<thead>
+									<tr>
+										<th style='width: 70%'> Dry herb prescription</th>
+										<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
+										<th style='width: 10%'> Weight </th>
+										<th style='width: 10%'> THC content </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr></tr>
+								</tbody>
+								<tfoot>
+
+									<tr>
+										<td> Script Totals </td>
+										<td></td>
+										<td class='sumUnitTotals'></td>
+										<td class='sumTHCTotals'></td>
+									</tr>
+									<tr>
+										<td colspan=4 class='align-items-center'>
+											<button class='btn btn-primary add_cannabisDryHerb' type='button'>
+												<span>Add dry herb</span>
+												<i class="bi bi-leaf"></i>
+											</button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+
+							<table id='cannabisVapeCartridgeTable' class='scriptTable'>
+								<thead>
+									<tr>
+										<th style='width: 70%'> Cannabinoid Vape Cartridge Prescription</th>
+										<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
+										<th style='width: 10%'> Quantity </th>
+										<th style='width: 10%'> THC content </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr></tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan=4 class='align-items-center'>
+											<button class='btn btn-primary add_cannabisVapeCartridge' type='button'>
+												<span>Add cartridge</span>
+												<i class="bi bi-cloud-fog2"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td> Script Totals </td>
+										<td></td>
+										<td class='sumUnitTotals'></td>
+										<td class='sumTHCTotals'></td>
+									</tr>
+								</tfoot>
+							</table>
+							<span class='repeatCalculator'>Set repeats for <input class='plainInput smallNum' value=90> days</span>
+						</div>
 					</div>
 					<div class='row' id='oralTHCDoseSettings'>
-						<p class='oralTHC'>
-							<span class='nowrap'>
-								Average oral THC daily dosage
-								<input class='plainInput avgDose dosePerDay'>
-								mg
-							</span>
-							<span class='nowrap avgScriptDuration'>
-							</span>
-						</p>
-						<p>
-							<span class='nowrap'>
-								Max oral THC daily dosage
-								<input type='value' class='plainInput maxDose dosePerDay' value=40>
-								mg
-							</span>
-							<span class='nowrap maxScriptDuration'>
-							</span>
-						</p>
+						<div class='col-12'>
+							<h4> THC by oral dosing </h4>
+						</div>
+						<div class='col-4'>
+							<p>
+								First dispense on <input class='prescriptionDate plainInput' type='date'>
+							</p>
+						</div>
+						<div class='col-4'>
+							<p>
+								<span class='nowrap'>
+									Average oral THC daily dosage
+									<input class='plainInput avgDose dosePerDay' value=20>
+									mg
+								</span>
+								<span class='nowrap avgScriptDuration'>
+								</span>
+							</p>
+						</div>
+						<div class='col-4'>
+							<p>
+								<span class='nowrap'>
+									Max oral THC daily dosage
+									<input type='value' class='plainInput maxDose dosePerDay' value=40>
+									mg
+								</span>
+								<span class='nowrap maxScriptDuration'>
+								</span>
+							</p>
+						</div>
 					</div>
-					<table id='cannabisOilTable' class='mb-1 scriptTable'>
-						<thead>
-							<tr>
-								<th style='width: 70%'> Cannabis Oil</th>
-								<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
-								<th style='width: 10%'> Volume </th>
-								<th style='width: 10%'> THC content </th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr></tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan=4>
-									<button class='btn btn-primary add_cannabisOil' class='align-items-center' type='button'>
-									<span>Add cannabis oil product</span>
-									<i class="bi bi-droplet-half"></i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td> Script Totals </td>
-								<td></td>
-								<td class='sumUnitTotals'></td>
-								<td class='sumTHCTotals'></td>
-							</tr>
-						</tfoot>
-					</table>
-					<table id='cannabisEdiblesTable' class='scriptTable'>
-						<thead>
-							<tr>
-								<th style='width: 70%'> Cannabinoid edibles</th>
-								<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
-								<th style='width: 10%'> Doses </th>
-								<th style='width: 10%'> THC content </th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr></tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan=4 class='align-items-center'>
-									<button class='btn btn-primary add_cannabisEdibles' type='button'>
-										<span>Add edible product</span>
-										<i class="bi bi-plus-circle"></i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td> Script Totals </td>
-								<td></td>
-								<td class='sumUnitTotals'></td>
-								<td class='sumTHCTotals'></td>
-							</tr>
-						</tfoot>
-					</table>
+
+
+<!-- 					<div class='row' id='oralTHCDoseSettings'>
+
+
+					</div> -->
+					<div class='row'>
+						<div class='col-12'>
+								<table id='cannabisOilTable' class='mb-1 scriptTable'>
+									<thead>
+										<tr>
+											<th style='width: 70%'> Cannabis Oil</th>
+											<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
+											<th style='width: 10%'> Volume </th>
+											<th style='width: 10%'> THC content </th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr></tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td colspan=4>
+												<button class='btn btn-primary add_cannabisOil' class='align-items-center' type='button'>
+												<span>Add cannabis oil product</span>
+												<i class="bi bi-droplet-half"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td> Script Totals </td>
+											<td></td>
+											<td class='sumUnitTotals'></td>
+											<td class='sumTHCTotals'></td>
+										</tr>
+									</tfoot>
+								</table>
+								<table id='cannabisEdiblesTable' class='scriptTable'>
+									<thead>
+										<tr>
+											<th style='width: 70%'> Cannabinoid edibles</th>
+											<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
+											<th style='width: 10%'> Doses </th>
+											<th style='width: 10%'> THC content </th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr></tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td colspan=4 class='align-items-center'>
+												<button class='btn btn-primary add_cannabisEdibles' type='button'>
+													<span>Add edible product</span>
+													<i class="bi bi-plus-circle"></i>
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td> Script Totals </td>
+											<td></td>
+											<td class='sumUnitTotals'></td>
+											<td class='sumTHCTotals'></td>
+										</tr>
+									</tfoot>
+								</table>
+						</div>
+					</div>
 
 					
 				</div>
 				<div class='col-md-none col-lg-1'>
 				</div>
-		</div>
+			</div>
 			<p class='breakByComma'>a really long way, to say i am disappoint, but it will all be worth it, in the end if it ever arrives</p>
 	
 			<button onclick='wheeze()'>wheeze</button>

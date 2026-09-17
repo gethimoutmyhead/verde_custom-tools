@@ -11,30 +11,37 @@ function updateScriptCalculations(scriptType){
 	tableDOM.querySelector('.sumUnitTotals').innerText = `${tableSums['sumTotalQty']} ${tableSums['unitMeasure']}`
 	tableDOM.querySelector('.sumTHCTotals').innerText = `${tableSums['THCSums']} mg`
 
-	arrayOfScriptDOMs.forEach((scriptDOM, idx) => {
-		scriptSums = dict_readAndsumTHCContentInScript(scriptDOM)
-		scriptDOM.querySelector('.unitQtyTotal').innerHTML = `${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`
-		scriptDOM.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
-	})
+	// arrayOfScriptDOMs.forEach((scriptDOM, idx) => {
+	// 	scriptSums = dict_readAndsumTHCContentInScript(scriptDOM)
+	// 	scriptDOM.querySelector('.unitQtyTotal').innerHTML = `${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`
+	// 	scriptDOM.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
+	// })
 
 	matchedGroups = Object.keys(productTypeGroups).filter(productTypeGroup => {
 		return productTypeGroups[productTypeGroup]['scriptTypes'].includes(scriptType)
 	})
-	console.log(matchedGroups)
+
 	matchedProductTypes = matchedGroups.reduce((matchedList, curGroup) => {
-		// console.log(curGroup)
-		// console.log(matchedList, productTypeGroups[curGroup]['scriptTypes'])
 		j = new Set([...matchedList, ...productTypeGroups[curGroup]['scriptTypes']])
-		console.log(j)
 		return [...j]
 	}, [])
-	// console.log(matchedProductTypes)
 	j = document.querySelector(productTypeGroups[matchedGroups[0]]['doseSettingsSelector'])
-	console.log(j)
+	avgDose = j.querySelector('input.avgDose.dosePerDay').value
 	maxDose= j.querySelector('input.maxDose.dosePerDay').value
-	console.log(maxDose)
 	updateRepeatIntervals(matchedProductTypes, maxDose)
 
+	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+	filteredScriptList = Array.from(scriptList.filter(script => {
+		return matchedProductTypes.includes(script.getAttribute('productType'))
+	}))
+	firstDispenseDate = new Date(j.querySelector('.prescriptionDate').value)
+	avgDoseDuration=calculateTHCScriptsDuration(filteredScriptList, avgDose)
+	maxDoseDuration=calculateTHCScriptsDuration(filteredScriptList, maxDose)
+	avgDoseFinishDate = firstDispenseDate.addDays(avgDoseDuration)
+	maxDoseFinishDate = firstDispenseDate.addDays(maxDoseDuration)
+	j.querySelector(`.avgScriptDuration`).innerHTML = `lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
+	j.querySelector(`.maxScriptDuration`).innerHTML = `lasts to ${maxDoseFinishDate.toDateString()}(${maxDoseDuration} days)`
+	console.log(avgDoseDuration, maxDoseDuration, firstDispenseDate)
 }
 
 function updateRepeatIntervals(productTypes, max_dosage){
@@ -48,4 +55,29 @@ function updateRepeatIntervals(productTypes, max_dosage){
 		repeatInterval = typeof interval['repeatInterval'] != 'undefined' ? `${interval['repeatInterval']} days` : 'N/A'
 		filteredScriptList[idx].querySelector('.repeatInterval').innerHTML = repeatInterval
 	})
+}
+
+function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosage_per_day, scriptDuration){
+	const scriptList = Array.from(listOfDOMElems_scriptList)
+	scriptList.forEach(script => {
+		script.querySelector('.repeats').value = 0
+	})
+	calculatedContent = scriptList.map(dict_readAndsumTHCContentInScript)
+	totalTHC = calculatedContent.reduce((sumTHC, script) => {
+		return sumTHC + script['sumTHCTotal']
+	}, 0)
+	// durationToLast = Math.ceil(totalTHC / dosage_per_day)
+	minTHCTotal = dosage_per_day * scriptDuration
+
+	repeatsNeeded = Math.floor(minTHCTotal / totalTHC)
+	scriptList.forEach(script => {
+		script.querySelector('.repeats').value = repeatsNeeded
+		flashDOMElem(script.querySelector('.repeats').parentNode)
+		scriptSums = dict_readAndsumTHCContentInScript(script)
+		script.querySelector('.unitQtyTotal').innerHTML = `${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`
+		script.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
+
+	})
+	console.log(scriptList[0])
+	updateScriptCalculations(scriptList[0].getAttribute('producttype'))
 }

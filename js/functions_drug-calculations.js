@@ -246,3 +246,13 @@ function calculateTHCRepeatIntervals(listOfDOMElems_scriptList, max_daily_dosage
 	})
 	return Array.from(repeatIntervals)
 }
+
+function calculateTHCScriptsDuration(listOfDOMElems_scriptList, dosage_per_day){
+	const scriptList = listOfDOMElems_scriptList
+	calculatedContent = scriptList.map(dict_readAndsumTHCContentInScript)
+	totalTHC = calculatedContent.reduce((sumTHC, script) => {
+		return sumTHC + script['sumTHCTotal']
+	}, 0)
+	durationToLast = Math.ceil(totalTHC / dosage_per_day)
+	return durationToLast
+}
