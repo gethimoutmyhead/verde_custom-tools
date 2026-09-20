@@ -10,16 +10,58 @@ z.forEach(scriptType => {
 		scriptSums = dict_readAndsumTHCContentInScript(scriptDOM)
 		scriptDOM.querySelector('.unitQtyTotal').innerHTML = `${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`
 		scriptDOM.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
-
+		calculateRepeatIntervalsIfOn(scriptType)
 		updateScriptCalculations(scriptType)
 	})
 })
 
 document.getElementById('inhaledTHCDoseSettings').addEventListener('input', () => {
-	updateScriptCalculations('cannabisDryHerb')
+	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
+	included = (scriptList.some(script => {
+		return matchedProductTypes.includes(script.getAttribute('productType'))
+	}))	
+	if (included){
+		calculateRepeatIntervalsIfOn('cannabisDryHerb')
+		updateScriptCalculations('cannabisDryHerb')
+	}
 })
+
 document.getElementById('oralTHCDoseSettings').addEventListener('input', () => {
-	updateScriptCalculations('cannabisOil')
+	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
+	included = (scriptList.some(script => {
+		return matchedProductTypes.includes(script.getAttribute('productType'))
+	}))	
+	if (included){
+		calculateRepeatIntervalsIfOn('cannabisOil')
+		updateScriptCalculations('cannabisOil')
+	}
+})
+
+document.querySelector('#inhaledTHCDoseSettings input.autocalcrepeats').addEventListener('click', () => {
+	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
+	filteredScriptList = scriptList.filter(script => {
+		return matchedProductTypes.includes(script.getAttribute('productType'))
+	})
+	const doseSettingsCSS = productTypeGroups['inhaledTHC'].doseSettingsSelector
+	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
+
+	if (intervalAutoCalc){
+		filteredScriptList.forEach(script => {
+			script.querySelector('.repeats').setAttribute('disabled', '')
+			script.querySelector('.repeats').removeAttribute('enabled')
+
+		})
+	}else {
+		filteredScriptList.forEach(script => {
+			script.querySelector('.repeats').setAttribute('enabled', '')
+			script.querySelector('.repeats').removeAttribute('disabled')
+
+		})		
+	}
+
 })
 
 document.querySelector('.inhaledTHCScripts .repeatCalculator').addEventListener('click', (event) => {
@@ -32,16 +74,6 @@ document.querySelector('.inhaledTHCScripts .repeatCalculator').addEventListener(
 	duration=document.querySelector('.inhaledTHCScripts span.repeatCalculatosr input').value
 	calculateAndUpdateMinRepeatsForDuration(filteredScriptList,avgDosage, duration)
 })
-// z=['cannabisDryHerb', 'cannabisVapeCartridge', 'cannabisOil', 'cannabisEdibles']
-// z.forEach(scriptType => {
-// 	updateScriptCalculations(scriptType)
-// })
-
-
-// z.forEach(scriptType => {
-// 	scriptDOM = makeNewDOMElementFromDict_DOMElem(dict_scriptFormTemplates[scriptType])
-// 	document.querySelector(`#${scriptType}Table tbody`).appendChild(scriptDOM)
-// })
 
 
 z.forEach(scriptType => 
@@ -55,11 +87,14 @@ z.forEach(scriptType =>
 					const DOM_newScriptForm = makeNewDOMElementFromDict_DOMElem(dict_scriptFormTemplate)
 					const DOM_productName = DOM_newScriptForm.querySelector('.productName')
 					DOM_productName.value = scriptTypesAndMeta[scriptType]['displayName']
-					// DOM_productName.addEventListener('focus', () => {DOM_productName.select()})
-		// DOM_newScriptForm.querySelector('.deleteForm').addEventListener('click', () => {
-		// 	DOM_newScriptForm.closest('form').remove()
-		// 	updateCalculationsInTable(tableName)
-		// })
+					const productGroups = getMatchingProductGroups(scriptType)
+					const doseSettingsCSS = productTypeGroups[productGroups[0]].doseSettingsSelector
+					const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
+
+					if (intervalAutoCalc){
+						DOM_newScriptForm.querySelector('.repeats').setAttribute('disabled', '')
+					}
+
 					document.querySelector(`#${tableName} tbody`).appendChild(DOM_newScriptForm)
 					DOM_newScriptForm.addEventListener('click', (event) => {
 						j = event.target
@@ -129,28 +164,23 @@ function observeChildChanges(container) {
 // Usage:
 jj = ['#inhaledTHCDoseSettings', '#oralTHCDoseSettings', ...z.map(elem => `#${elem}Table`)]
 jj.map(elem => document.querySelector(elem)).map(observeChildChanges)
-// observeChildChanges(document.querySelector('#cannabisDryHerbTable'));
-// scriptTableIds = Object.keys(scriptTypesAndMeta).map(script => script.concat('Table'))
-// scriptTableIds.forEach(updateCalculationsInTable)
 
-// z={
-// 	'tagName': 'div',
-// }
-// z['childNodes'] = [
-// 	{
-// 		'tagName': 'span',
-// 		'properties': {
-// 			'innerHTML': 'wheat'
-// 		}
-// 	},
-// 	" products ",
-// 	{
-// 		'tagName': 'span',
-// 		'properties': {
-// 			'innerHTML': 'contain gluten'
-// 		}
-// 	},
-// ]
+function calculateRepeatIntervalsIfOn(scriptType){
+	productGroups = getMatchingProductGroups(scriptType)
 
-// j=makeNewDOMElementFromDict_DOMElem(z)
-// document.getElementById('mes').appendChild(j)
+	const doseSettingsCSS = productTypeGroups[productGroups[0]].doseSettingsSelector
+	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
+
+	if (intervalAutoCalc){
+		scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+		filteredScriptList = Array.from(scriptList.filter(script => {
+			return productTypeGroups[productGroups[0]]['scriptTypes'].includes(script.getAttribute('productType'))
+		}))
+		doseDetails = productTypeGroups[productGroups[0]]['doseSettingsSelector']
+		avgDosage = document.querySelector(`${doseDetails} input.avgDose`).value
+		targetDuration = document.querySelector(`${doseDetails} input.targetScriptDuration`).value
+		calculateAndUpdateMinRepeatsForDuration(filteredScriptList,avgDosage, targetDuration)
+
+	}
+
+}

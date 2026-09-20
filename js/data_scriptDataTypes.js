@@ -73,3 +73,12 @@ const productTypeGroups = {
 	}
 
 }
+
+function getMatchingProductGroups(productType){
+	z = Object.keys(productTypeGroups)
+
+	matchedGroups = z.filter(productGroup => {
+		return productTypeGroups[productGroup]['scriptTypes'].includes(productType)
+	})
+	return matchedGroups
+}

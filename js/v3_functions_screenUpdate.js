@@ -39,8 +39,28 @@ function updateScriptCalculations(scriptType){
 	maxDoseDuration=calculateTHCScriptsDuration(filteredScriptList, maxDose)
 	avgDoseFinishDate = firstDispenseDate.addDays(avgDoseDuration)
 	maxDoseFinishDate = firstDispenseDate.addDays(maxDoseDuration)
-	j.querySelector(`.avgScriptDuration`).innerHTML = `lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
-	j.querySelector(`.maxScriptDuration`).innerHTML = `lasts to ${maxDoseFinishDate.toDateString()}(${maxDoseDuration} days)`
+	z = {
+			'tagName': 'p',
+			// 'attributes': {'class': 'nowrap'}
+			'childNodes': []
+		}
+	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${avgDoseDuration} days`}})
+	z.childNodes.push('\n')
+	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${avgDoseFinishDate.toDateString()})`}})
+
+
+	j.querySelector(`.avgScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
+	j.querySelector(`.avgScriptDuration`).appendChild(makeNewDOMElementFromDict_DOMElem(z))
+	z = {
+			'tagName': 'p',
+			// 'attributes': {'class': 'nowrap'}
+			'childNodes': []
+		}
+	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${maxDoseDuration} days`}})
+	z.childNodes.push('\n')
+	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${maxDoseFinishDate.toDateString()})`}})
+	j.querySelector(`.maxScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
+	j.querySelector(`.maxScriptDuration`).appendChild(makeNewDOMElementFromDict_DOMElem(z))
 	console.log(avgDoseDuration, maxDoseDuration, firstDispenseDate)
 }
 
@@ -67,7 +87,7 @@ function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosa
 		return sumTHC + script['sumTHCTotal']
 	}, 0)
 	// durationToLast = Math.ceil(totalTHC / dosage_per_day)
-	minTHCTotal = dosage_per_day * scriptDuration
+	minTHCTotal = dosage_per_day * (scriptDuration - 1)
 
 	repeatsNeeded = Math.floor(minTHCTotal / totalTHC)
 	scriptList.forEach(script => {

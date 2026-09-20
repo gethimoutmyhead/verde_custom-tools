@@ -98,6 +98,7 @@ input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dose
 .repeatCalculator input{
 	color: white;
 }
+
 /*.striped tbody tr:nth-child(odd){
 	background-color: #D0D0D0;
 }*/

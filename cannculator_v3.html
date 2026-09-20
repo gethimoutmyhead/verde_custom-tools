@@ -36,21 +36,25 @@
 						<div class='col-12'>
 							<h4>THC by inhalation</h4>
 						</div>
-						<div class='col-4'>
+						<div class='col-3'>
 							<div>
 								First dispense on <input class='prescriptionDate plainInput' type='date'>
-								Calculate repeats for <input class='plainInput smallNum'> days
-							<label class="toggle-switch">
-								<input type="checkbox">
-								<span class="slider">
-								<span class="text-on">AUTO</span>
-								<span class="text-off">OFF</span>
-							</span>
-							</label>
 							</div>
 						</div>
-						<div class='col-4'>
+						<div class='col-5'>
 							<p>
+
+								<span class='nowrap'>
+									Repeats for min.
+									<input class='plainInput smallNum targetScriptDuration'> days
+									<label class="toggle-switch">
+										<input class='autocalcrepeats' type="checkbox">
+										<span class="slider">
+										<span class="text-on">AUTO</span>
+										<span class="text-off">OFF</span>
+									</span>
+									</label>
+								</span>
 								<span class='nowrap'>
 									Average 
 									<input class='plainInput avgDose dosePerDay' value=150>
@@ -62,6 +66,7 @@
 						</div>
 						<div class='col-4'>
 							<p>
+								<span class='nowrap alignInputHeight'></span>
 								<span class='nowrap'>
 									Max 
 									<input type='value' class='plainInput maxDose dosePerDay' value=300>
@@ -141,7 +146,7 @@
 									</tr>
 								</tfoot>
 							</table>
-							<span class='repeatCalculatosr'>Repeats for <input class='plainInput smallNum' value=90> days</span><button class='repeatCalculator'>Calculate</button>
+							<div class='repeatCalculatosr'>Repeats for <input class='plainInput smallNum' value=90> days</div><button class='repeatCalculator'>Calculate</button>
 						</div>
 					</div>
 					<div class='row' id='oralTHCDoseSettings'>
