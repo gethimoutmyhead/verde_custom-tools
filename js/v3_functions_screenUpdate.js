@@ -78,6 +78,8 @@ function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosa
 		script.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
 
 	})
-	console.log(scriptList[0])
-	updateScriptCalculations(scriptList[0].getAttribute('producttype'))
+	producttype = Array.from(new Set(scriptList.map(script => script.getAttribute('producttype'))))
+	console.log(producttype)
+	producttype.map(updateScriptCalculations)
+	// updateScriptCalculations(scriptList[0].getAttribute('producttype'))
 }

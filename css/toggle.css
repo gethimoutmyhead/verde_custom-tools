@@ -1,0 +1,90 @@
+/* Container framework */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 12px;
+  bottom: 6px;
+}
+
+/* Hide the native checkbox completely */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The background track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* The sliding circular knob */
+.slider::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  left: 1px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 2; /* Ensures the knob stays above the text */
+}
+
+/* Text state base styles */
+.text-on, .text-off {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: sans-serif;
+  font-size: 8px;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+.text-on {
+  left: 8px;
+  display: none; /* Hidden by default when unchecked */
+}
+
+.text-off {
+  right: 8px;
+  display: block; /* Shown by default when unchecked */
+}
+
+/* --- ACTIVE / CHECKED STATES --- */
+
+/* Track color shift when checked */
+.toggle-switch input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+/* Slid handle to the right when checked */
+.toggle-switch input:checked + .slider::after {
+  transform: translateX(30px);
+}
+
+/* Toggle visibility of the text layers */
+.toggle-switch input:checked + .slider .text-on {
+  display: block;
+}
+
+.toggle-switch input:checked + .slider .text-off {
+  display: none;
+}
+
+/* --- ACCESSIBILITY FOCUS RING --- */
+.toggle-switch input:focus-visible + .slider {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
+}
