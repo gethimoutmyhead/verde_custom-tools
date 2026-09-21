@@ -29,7 +29,7 @@ document.getElementById('inhaledTHCDoseSettings').addEventListener('input', () =
 
 document.getElementById('oralTHCDoseSettings').addEventListener('input', () => {
 	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
-	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
+	matchedProductTypes = productTypeGroups['oralTHC']['scriptTypes']
 	included = (scriptList.some(script => {
 		return matchedProductTypes.includes(script.getAttribute('productType'))
 	}))	
@@ -63,6 +63,32 @@ document.querySelector('#inhaledTHCDoseSettings input.autocalcrepeats').addEvent
 	}
 
 })
+
+document.querySelector('#oralTHCDoseSettings input.autocalcrepeats').addEventListener('click', () => {
+	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+	matchedProductTypes = productTypeGroups['oralTHC']['scriptTypes']
+	filteredScriptList = scriptList.filter(script => {
+		return matchedProductTypes.includes(script.getAttribute('productType'))
+	})
+	const doseSettingsCSS = productTypeGroups['inhaledTHC'].doseSettingsSelector
+	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
+
+	if (intervalAutoCalc){
+		filteredScriptList.forEach(script => {
+			script.querySelector('.repeats').setAttribute('disabled', '')
+			script.querySelector('.repeats').removeAttribute('enabled')
+
+		})
+	}else {
+		filteredScriptList.forEach(script => {
+			script.querySelector('.repeats').setAttribute('enabled', '')
+			script.querySelector('.repeats').removeAttribute('disabled')
+
+		})		
+	}
+
+})
+
 
 document.querySelector('.inhaledTHCScripts .repeatCalculator').addEventListener('click', (event) => {
 	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
