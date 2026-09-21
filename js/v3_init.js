@@ -90,16 +90,16 @@ document.querySelector('#oralTHCDoseSettings input.autocalcrepeats').addEventLis
 })
 
 
-document.querySelector('.inhaledTHCScripts .repeatCalculator').addEventListener('click', (event) => {
-	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
-	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
-	filteredScriptList = Array.from(scriptList.filter(script => {
-		return matchedProductTypes.includes(script.getAttribute('productType'))
-	}))
-	avgDosage= document.querySelector('#inhaledTHCDoseSettings input.avgDose.dosePerDay').value
-	duration=document.querySelector('.inhaledTHCScripts span.repeatCalculatosr input').value
-	calculateAndUpdateMinRepeatsForDuration(filteredScriptList,avgDosage, duration)
-})
+// document.querySelector('.inhaledTHCScripts .repeatCalculator').addEventListener('click', (event) => {
+// 	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+// 	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
+// 	filteredScriptList = Array.from(scriptList.filter(script => {
+// 		return matchedProductTypes.includes(script.getAttribute('productType'))
+// 	}))
+// 	avgDosage= document.querySelector('#inhaledTHCDoseSettings input.avgDose.dosePerDay').value
+// 	duration=document.querySelector('.inhaledTHCScripts span.repeatCalculatosr input').value
+// 	calculateAndUpdateMinRepeatsForDuration(filteredScriptList,avgDosage, duration)
+// })
 
 
 z.forEach(scriptType => 
