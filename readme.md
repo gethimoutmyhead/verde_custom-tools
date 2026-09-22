@@ -16,6 +16,9 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ## Version history
 ### V3 Fork
+2026-09-22
+* repeat calc always checked, defaults to 90
+* re-arranged table
 2026-09-18
 * better looking tables
 * animation on updated columns
@@ -68,7 +71,7 @@ logins
 search function for script names
 autofill based on drug formulary
 on autofill, cursor jumps straight to repeats
-
+lock script function - stops some scripts from having repeats recalculated
 
 ## Completed
 2026-03-23

@@ -2,11 +2,12 @@ body {
 	font-family: "Times New Roman";
 }
 table.scriptTable{
-
+	width: 100%;
 	& thead tr th{
 		background-color: DFDFDF;
 		border-bottom: solid 1px;
 		border-bottom-color: A0A0A0;
+		font-size: 12px;
 	}
 	& thead tr th:nth-of-type(1){
 		border-radius: 15px 0px 0px 0px;
@@ -98,7 +99,9 @@ input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dose
 .repeatCalculator input{
 	color: white;
 }
-
+.avgScriptDuration, .maxScriptDuration{
+	overflow-wrap: break-word;
+}
 /*.striped tbody tr:nth-child(odd){
 	background-color: #D0D0D0;
 }*/

@@ -56,9 +56,9 @@ function updateScriptCalculations(scriptType){
 			// 'attributes': {'class': 'nowrap'}
 			'childNodes': []
 		}
-	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${maxDoseDuration} days`}})
+	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${maxDoseDuration} days`}})
 	z.childNodes.push('\n')
-	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${maxDoseFinishDate.toDateString()})`}})
+	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${maxDoseFinishDate.toDateString()})`}})
 	j.querySelector(`.maxScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
 	j.querySelector(`.maxScriptDuration`).appendChild(makeNewDOMElementFromDict_DOMElem(z))
 	console.log(avgDoseDuration, maxDoseDuration, firstDispenseDate)
@@ -79,6 +79,7 @@ function updateRepeatIntervals(productTypes, max_dosage){
 
 function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosage_per_day, scriptDuration){
 	const scriptList = Array.from(listOfDOMElems_scriptList)
+	// if I implement a lock feature, I would do a filter for tethered scripts, and calculate totals here
 	scriptList.forEach(script => {
 		script.querySelector('.repeats').value = 0
 	})
@@ -88,6 +89,7 @@ function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosa
 	}, 0)
 	// durationToLast = Math.ceil(totalTHC / dosage_per_day)
 	minTHCTotal = dosage_per_day * (scriptDuration - 1)
+	// if I implement a lock feature, I would do minTHCTotal - tetheredScriptsTotal, then work out repeats on tethered scripts
 
 	repeatsNeeded = Math.floor(minTHCTotal / totalTHC)
 	scriptList.forEach(script => {

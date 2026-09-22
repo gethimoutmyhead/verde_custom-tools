@@ -36,19 +36,19 @@
 						<div class='col-12'>
 							<h4>THC by inhalation</h4>
 						</div>
-						<div class='col-3'>
+						<div class='col-3 border-end'>
 							<div>
 								First dispense on <input class='prescriptionDate plainInput' type='date'>
 							</div>
 						</div>
-						<div class='col-5'>
+						<div class='col-5 border-end'>
 							<p>
 
 								<span class='nowrap'>
 									Repeats for min.
-									<input class='plainInput smallNum targetScriptDuration'> days
+									<input class='plainInput smallNum targetScriptDuration' value=90> days
 									<label class="toggle-switch">
-										<input class='autocalcrepeats' type="checkbox">
+										<input class='autocalcrepeats' type="checkbox" checked>
 										<span class="slider">
 										<span class="text-on">AUTO</span>
 										<span class="text-off">OFF</span>
@@ -131,6 +131,13 @@
 								</tbody>
 								<tfoot>
 									<tr>
+										<td> Script Totals </td>
+										<td></td>
+										<td class='sumUnitTotals'></td>
+										<td class='sumTHCTotals'></td>
+									</tr>
+
+									<tr>
 										<td colspan=4 class='align-items-center'>
 											<button class='btn btn-primary add_cannabisVapeCartridge' type='button'>
 												<span>Add cartridge</span>
@@ -138,12 +145,7 @@
 											</button>
 										</td>
 									</tr>
-									<tr>
-										<td> Script Totals </td>
-										<td></td>
-										<td class='sumUnitTotals'></td>
-										<td class='sumTHCTotals'></td>
-									</tr>
+
 								</tfoot>
 							</table>
 						</div>
@@ -153,7 +155,7 @@
 							<h4>THC by oral consumption</h4>
 						</div>
 						<div class='col-3'>
-							<div>
+							<div class='border-end'>
 								First dispense on <input class='prescriptionDate plainInput' type='date'>
 							</div>
 						</div>
@@ -162,9 +164,9 @@
 
 								<span class='nowrap'>
 									Repeats for min.
-									<input class='plainInput smallNum targetScriptDuration'> days
+									<input class='plainInput smallNum targetScriptDuration' value=90> days
 									<label class="toggle-switch">
-										<input class='autocalcrepeats' type="checkbox" value='true'>
+										<input class='autocalcrepeats' type="checkbox" checked>
 										<span class="slider">
 										<span class="text-on">AUTO</span>
 										<span class="text-off">OFF</span>
@@ -216,6 +218,12 @@
 									</tbody>
 									<tfoot>
 										<tr>
+											<td> Script Totals </td>
+											<td></td>
+											<td class='sumUnitTotals'></td>
+											<td class='sumTHCTotals'></td>
+										</tr>
+										<tr>
 											<td colspan=4>
 												<button class='btn btn-primary add_cannabisOil' class='align-items-center' type='button'>
 												<span>Add cannabis oil product</span>
@@ -223,12 +231,7 @@
 												</button>
 											</td>
 										</tr>
-										<tr>
-											<td> Script Totals </td>
-											<td></td>
-											<td class='sumUnitTotals'></td>
-											<td class='sumTHCTotals'></td>
-										</tr>
+
 									</tfoot>
 								</table>
 								<table id='cannabisEdiblesTable' class='scriptTable'>
@@ -245,6 +248,12 @@
 									</tbody>
 									<tfoot>
 										<tr>
+											<td> Script Totals </td>
+											<td></td>
+											<td class='sumUnitTotals'></td>
+											<td class='sumTHCTotals'></td>
+										</tr>
+										<tr>
 											<td colspan=4 class='align-items-center'>
 												<button class='btn btn-primary add_cannabisEdibles' type='button'>
 													<span>Add edible product</span>
@@ -252,12 +261,7 @@
 												</button>
 											</td>
 										</tr>
-										<tr>
-											<td> Script Totals </td>
-											<td></td>
-											<td class='sumUnitTotals'></td>
-											<td class='sumTHCTotals'></td>
-										</tr>
+
 									</tfoot>
 								</table>
 						</div>
