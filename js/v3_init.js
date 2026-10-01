@@ -136,6 +136,7 @@ z.forEach(scriptType =>
 						}
 						DOM_productName.focus()
 					})
+					DOM_newScriptForm.querySelectorAll('.lock-toggle').forEach(el => el.addEventListener('click', toggleLock));
 					DOM_productName.focus()
 					DOM_productName.select()
 				})

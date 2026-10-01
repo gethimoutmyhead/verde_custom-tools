@@ -97,6 +97,7 @@ function makeAnEmail(receiverEmail, SubjectLine, Content, ccemail = ""){
 	emailLink.setAttribute('id', emailLinkId);
 	document.body.appendChild(emailLink);
 	document.getElementById(emailLinkId).click();
+	document.getElementById(emailLinkId).remove()
 }
 
 function getUniqueKeysFromDict_array(keys_array, new_dict) {
@@ -177,7 +178,6 @@ function makeNewDOMElementFromDict_DOMElem(DOMElem_dict){
 			return document.createTextNode(elemVar)
 		}
 
-
 		const newElem = document.createElement(elemVar['tagName']);
 		if (elemVar['properties']){
 			Object.keys(elemVar['properties']).forEach(property => {
@@ -239,9 +239,10 @@ function disableKeypressOnElement(DOMElem, arrayOfInts_keyCodes){
 }
 
 function clearDOMContents(DOMElem){
-	while (DOMElem.lastElementChild) {
-		DOMElem.removeChild(DOMElem.lastElementChild);
-	}
+	DOMElem.replaceChildren()
+	// while (DOMElem.lastElementChild) {
+	// 	DOMElem.removeChild(DOMElem.lastElementChild);
+	// }
 }
 
 

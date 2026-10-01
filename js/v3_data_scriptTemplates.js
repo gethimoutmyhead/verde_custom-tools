@@ -14,6 +14,40 @@ dict_scriptFormTemplates['cannabisDryHerb'] = {
 
 dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
     {
+      'tagName': 'TD',
+      'attributes':{},
+      'properties': null,
+      'childNodes': [
+        {
+          "tagName": 'DIV',
+          "childNodes":[
+          {
+            "tagName": "I",
+            "attributes": {
+              "class": "bi bi-trash3"
+            },
+          },
+          {
+          "tagName": "SPAN",
+          "attributes": {
+            "class": "lock-toggle text-secondary",
+            "data-locked": "false",
+            "title": "Unlocked"
+          },
+          "childNodes": [
+            {
+              "tagName": "I",
+              "attributes": {
+                "class": "bi bi-pin-angle"
+              },
+            },
+          ]
+          }
+        ]
+        },
+      ]
+    },
+    {
       "tagName": "TD",
       "attributes": {},
       "properties": null,

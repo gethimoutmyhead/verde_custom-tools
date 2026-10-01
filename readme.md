@@ -18,6 +18,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 ### V3 Fork
 2026-10-01
 * fixed the oral THC repeat toggle
+* added the lock and delete buttons
 
 2026-09-22
 * repeat calc always checked, defaults to 90
