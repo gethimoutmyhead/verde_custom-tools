@@ -70,7 +70,7 @@ document.querySelector('#oralTHCDoseSettings input.autocalcrepeats').addEventLis
 	filteredScriptList = scriptList.filter(script => {
 		return matchedProductTypes.includes(script.getAttribute('productType'))
 	})
-	const doseSettingsCSS = productTypeGroups['inhaledTHC'].doseSettingsSelector
+	const doseSettingsCSS = productTypeGroups['oralTHC'].doseSettingsSelector
 	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
 
 	if (intervalAutoCalc){
