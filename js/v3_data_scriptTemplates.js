@@ -22,10 +22,15 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
           "tagName": 'DIV',
           "childNodes":[
           {
-            "tagName": "I",
-            "attributes": {
-              "class": "bi bi-trash3"
-            },
+            "tagName": 'SPAN',
+            'childNodes': [
+              {
+                "tagName": "I",
+                "attributes": {
+                  "class": "bi bi-trash3 text-danger"
+                },
+              },              
+            ]
           },
           {
           "tagName": "SPAN",
@@ -211,6 +216,45 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
   "properties": null,
   "childNodes": [
     {
+      'tagName': 'TD',
+      'attributes':{},
+      'properties': null,
+      'childNodes': [
+        {
+          "tagName": 'DIV',
+          "childNodes":[
+          {
+            "tagName": 'SPAN',
+            'childNodes': [
+              {
+                "tagName": "I",
+                "attributes": {
+                  "class": "bi bi-trash3 text-danger"
+                },
+              },              
+            ]
+          },
+          {
+          "tagName": "SPAN",
+          "attributes": {
+            "class": "lock-toggle text-secondary",
+            "data-locked": "false",
+            "title": "Unlocked"
+          },
+          "childNodes": [
+            {
+              "tagName": "I",
+              "attributes": {
+                "class": "bi bi-pin-angle"
+              },
+            },
+          ]
+          }
+        ]
+        },
+      ]
+    },
+    {
       "tagName": "TD",
       "attributes": {},
       "properties": null,
@@ -347,6 +391,45 @@ dict_scriptFormTemplates['cannabisOil'] = {
   },
   "properties": null,
   "childNodes": [
+    {
+      'tagName': 'TD',
+      'attributes':{},
+      'properties': null,
+      'childNodes': [
+        {
+          "tagName": 'DIV',
+          "childNodes":[
+          {
+            "tagName": 'SPAN',
+            'childNodes': [
+              {
+                "tagName": "I",
+                "attributes": {
+                  "class": "bi bi-trash3 text-danger"
+                },
+              },              
+            ]
+          },
+          {
+          "tagName": "SPAN",
+          "attributes": {
+            "class": "lock-toggle text-secondary",
+            "data-locked": "false",
+            "title": "Unlocked"
+          },
+          "childNodes": [
+            {
+              "tagName": "I",
+              "attributes": {
+                "class": "bi bi-pin-angle"
+              },
+            },
+          ]
+          }
+        ]
+        },
+      ]
+    },
     {
       "tagName": "TD",
       "attributes": {},
@@ -507,6 +590,45 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
   },
   "properties": null,
   "childNodes": [
+    {
+      'tagName': 'TD',
+      'attributes':{},
+      'properties': null,
+      'childNodes': [
+        {
+          "tagName": 'DIV',
+          "childNodes":[
+          {
+            "tagName": 'SPAN',
+            'childNodes': [
+              {
+                "tagName": "I",
+                "attributes": {
+                  "class": "bi bi-trash3 text-danger"
+                },
+              },              
+            ]
+          },
+          {
+          "tagName": "SPAN",
+          "attributes": {
+            "class": "lock-toggle text-secondary",
+            "data-locked": "false",
+            "title": "Unlocked"
+          },
+          "childNodes": [
+            {
+              "tagName": "I",
+              "attributes": {
+                "class": "bi bi-pin-angle"
+              },
+            },
+          ]
+          }
+        ]
+        },
+      ]
+    },
     {
       "tagName": "TD",
       "attributes": {},

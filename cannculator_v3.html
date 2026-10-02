@@ -43,7 +43,15 @@
 						</div>
 						<div class='col-5 border-end'>
 							<p>
-
+								<span class='nowrap'>
+									Average 
+									<input class='plainInput avgDose dosePerDay' value=150>
+									mg/day THC
+								</span>
+								<span class='avgScriptDuration'>
+								</span>
+							</p>
+							<p>
 								<span class='nowrap'>
 									Repeats for min.
 									<input class='plainInput smallNum targetScriptDuration' value=90> days
@@ -55,13 +63,6 @@
 									</span>
 									</label>
 								</span>
-								<span class='nowrap'>
-									Average 
-									<input class='plainInput avgDose dosePerDay' value=150>
-									mg/day THC 				
-								</span>
-								<span class='nowrap avgScriptDuration'>
-								</span>
 							</p>
 						</div>
 						<div class='col-4'>
@@ -72,7 +73,7 @@
 									<input type='value' class='plainInput maxDose dosePerDay' value=300>
 									mg/day THC
 								</span>
-								<span class='nowrap maxScriptDuration'>
+								<span class='maxScriptDuration'>
 								</span>
 							</p>
 						</div>
@@ -86,7 +87,7 @@
 			
 					<div class='row inhaledTHCScripts'>
 						<div class='col-12'>
-							<table id='cannabisDryHerbTable' class='mb-1 scriptTable'>
+							<table id='cannabisDryHerbTable' class='mb-1 scriptTable' unitMeasure='g'>
 								<thead>
 									<tr>
 										<th></th>
@@ -118,9 +119,10 @@
 								</tfoot>
 							</table>
 
-							<table id='cannabisVapeCartridgeTable' class='scriptTable'>
+							<table id='cannabisVapeCartridgeTable' class='scriptTable' unitMeasure='vials'>
 								<thead>
 									<tr>
+										<th></th>
 										<th style='width: 70%'> Cannabinoid Vape Cartridge Prescription</th>
 										<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
 										<th style='width: 10%'> Quantity </th>
@@ -132,6 +134,7 @@
 								</tbody>
 								<tfoot>
 									<tr>
+										<td></td>
 										<td> Script Totals </td>
 										<td></td>
 										<td class='sumUnitTotals'></td>
@@ -139,7 +142,7 @@
 									</tr>
 
 									<tr>
-										<td colspan=4 class='align-items-center'>
+										<td colspan=5 class='align-items-center'>
 											<button class='btn btn-primary add_cannabisVapeCartridge' type='button'>
 												<span>Add cartridge</span>
 												<i class="bi bi-cloud-fog2"></i>
@@ -162,7 +165,6 @@
 						</div>
 						<div class='col-5'>
 							<p>
-
 								<span class='nowrap'>
 									Repeats for min.
 									<input class='plainInput smallNum targetScriptDuration' value=90> days
@@ -174,12 +176,14 @@
 									</span>
 									</label>
 								</span>
+							</p>
+							<p>
 								<span class='nowrap'>
 									Average 
 									<input class='plainInput avgDose dosePerDay' value=20>
 									mg/day THC 				
 								</span>
-								<span class='nowrap avgScriptDuration'>
+								<span class='avgScriptDuration'>
 								</span>
 							</p>
 						</div>
@@ -191,7 +195,7 @@
 									<input type='value' class='plainInput maxDose dosePerDay' value=40>
 									mg/day THC
 								</span>
-								<span class='nowrap maxScriptDuration'>
+								<span class='maxScriptDuration'>
 								</span>
 							</p>
 						</div>
@@ -205,9 +209,10 @@
 					</div> -->
 					<div class='row'>
 						<div class='col-12'>
-								<table id='cannabisOilTable' class='mb-1 scriptTable'>
+								<table id='cannabisOilTable' class='mb-1 scriptTable' unitMeasure='mL'>
 									<thead>
 										<tr>
+											<th></th>
 											<th style='width: 70%'> Cannabis Oil</th>
 											<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
 											<th style='width: 10%'> Volume </th>
@@ -219,13 +224,14 @@
 									</tbody>
 									<tfoot>
 										<tr>
+											<td></td>
 											<td> Script Totals </td>
 											<td></td>
 											<td class='sumUnitTotals'></td>
 											<td class='sumTHCTotals'></td>
 										</tr>
 										<tr>
-											<td colspan=4>
+											<td colspan=5>
 												<button class='btn btn-primary add_cannabisOil' class='align-items-center' type='button'>
 												<span>Add cannabis oil product</span>
 												<i class="bi bi-droplet-half"></i>
@@ -235,9 +241,10 @@
 
 									</tfoot>
 								</table>
-								<table id='cannabisEdiblesTable' class='scriptTable'>
+								<table id='cannabisEdiblesTable' class='scriptTable' unitMeasure='doses'>
 									<thead>
 										<tr>
+											<th></th>
 											<th style='width: 70%'> Cannabinoid edibles</th>
 											<th style='width: 10%'><div> Repeat </div><div> Interval </div></th>
 											<th style='width: 10%'> Doses </th>
@@ -249,13 +256,14 @@
 									</tbody>
 									<tfoot>
 										<tr>
+											<td></td>
 											<td> Script Totals </td>
 											<td></td>
 											<td class='sumUnitTotals'></td>
 											<td class='sumTHCTotals'></td>
 										</tr>
 										<tr>
-											<td colspan=4 class='align-items-center'>
+											<td colspan=5 class='align-items-center'>
 												<button class='btn btn-primary add_cannabisEdibles' type='button'>
 													<span>Add edible product</span>
 													<i class="bi bi-plus-circle"></i>

@@ -44,9 +44,9 @@ function updateScriptCalculations(scriptType){
 			// 'attributes': {'class': 'nowrap'}
 			'childNodes': []
 		}
-	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${avgDoseDuration} days`}})
+	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${avgDoseDuration} days`}})
 	z.childNodes.push('\n')
-	z.childNodes.push({'tagName': 'div', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${avgDoseFinishDate.toDateString()})`}})
+	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${avgDoseFinishDate.toDateString()})`}})
 
 
 	j.querySelector(`.avgScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`

@@ -9,13 +9,24 @@ An online calculator that works out
 aim: track how long a patient's script should last, and when to schedule their repeat interval
 
 ## To-do
+* logins
+* search function for script names
+* autofill based on drug formulary
+* on autofill, cursor jumps straight to repeats
+* lock script function - stops some scripts from having repeats recalculated
 * add tooltip information
-* add auto-complete drug formulary
+* tether script tool, to use with the auto repeat calculator
 * https://starlog.is/articles/developer-tools/words-metaphone use metaphone for drug match
 * re-size product names
+* align average dosage and max dosage
 
 ## Version history
 ### V3 Fork
+2026-10-02
+* fixed the wrap behavior for average and max dose
+* added delete buttons
+* added attribute unitMeasure to tables, so it can be found after scripts deleted
+
 2026-10-01
 * fixed the oral THC repeat toggle
 * added the lock and delete buttons
@@ -71,11 +82,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 * re-design of the main page using bootstrap css5 to ensure its mobile first, responsive design
 
 ## To Do
-logins
-search function for script names
-autofill based on drug formulary
-on autofill, cursor jumps straight to repeats
-lock script function - stops some scripts from having repeats recalculated
+
 
 ## Completed
 2026-03-23

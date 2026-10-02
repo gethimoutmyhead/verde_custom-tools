@@ -136,6 +136,13 @@ z.forEach(scriptType =>
 						}
 						DOM_productName.focus()
 					})
+					DOM_newScriptForm.querySelector('.bi-trash3').addEventListener('click', (event) => {
+						const tr = event.target.closest('tr')
+						const scriptType = tr.getAttribute('productType')
+						tr.remove()
+						calculateRepeatIntervalsIfOn(scriptType)
+						updateScriptCalculations(scriptType)
+					})
 					DOM_newScriptForm.querySelectorAll('.lock-toggle').forEach(el => el.addEventListener('click', toggleLock));
 					DOM_productName.focus()
 					DOM_productName.select()
