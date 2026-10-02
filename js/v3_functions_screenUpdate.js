@@ -61,7 +61,7 @@ function updateScriptCalculations(scriptType){
 	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${maxDoseFinishDate.toDateString()})`}})
 	j.querySelector(`.maxScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
 	j.querySelector(`.maxScriptDuration`).appendChild(makeNewDOMElementFromDict_DOMElem(z))
-	console.log(avgDoseDuration, maxDoseDuration, firstDispenseDate)
+	// console.log(avgDoseDuration, maxDoseDuration, firstDispenseDate)
 }
 
 function updateRepeatIntervals(productTypes, max_dosage){
@@ -78,17 +78,30 @@ function updateRepeatIntervals(productTypes, max_dosage){
 }
 
 function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosage_per_day, scriptDuration){
-	const scriptList = Array.from(listOfDOMElems_scriptList)
+	const allScriptList = Array.from(listOfDOMElems_scriptList)
 	// if I implement a lock feature, I would do a filter for tethered scripts, and calculate totals here
+	const tetheredScripts = allScriptList.filter(script => {
+		const lock = script.querySelector('.lock-toggle');
+		return lock ? lock.dataset.locked === 'true' : false;
+	})
+	tetheredScriptTHCTotal = tetheredScripts.map(dict_readAndsumTHCContentInScript).reduce((sumTHC, script) => {
+		return sumTHC + script['sumTHCTotal']
+	}, 0)
+
+	const scriptList = allScriptList.filter(script => {
+		const lock = script.querySelector('.lock-toggle');
+		return !(lock ? lock.dataset.locked === 'true' : false)
+	})
 	scriptList.forEach(script => {
 		script.querySelector('.repeats').value = 0
 	})
-	calculatedContent = scriptList.map(dict_readAndsumTHCContentInScript)
-	totalTHC = calculatedContent.reduce((sumTHC, script) => {
+	var calculatedContent = scriptList.map(dict_readAndsumTHCContentInScript)
+	var totalTHC = calculatedContent.reduce((sumTHC, script) => {
 		return sumTHC + script['sumTHCTotal']
 	}, 0)
 	// durationToLast = Math.ceil(totalTHC / dosage_per_day)
-	minTHCTotal = dosage_per_day * (scriptDuration - 1)
+	var minTHCTotal = dosage_per_day * (scriptDuration - 1) - tetheredScriptTHCTotal
+	minTHCTotal = (minTHCTotal > 0) ? minTHCTotal : 0
 	// if I implement a lock feature, I would do minTHCTotal - tetheredScriptsTotal, then work out repeats on tethered scripts
 
 	repeatsNeeded = Math.floor(minTHCTotal / totalTHC)
@@ -101,7 +114,7 @@ function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosa
 
 	})
 	producttype = Array.from(new Set(scriptList.map(script => script.getAttribute('producttype'))))
-	console.log(producttype)
+	// console.log(producttype)
 	producttype.map(updateScriptCalculations)
 	// updateScriptCalculations(scriptList[0].getAttribute('producttype'))
 }

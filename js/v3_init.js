@@ -48,19 +48,24 @@ document.querySelector('#inhaledTHCDoseSettings input.autocalcrepeats').addEvent
 	const doseSettingsCSS = productTypeGroups['inhaledTHC'].doseSettingsSelector
 	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
 
-	if (intervalAutoCalc){
-		filteredScriptList.forEach(script => {
-			script.querySelector('.repeats').setAttribute('disabled', '')
-			script.querySelector('.repeats').removeAttribute('enabled')
+	filteredScriptList.forEach(script => {
+		script.querySelector('.repeats').disabled = intervalAutoCalc
+		setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
+		script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
+	})
+	// if (intervalAutoCalc){
+	// 	filteredScriptList.forEach(script => {
+	// 		script.querySelector('.repeats').setAttribute('disabled', '')
+	// 		script.querySelector('.repeats').removeAttribute('enabled')
 
-		})
-	}else {
-		filteredScriptList.forEach(script => {
-			script.querySelector('.repeats').setAttribute('enabled', '')
-			script.querySelector('.repeats').removeAttribute('disabled')
+	// 	})
+	// }else {
+	// 	filteredScriptList.forEach(script => {
+	// 		script.querySelector('.repeats').setAttribute('enabled', '')
+	// 		script.querySelector('.repeats').removeAttribute('disabled')
 
-		})		
-	}
+	// 	})		
+	// }
 
 })
 
@@ -73,19 +78,24 @@ document.querySelector('#oralTHCDoseSettings input.autocalcrepeats').addEventLis
 	const doseSettingsCSS = productTypeGroups['oralTHC'].doseSettingsSelector
 	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
 
-	if (intervalAutoCalc){
-		filteredScriptList.forEach(script => {
-			script.querySelector('.repeats').setAttribute('disabled', '')
-			script.querySelector('.repeats').removeAttribute('enabled')
+	filteredScriptList.forEach(script => {
+		script.querySelector('.repeats').disabled = intervalAutoCalc
+		setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
+		script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
+	})
+	// if (intervalAutoCalc){
+	// 	filteredScriptList.forEach(script => {
+	// 		script.querySelector('.repeats').setAttribute('disabled', '')
+	// 		script.querySelector('.repeats').removeAttribute('enabled')
 
-		})
-	}else {
-		filteredScriptList.forEach(script => {
-			script.querySelector('.repeats').setAttribute('enabled', '')
-			script.querySelector('.repeats').removeAttribute('disabled')
+	// 	})
+	// }else {
+	// 	filteredScriptList.forEach(script => {
+	// 		script.querySelector('.repeats').setAttribute('enabled', '')
+	// 		script.querySelector('.repeats').removeAttribute('disabled')
 
-		})		
-	}
+	// 	})		
+	// }
 
 })
 
@@ -117,10 +127,11 @@ z.forEach(scriptType =>
 					const doseSettingsCSS = productTypeGroups[productGroups[0]].doseSettingsSelector
 					const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
 
-					if (intervalAutoCalc){
-						DOM_newScriptForm.querySelector('.repeats').setAttribute('disabled', '')
-					}
-
+					// if (intervalAutoCalc){
+					// 	DOM_newScriptForm.querySelector('.repeats').setAttribute('disabled', '')
+					// }
+					DOM_newScriptForm.querySelector('.repeats').disabled = intervalAutoCalc
+					DOM_newScriptForm.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
 					document.querySelector(`#${tableName} tbody`).appendChild(DOM_newScriptForm)
 					DOM_newScriptForm.addEventListener('click', (event) => {
 						j = event.target
@@ -143,7 +154,13 @@ z.forEach(scriptType =>
 						calculateRepeatIntervalsIfOn(scriptType)
 						updateScriptCalculations(scriptType)
 					})
-					DOM_newScriptForm.querySelectorAll('.lock-toggle').forEach(el => el.addEventListener('click', toggleLock));
+					DOM_newScriptForm.querySelectorAll('.lock-toggle').forEach(el => el.addEventListener('click', event => {
+						toggleLock(event)
+						var repeatInput = event.target.closest('tr').querySelector('input.repeats')
+						var toggleDOM = event.target.closest('tr').querySelector('.lock-toggle')
+						toggleStatus =  toggleDOM ? toggleDOM.dataset.locked === 'true' : false;
+						repeatInput.disabled = !toggleStatus
+					}));
 					DOM_productName.focus()
 					DOM_productName.select()
 				})

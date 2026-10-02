@@ -13,12 +13,11 @@ aim: track how long a patient's script should last, and when to schedule their r
 * search function for script names
 * autofill based on drug formulary
 * on autofill, cursor jumps straight to repeats
-* lock script function - stops some scripts from having repeats recalculated
 * add tooltip information
-* tether script tool, to use with the auto repeat calculator
+
 * https://starlog.is/articles/developer-tools/words-metaphone use metaphone for drug match
 * re-size product names
-* align average dosage and max dosage
+
 
 ## Version history
 ### V3 Fork
@@ -26,6 +25,9 @@ aim: track how long a patient's script should last, and when to schedule their r
 * fixed the wrap behavior for average and max dose
 * added delete buttons
 * added attribute unitMeasure to tables, so it can be found after scripts deleted
+* lock script function - stops some scripts from having repeats recalculated
+* tether script tool, to use with the auto repeat calculator
+* align average dosage and max dosage
 
 2026-10-01
 * fixed the oral THC repeat toggle
@@ -81,7 +83,6 @@ aim: track how long a patient's script should last, and when to schedule their r
 2026-03-15
 * re-design of the main page using bootstrap css5 to ensure its mobile first, responsive design
 
-## To Do
 
 
 ## Completed

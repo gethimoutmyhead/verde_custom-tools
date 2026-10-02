@@ -280,7 +280,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                   },
                   "childNodes": []
                 },
-                ',',
+                ', ',
                 {
                   "tagName": "SPAN",
                   "attributes": {
@@ -299,7 +299,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                       },
                       "childNodes": []
                     },
-                    'mg/vial,'
+                    'mg THC/vial,'
                   ]
                 },
                 {
@@ -456,7 +456,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   },
                   "childNodes": []
                 },
-                ',',
+                ', ',
                 {
                   "tagName": "SPAN",
                   "attributes": {
@@ -655,7 +655,7 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                   },
                   "childNodes": []
                 },
-                ',',
+                ', ',
                 {
                   "tagName": "SPAN",
                   "attributes": {
