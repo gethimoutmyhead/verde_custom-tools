@@ -15,7 +15,9 @@ arrayOfDOMs_jumpToDosageLimitButtons.forEach(DOM_jumpToDosageLimitsButton => {
 	DOM_jumpToDosageLimitsButton.addEventListener('click',() => {document.getElementById('avgInhaledTHC').focus()})
 })
 
-scriptTableIds.forEach(scriptTableId => {
+scriptTableIds
+.filter(scriptTableId => {(document.querySelector(scriptTableId))})
+.forEach(scriptTableId => {
 	document.getElementById(scriptTableId).addEventListener('input', () => {
 		updateCalculationsInTable(scriptTableId)
 	})
