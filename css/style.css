@@ -1,5 +1,20 @@
+:root{
+	--h4-major-font: bold 24px "Arial", sans-serif;
+	--h4-minor-font: 18px "Times New Roman", serif;
+
+
+}
 body {
 	font-family: "Times New Roman";
+}
+h4{
+	/*font-family: var(--heading-nonserif-font);*/
+	& span.headingMajor{
+		font: var(--h4-major-font);
+	}
+	& span.headingMinor{
+		font: var(--h4-minor-font);
+	}
 }
 table.scriptTable{
 	width: 100%;
