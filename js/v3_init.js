@@ -176,7 +176,10 @@ z.forEach(scriptType =>
 function observeChildChanges(container) {
 
 
-  const isTextNode = (n) => n.nodeType === Node.TEXT_NODE;
+  // const isTextNode = (n) => n.nodeType === Node.TEXT_NODE;
+const isTextNode = (n) => n?.nodeType === Node.TEXT_NODE;
+const isSpan = (n) => n?.nodeType === Node.ELEMENT_NODE && n.tagName.toLowerCase() === 'span';
+const checkNode = (n) => (isTextNode(n) || isSpan(n) ? 1 : -1);
 
   const observer = new MutationObserver((mutations) => {
     const flashed = new Set();
@@ -197,7 +200,10 @@ function observeChildChanges(container) {
         const textChanged =
           [...m.addedNodes].some(isTextNode) ||
           [...m.removedNodes].some(isTextNode);
-        if (textChanged) tryFlash(m.target);
+        if (textChanged) {
+        	tryFlash(m.target);
+
+        }
       }
       // Element nodes added/removed with no text involvement: ignored
     }

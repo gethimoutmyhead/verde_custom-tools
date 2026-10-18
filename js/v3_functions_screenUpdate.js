@@ -44,19 +44,19 @@ function updateScriptCalculations(scriptType){
 			// 'attributes': {'class': 'nowrap'}
 			'childNodes': []
 		}
-	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${avgDoseDuration} days`}})
+	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts for ${avgDoseDuration} days`}})
 	z.childNodes.push('\n')
 	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${avgDoseFinishDate.toDateString()})`}})
 
 
-	j.querySelector(`.avgScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
+	j.querySelector(`.avgScriptDuration`).replaceChildren()//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
 	j.querySelector(`.avgScriptDuration`).appendChild(makeNewDOMElementFromDict_DOMElem(z))
 	z = {
 			'tagName': 'p',
 			// 'attributes': {'class': 'nowrap'}
 			'childNodes': []
 		}
-	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts to ${maxDoseDuration} days`}})
+	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `lasts for ${maxDoseDuration} days`}})
 	z.childNodes.push('\n')
 	z.childNodes.push({'tagName': 'span', 'attributes': {'class': 'nowrap'},'properties': {'innerHTML': `(${maxDoseFinishDate.toDateString()})`}})
 	j.querySelector(`.maxScriptDuration`).innerHTML = ''//`lasts to ${avgDoseFinishDate.toDateString()}(${avgDoseDuration} days)`
@@ -72,8 +72,22 @@ function updateRepeatIntervals(productTypes, max_dosage){
 
 	repeatIntervals = calculateTHCRepeatIntervals(filteredScriptList, max_dosage)
 	repeatIntervals.forEach((interval, idx) => {
-		repeatInterval = typeof interval['repeatInterval'] != 'undefined' ? `${interval['repeatInterval']} days` : 'N/A'
-		filteredScriptList[idx].querySelector('.repeatInterval').innerHTML = repeatInterval
+		repeatIntervalValue = typeof interval['repeatInterval'] != 'undefined' ? `${interval['repeatInterval']}` : 'N/A'
+		pageNode=filteredScriptList[idx].querySelector('.repeatInterval')
+		let val=document.createElement('span')
+		val.classList.add('calculatedValue')
+
+		pageNode.replaceChildren()
+		pageNode.appendChild(val)
+		val.appendChild(document.createTextNode(repeatIntervalValue))
+
+		if (repeatIntervalValue != 'N/A'){
+			let unitMeasure=document.createElement('span')
+			pageNode.appendChild(unitMeasure)
+			unitMeasure.classList.add('calculatedUnitMeasure')
+			unitMeasure.appendChild(document.createTextNode(' days'))
+			// val.(unitMeasure)
+		}
 	})
 }
 
@@ -109,8 +123,13 @@ function calculateAndUpdateMinRepeatsForDuration(listOfDOMElems_scriptList, dosa
 		script.querySelector('.repeats').value = repeatsNeeded
 		flashDOMElem(script.querySelector('.repeats').parentNode)
 		scriptSums = dict_readAndsumTHCContentInScript(script)
-		script.querySelector('.unitQtyTotal').innerHTML = `${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`
-		script.querySelector('.THCTotal').innerHTML = `${scriptSums['sumTHCTotal']} mg`
+		script.querySelector('.unitQtyTotal').replaceChildren()
+		script.querySelector('.THCTotal').replaceChildren()
+
+		script.querySelector('.unitQtyTotal').appendChild(document.createTextNode(`${scriptSums['sumQty']} ${scriptSums['unitMeasure']}`))
+		script.querySelector('.THCTotal').appendChild(document.createTextNode(`${scriptSums['sumTHCTotal']} mg`))
+		
+		// script.querySelector('.THCTotal').appendChild = 
 
 	})
 	producttype = Array.from(new Set(scriptList.map(script => script.getAttribute('producttype'))))

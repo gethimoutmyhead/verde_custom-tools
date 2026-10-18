@@ -299,7 +299,7 @@ document.querySelectorAll('.breakByComma').forEach(elem => breakByComma(elem))
 function flashDOMElem(el){
 	const original = el.style.backgroundColor;
 	el.style.transition = 'none';
-	el.style.backgroundColor = '#fff3a0'; // highlight colour
+	el.style.backgroundColor = '#44DD00'; // highlight colour
 	void el.offsetWidth; // force reflow so the fade starts from the highlight
 	el.style.transition = 'background-color 500ms ease-out';
 	el.style.backgroundColor = original || '';

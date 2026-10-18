@@ -24,6 +24,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 2026-10-18
 * fixed glitch occurring in v2, addEventListeners needed to filter out nonexistent tables
 * added CSS variables to modify the page styling. some formatting changes
+* more updates
 2026-10-02
 * fixed the wrap behavior for average and max dose
 * added delete buttons
