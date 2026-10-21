@@ -6,24 +6,68 @@
 	--calculated-unitmeasure-font: 1rem "Times New Roman", serif;
 
 	--inputFont: "Arial", sans-serif;
+
+	--fontfamily-major: "Arial", sans-serif;
+	--fontfamily-minor: "Times New Roman", serif;
+	--fontfamily-3: "Handlee", cursive;
+
+	--font-size-1: 0.61rem;
+	--font-size-2: 1rem;
+	--font-size-2-5: 1.3rem;
+	--font-size-3: 1.6rem;
+	--font-size-4: 2.6rem;
+	--font-size-5: 4.2rem;
+	--font-size-6: 6.7rem;
 }
+
+/* layout: flex, inline, wrapping behavior relative to parent and other objects */
+.nowrap{
+	white-space: nowrap;
+}
+/* object dimension: width, height */
+table.scriptTable{
+	width: 100%;
+
+	& thead tr {
+		height: 2.5rem;
+	}
+
+	& thead tr th:nth-of-type(1){
+		width: 8%;
+	}
+
+	& thead tr th:nth-of-type(2){
+		width: 62%;
+	}
+}
+span.nowrap{
+	line-height: 1;
+}
+
+input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dosePerDay, input.smallNum {
+	field-sizing: content;
+	min-width: 3ch;
+	padding: 0;
+}
+/* content: colors, fonts, borders, alignment, cursor behavior */
 body {
-	font-family: "Times New Roman";
+	font-family: var(--fontfamily-major);
 }
 h4{
 	/*font-family: var(--heading-nonserif-font);*/
 	& span.headingMajor{
-		font: var(--h4-major-font);
+		font-weight: bold;
+		font-family: var(--fontfamily-major);
+		font-size: var(--font-size-3);
 	}
+
 	& span.headingMinor{
-		font: var(--h4-minor-font);
+		font-family: var(--fontfamily-minor);
+		font-size: var(--font-size-2-5);
 	}
 }
+
 table.scriptTable{
-	width: 100%;
-	& thead tr {
-		height: 3rem;
-	}
 	& thead tr th{
 		background-color: DFDFDF;
 		border-bottom: solid 1px;
@@ -33,15 +77,11 @@ table.scriptTable{
 
 	& thead tr th:nth-of-type(1){
 		border-radius: 15px 0px 0px 0px;
-		width: 8%;
 	}
-	& thead tr th:nth-of-type(2){
-		width: 62%;
-	}
+
 
 	& thead tr th:nth-last-of-type(1){
 		border-radius: 0px 15px 0px 0px;
-
 	}
 
 	& thead tr th{
@@ -132,29 +172,33 @@ table.scriptTable{
 	}
 }
 
-.nowrap{
-	white-space: nowrap;
-}
+
 .plainInput {
 	border-style: none none dotted none;
-	font-family: var(--inputFont);
-	font-size: 1rem;
+	font-family: var(--fontfamily-major);
+	font-size: var(--font-size-2);
 	background: none;
+	vertical-align: -2px;
+	line-height: 1;
 }
 .plainInput:focus{
 	outline: none;
 	border-style: none none solid none;
-	font-family: var(--inputFont);
-	font-size: 1.2rem;
+	font-weight: bold;
+	/*font-size: 1.2rem;*/
 }
+/*.plainInput[type='value']:focus{
+	font-family: var(--fontfamily-3);
+	font-size:var(--font-size-2);
+}*/
 input.productName{
 	field-sizing: content;
 	min-width: 16ch;
 	text-align: right;
 }
 input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dosePerDay, input.smallNum {
-	field-sizing: content;
-	min-width: 3ch;
+/*	field-sizing: content;
+	min-width: 3ch;*/
 	text-align: center;
 }
 .repeatCalculator{
@@ -168,6 +212,7 @@ input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dose
 }
 .avgScriptDuration, .maxScriptDuration{
 	overflow-wrap: break-word;
+	font-family: var(--fontfamily-minor);
 }
 
 .lock-toggle { font-size: 1.2rem; cursor: pointer; user-select: none; }

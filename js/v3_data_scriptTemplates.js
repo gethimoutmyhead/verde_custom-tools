@@ -89,7 +89,8 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                     {
                       "tagName": "INPUT",
                       "attributes": {
-                        "class": "plainInput strength"
+                        "class": "plainInput strength",
+                        "type": "value",
                       },
                       "properties": {
                         "innerText": ""
@@ -110,7 +111,8 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
                     {
                       "tagName": "INPUT",
                       "attributes": {
-                        "class": "plainInput unitQty"
+                        "class": "plainInput unitQty",
+                        'type': 'value',
                       },
                       "properties": {
                         "innerText": ""
@@ -292,7 +294,8 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
                     {
                       "tagName": "INPUT",
                       "attributes": {
-                        "class": "plainInput strength"
+                        "class": "plainInput strength",
+                        'type':'value',
                       },
                       "properties": {
                         "innerText": ""
@@ -449,7 +452,7 @@ dict_scriptFormTemplates['cannabisOil'] = {
                   "tagName": "INPUT",
                   "attributes": {
                     "class": "plainInput productName",
-                    "type": "text"
+                    "type": "text",
                   },
                   "properties": {
                     "innerText": ""
@@ -468,7 +471,8 @@ dict_scriptFormTemplates['cannabisOil'] = {
                     {
                       "tagName": "INPUT",
                       "attributes": {
-                        "class": "plainInput strength"
+                        "class": "plainInput strength",
+                        'type':'value',
                       },
                       "properties": {
                         "innerText": ""
@@ -489,7 +493,8 @@ dict_scriptFormTemplates['cannabisOil'] = {
                     {
                       "tagName": "INPUT",
                       "attributes": {
-                        "class": "plainInput unitQty"
+                        "class": "plainInput unitQty",
+                        'type':'value',
                       },
                       "properties": {
                         "innerText": ""
@@ -667,7 +672,8 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
                     {
                       "tagName": "INPUT",
                       "attributes": {
-                        "class": "plainInput strength"
+                        "class": "plainInput strength",
+                        'type':'value',
                       },
                       "properties": {
                         "innerText": ""
