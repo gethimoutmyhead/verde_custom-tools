@@ -10,6 +10,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ## To-do
 ### formatting
+* max-screen button to remove the side panels, and make calculator take up all of screen
 * buttons to add script should be a row in the table
 * color scheme changer
 * adjust formatting for oral cannabinoids tables
