@@ -4,7 +4,8 @@
   display: inline-block;
   width: 40px;
   height: 1rem;
-  bottom: 10px;
+  bottom: 0.8rem;
+  margin-bottom: -0.8rem;
 }
 
 /* Hide the native checkbox completely */
@@ -38,6 +39,7 @@
   background-color: white;
   border-radius: 50%;
   transition: transform 0.3s ease;
+  padding: 0;
   z-index: 2; /* Ensures the knob stays above the text */
 }
 

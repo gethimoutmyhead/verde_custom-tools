@@ -22,7 +22,8 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
           "tagName": 'DIV',
           "childNodes":[
           {
-            "tagName": 'SPAN',
+            "tagName": 'div',
+            'attributes': {'style': 'height:1.2rem'},
             'childNodes': [
               {
                 "tagName": "I",
@@ -33,7 +34,7 @@ dict_scriptFormTemplates['cannabisDryHerb']['childNodes'] = [
             ]
           },
           {
-          "tagName": "SPAN",
+          "tagName": "div",
           "attributes": {
             "class": "lock-toggle text-secondary",
             "data-locked": "false",
@@ -228,7 +229,8 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
           "tagName": 'DIV',
           "childNodes":[
           {
-            "tagName": 'SPAN',
+            "tagName": 'div',
+            'attributes': {'style': 'height:1.2rem'},
             'childNodes': [
               {
                 "tagName": "I",
@@ -239,7 +241,7 @@ dict_scriptFormTemplates['cannabisVapeCartridge'] = {
             ]
           },
           {
-          "tagName": "SPAN",
+          "tagName": "div",
           "attributes": {
             "class": "lock-toggle text-secondary",
             "data-locked": "false",
@@ -407,7 +409,8 @@ dict_scriptFormTemplates['cannabisOil'] = {
           "tagName": 'DIV',
           "childNodes":[
           {
-            "tagName": 'SPAN',
+            "tagName": 'div',
+            'attributes': {'style': 'height:1.2rem'},
             'childNodes': [
               {
                 "tagName": "I",
@@ -609,7 +612,8 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
           "tagName": 'DIV',
           "childNodes":[
           {
-            "tagName": 'SPAN',
+            "tagName": 'div',
+            'attributes': {'style': 'height:1.2rem'},
             'childNodes': [
               {
                 "tagName": "I",
@@ -620,7 +624,7 @@ dict_scriptFormTemplates['cannabisEdibles'] = {
             ]
           },
           {
-          "tagName": "SPAN",
+          "tagName": "div",
           "attributes": {
             "class": "lock-toggle text-secondary",
             "data-locked": "false",

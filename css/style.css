@@ -64,6 +64,7 @@ body {
 }
 h4{
 	/*font-family: var(--heading-nonserif-font);*/
+	border-bottom: 1px solid;
 	& span.headingMajor{
 		font-weight: bold;
 		font-family: var(--fontfamily-major);
@@ -71,11 +72,17 @@ h4{
 	}
 
 	& span.headingMinor{
+
 		font-family: var(--fontfamily-minor);
 		font-size: var(--font-size-2-5);
+
 	}
 }
-
+@media (max-width: 767.98px) {
+  h4 {
+    border: 0;
+  }
+}
 table.scriptTable{
 	table-layout: fixed;
 	& thead tr th{
@@ -191,9 +198,9 @@ table.scriptTable{
 	font-family: var(--fontfamily-major);
 	font-size: var(--font-size-2);
 	background: none;
-	vertical-align: -2px;
+	vertical-align: -1px;
 	line-height: 1;
-}
+}	
 .plainInput:focus{
 	outline: none;
 	border-style: none none solid none;
@@ -209,6 +216,10 @@ input.productName{
 	field-sizing: content;
 	min-width: 10ch;
 	text-align: left;
+}
+input[type='date']{
+	max-width: 15ch;
+	text-align: inherit;
 }
 input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dosePerDay, input.smallNum {
 /*	field-sizing: content;

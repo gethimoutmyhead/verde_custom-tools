@@ -9,6 +9,13 @@ An online calculator that works out
 aim: track how long a patient's script should last, and when to schedule their repeat interval
 
 ## To-do
+### formatting
+* color scheme changer
+* adjust formatting for oral cannabinoids tables
+* more spacing between elements
+* top navbar
+
+### big functions
 * logins
 * search function for script names
 * autofill based on drug formulary
@@ -21,6 +28,9 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ## Version history
 ### V3 Fork
+2026-10-25
+* updates on formatting
+* fixed the AUTO / OFF slider height issue - toggle.css has the fix, i needed to adjust it up then add negative padding
 2026-10-21
 * formatting updates
 2026-10-18
