@@ -125,11 +125,12 @@ z.forEach(scriptType =>
 					// }
 					DOM_newScriptForm.querySelector('.repeats').disabled = intervalAutoCalc
 					DOM_newScriptForm.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
-					existingScript = document.querySelectorAll(`#${tableName} tbody .scriptForm:last-child`)
+					existingScript = document.querySelector(`#${tableName} tbody`).querySelectorAll(`.scriptForm`)
+
 					if (existingScript.length) {
-						existingScript[0].after(DOM_newScriptForm)					
+						existingScript[existingScript.length - 1].after(DOM_newScriptForm)				
 					}else{
-						document.querySelector(`#${tableName} tbody`).appendChild(DOM_newScriptForm)					
+						document.querySelector(`#${tableName} tbody`).prepend(DOM_newScriptForm)					
 					}
 	
 					DOM_newScriptForm.addEventListener('click', (event) => {
