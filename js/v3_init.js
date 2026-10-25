@@ -38,66 +38,59 @@ document.getElementById('oralTHCDoseSettings').addEventListener('input', () => {
 		updateScriptCalculations('cannabisOil')
 	}
 })
+administrationMethods = ['inhaledTHC', 'oralTHC']
 
-document.querySelector('#inhaledTHCDoseSettings input.autocalcrepeats').addEventListener('click', () => {
-	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
-	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
-	filteredScriptList = scriptList.filter(script => {
-		return matchedProductTypes.includes(script.getAttribute('productType'))
+administrationMethods.forEach(administrationMethod => {
+	document.querySelector(`#${administrationMethod}DoseSettings input.autocalcrepeats`).addEventListener('click', () => {
+		const scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+		const matchedProductTypes = productTypeGroups[administrationMethod]['scriptTypes']
+		const filteredScriptList = scriptList.filter(script => {
+			return matchedProductTypes.includes(script.getAttribute('productType'))
+		})
+		const doseSettingsCSS = productTypeGroups[administrationMethod].doseSettingsSelector
+		const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
+		document.querySelector(`${doseSettingsCSS} .repeatMinDuration`).classList.toggle('d-none', !intervalAutoCalc)
+		filteredScriptList.forEach(script => {
+			script.querySelector('.repeats').disabled = intervalAutoCalc
+			setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
+			script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
+		})
+
+
 	})
-	const doseSettingsCSS = productTypeGroups['inhaledTHC'].doseSettingsSelector
-	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
-
-	filteredScriptList.forEach(script => {
-		script.querySelector('.repeats').disabled = intervalAutoCalc
-		setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
-		script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
-	})
-	// if (intervalAutoCalc){
-	// 	filteredScriptList.forEach(script => {
-	// 		script.querySelector('.repeats').setAttribute('disabled', '')
-	// 		script.querySelector('.repeats').removeAttribute('enabled')
-
-	// 	})
-	// }else {
-	// 	filteredScriptList.forEach(script => {
-	// 		script.querySelector('.repeats').setAttribute('enabled', '')
-	// 		script.querySelector('.repeats').removeAttribute('disabled')
-
-	// 	})		
-	// }
-
 })
 
-document.querySelector('#oralTHCDoseSettings input.autocalcrepeats').addEventListener('click', () => {
-	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
-	matchedProductTypes = productTypeGroups['oralTHC']['scriptTypes']
-	filteredScriptList = scriptList.filter(script => {
-		return matchedProductTypes.includes(script.getAttribute('productType'))
-	})
-	const doseSettingsCSS = productTypeGroups['oralTHC'].doseSettingsSelector
-	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
+// document.querySelector('#inhaledTHCDoseSettings input.autocalcrepeats').addEventListener('click', () => {
+// 	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+// 	matchedProductTypes = productTypeGroups['inhaledTHC']['scriptTypes']
+// 	filteredScriptList = scriptList.filter(script => {
+// 		return matchedProductTypes.includes(script.getAttribute('productType'))
+// 	})
+// 	const doseSettingsCSS = productTypeGroups['inhaledTHC'].doseSettingsSelector
+// 	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
 
-	filteredScriptList.forEach(script => {
-		script.querySelector('.repeats').disabled = intervalAutoCalc
-		setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
-		script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
-	})
-	// if (intervalAutoCalc){
-	// 	filteredScriptList.forEach(script => {
-	// 		script.querySelector('.repeats').setAttribute('disabled', '')
-	// 		script.querySelector('.repeats').removeAttribute('enabled')
+// 	filteredScriptList.forEach(script => {
+// 		script.querySelector('.repeats').disabled = intervalAutoCalc
+// 		setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
+// 		script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
+// 	})
+// })
 
-	// 	})
-	// }else {
-	// 	filteredScriptList.forEach(script => {
-	// 		script.querySelector('.repeats').setAttribute('enabled', '')
-	// 		script.querySelector('.repeats').removeAttribute('disabled')
+// document.querySelector('#oralTHCDoseSettings input.autocalcrepeats').addEventListener('click', () => {
+// 	scriptList = Array.from(document.querySelectorAll('.scriptForm'))
+// 	matchedProductTypes = productTypeGroups['oralTHC']['scriptTypes']
+// 	filteredScriptList = scriptList.filter(script => {
+// 		return matchedProductTypes.includes(script.getAttribute('productType'))
+// 	})
+// 	const doseSettingsCSS = productTypeGroups['oralTHC'].doseSettingsSelector
+// 	const intervalAutoCalc = document.querySelector(`${doseSettingsCSS} .autocalcrepeats`).checked
 
-	// 	})		
-	// }
-
-})
+// 	filteredScriptList.forEach(script => {
+// 		script.querySelector('.repeats').disabled = intervalAutoCalc
+// 		setDOMToggleLock(script.querySelector('.lock-toggle'), !intervalAutoCalc)
+// 		script.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
+// 	})
+// })
 
 
 // document.querySelector('.inhaledTHCScripts .repeatCalculator').addEventListener('click', (event) => {
@@ -132,7 +125,13 @@ z.forEach(scriptType =>
 					// }
 					DOM_newScriptForm.querySelector('.repeats').disabled = intervalAutoCalc
 					DOM_newScriptForm.querySelector('.lock-toggle').classList.toggle('d-none', !intervalAutoCalc)
-					document.querySelector(`#${tableName} tbody`).appendChild(DOM_newScriptForm)
+					existingScript = document.querySelectorAll(`#${tableName} tbody .scriptForm:last-child`)
+					if (existingScript.length) {
+						existingScript[0].after(DOM_newScriptForm)					
+					}else{
+						document.querySelector(`#${tableName} tbody`).appendChild(DOM_newScriptForm)					
+					}
+	
 					DOM_newScriptForm.addEventListener('click', (event) => {
 						j = event.target
 						if (j.tagName == 'INPUT'){

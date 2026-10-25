@@ -10,6 +10,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ## To-do
 ### formatting
+* buttons to add script should be a row in the table
 * color scheme changer
 * adjust formatting for oral cannabinoids tables
 * more spacing between elements
@@ -33,6 +34,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 * fixed the AUTO / OFF slider height issue - toggle.css has the fix, i needed to adjust it up then add negative padding
 2026-10-21
 * formatting updates
+* the 'min repeats' section now disappears if auto calc repeats is OFF
 2026-10-18
 * fixed glitch occurring in v2, addEventListeners needed to filter out nonexistent tables
 * added CSS variables to modify the page styling. some formatting changes

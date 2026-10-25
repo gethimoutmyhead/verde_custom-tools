@@ -54,7 +54,7 @@
 									</span>
 								</label>
 								Calculate repeats
-								<span class='nowrap'>
+								<span class='nowrap repeatMinDuration'>
 									for min. <input class='plainInput smallNum targetScriptDuration' value=90> days
 								</span>
 							</p>
@@ -69,7 +69,7 @@
 								</span>
 							</p>
 						</div>						
-						<div class='col-6 border-end'>
+						<div class='col-6'>
 							<p>
 								<span class='nowrap'>
 									Average 
@@ -83,7 +83,6 @@
 						</div>
 						<div class='col-6 text-end text-md-start'>
 							<p>
-								<!-- <span class='nowrap alignInputHeight'></span> -->
 								<span class='nowrap'>
 									Max 
 									<input type='value' class='plainInput maxDose dosePerDay' value=300>
@@ -166,7 +165,7 @@
 						</div>
 					</div>
 					<div class='row mb-1' id='oralTHCDoseSettings'>
-						<div class='col-6'>
+						<div class='col-12'>
 							<h4>
 								<span class='headingMajor'> Oral</span>
 								<span class='headingMinor'> Cannabinoids with THC </span>
@@ -174,25 +173,29 @@
 						</div>
 						<div class='col-6'>
 							<p>
-								<span class='nowrap'>
-									<label class="toggle-switch">
-										<input class='autocalcrepeats' type="checkbox" checked>
-										<span class="slider">
-										<span class="text-on">AUTO</span>
-										<span class="text-off">OFF</span>
-									</span>
-									</label>
-									Calculate repeats for min.
-									<input class='plainInput smallNum targetScriptDuration' value=90> days
+								<label class="toggle-switch">
+									<input class='autocalcrepeats' type="checkbox" checked>
+									<span class="slider">
+									<span class="text-on">AUTO</span>
+									<span class="text-off">OFF</span>
+								</span>
+								</label>
+								Calculate repeats 
+								<span class='nowrap repeatMinDuration'>
+									for min. <input class='plainInput smallNum targetScriptDuration' value=90> days
+							</p>
+						</div>
+						<div class='col-6'>
+							<p class='text-end text-md-start'>
+								<span class='border-end'>
+									First dispense on 
+								</span>
+								<span>
+									<input class='prescriptionDate plainInput' type='date'>
 								</span>
 							</p>
 						</div>
-						<div class='col-3'>
-							<div class='border-end'>
-								First dispense on <input class='prescriptionDate plainInput' type='date'>
-							</div>
-						</div>
-						<div class='col-5'>
+						<div class='col-6'>
 							<p>
 								<span class='nowrap'>
 									Average 
@@ -204,7 +207,7 @@
 							</p>
 
 						</div>
-						<div class='col-4'>
+						<div class='col-6 text-end text-md-start'>
 							<p>
 								<span class='nowrap alignInputHeight'></span>
 								<span class='nowrap'>
