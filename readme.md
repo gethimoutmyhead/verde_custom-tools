@@ -31,6 +31,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 ### V3 Fork
 2026-10-26
 * buttons to add script are rows in the table, moves down once a script is added. all clickable and keyboardable
+* changed all the colors to variables, so I can tweak it easier later
 2026-10-25
 * updates on formatting
 * fixed the AUTO / OFF slider height issue - toggle.css has the fix, i needed to adjust it up then add negative padding
