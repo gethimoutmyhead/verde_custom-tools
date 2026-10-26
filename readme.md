@@ -12,7 +12,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 ### formatting
 * max-screen button to remove the side panels, and make calculator take up all of screen
 * color scheme changer
-* top navbar
+
 
 ### big functions
 * logins
@@ -35,6 +35,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 * adjust formatting for oral cannabinoids tables
 * re-size product names
 * copy summary button
+* top navbar
 2026-10-25
 * updates on formatting
 * fixed the AUTO / OFF slider height issue - toggle.css has the fix, i needed to adjust it up then add negative padding

@@ -78,6 +78,10 @@ input.strength, input.unitQty, input.unitsPerDispense, input.repeats, input.dose
 	padding: 0;
 }
 /* content: colors, fonts, borders, alignment, cursor behavior */
+header .container .row div:nth-of-type(2){
+	background-color: var(--custom-color-7);
+	color: var(--custom-color-1);
+}
 body {
 	font-family: var(--fontfamily-major);
 }
