@@ -12,7 +12,6 @@ aim: track how long a patient's script should last, and when to schedule their r
 ### formatting
 * max-screen button to remove the side panels, and make calculator take up all of screen
 * color scheme changer
-* adjust formatting for oral cannabinoids tables
 * top navbar
 
 ### big functions
@@ -23,7 +22,7 @@ aim: track how long a patient's script should last, and when to schedule their r
 * add tooltip information
 
 * https://starlog.is/articles/developer-tools/words-metaphone use metaphone for drug match
-* re-size product names
+
 
 
 ## Version history
@@ -33,6 +32,9 @@ aim: track how long a patient's script should last, and when to schedule their r
 * changed all the colors to variables, so I can tweak it easier later
 * more spacing between inhaled Cannabinoids, oral cannabinoids
 * buttons more interactive, they go bold and icon gets bigger when selected, hovers will change colors so you can see its interactive
+* adjust formatting for oral cannabinoids tables
+* re-size product names
+* copy summary button
 2026-10-25
 * updates on formatting
 * fixed the AUTO / OFF slider height issue - toggle.css has the fix, i needed to adjust it up then add negative padding

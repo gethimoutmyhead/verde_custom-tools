@@ -38,7 +38,7 @@ document.getElementById('oralTHCDoseSettings').addEventListener('input', () => {
 		updateScriptCalculations('cannabisOil')
 	}
 })
-administrationMethods = ['inhaledTHC', 'oralTHC']
+const administrationMethods = ['inhaledTHC', 'oralTHC']
 
 administrationMethods.forEach(administrationMethod => {
 	document.querySelector(`#${administrationMethod}DoseSettings input.autocalcrepeats`).addEventListener('click', () => {
@@ -172,7 +172,21 @@ z.forEach(scriptType =>
 				// DOM_newScriptForm.focus()
 	}
 )
+// const copyButtons = document.querySelectorAll('button.copyButton')
+// copyButtons.forEach(button => {
+// 	button.addEventListener('click', e => popupMessage(e.currentTarget, 'copied to clipboard') )
+// })
+administrationMethods.forEach(administrationMethod => {
 
+	const doseSettingsDOM = document.querySelector(`#${administrationMethod}DoseSettings`)
+	doseSettingsDOM.querySelector('button.copyButton').addEventListener('click', e => {
+		const msg = getTreatmentSummary(administrationMethod)
+		// console.log(msg)
+		writeStringToClipboard_promise({'text_string': msg})
+		popupMessage(e.currentTarget, 'copied to clipboard')
+
+	})
+})
 
 function observeChildChanges(container) {
 
