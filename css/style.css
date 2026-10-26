@@ -19,22 +19,23 @@
 	--font-size-5: 4.2rem;
 	--font-size-6: 6.7rem;
 
-	--button-halo-1: rgba(103, 110, 253, 0.25);
+	--button-halo-1: rgba(53, 53, 53, 0.25);
 
 
 	--custom-color-0: white;
 	--custom-color-1: black;
 	--custom-color-2: #DFDFDF;
 	--custom-color-3: #A0A0A0;
-	--custom-color-4: #F0F0F0;
+	--custom-color-4: #FFFFFF;
 	--custom-color-5: #9F9F9F;
-	--custom-color-6: #D0D0D0;
-	--custom-color-7: #B1B1B1;
-	--custom-color-8: #019191;
-	--custom-color-9: #676767;
+	--custom-color-6: #122c34;
+	--custom-color-7: #40798c;
+	--custom-color-8: #70a9a1;
+	--custom-color-9: #264d5a;
 	--custom-color-10: #F0F0F0;
 	--custom-color-11: #E0E0E0;
 	--custom-color-12: green;
+	--custom-color-13: #edebcf;
 
 }
 
@@ -101,13 +102,30 @@ h4{
     border: 0;
   }
 }
+button.copyButton{
+	appearance: none;
+	border: none;
+	background: none;
+}
+button.copyButton:hover,button.copyButton:focus{
+	font-size:2rem;
+}
+button.copyButton:focus{
+	outline: 0;
+	box-shadow: 0 0 0 0.25rem var(--button-halo-1);
+}
+
 table.scriptTable{
 	table-layout: fixed;
 	& thead tr th{
-		background-color: var(--custom-color-2);
 		border-bottom: solid 1px;
 		border-bottom-color: var(--custom-color-3);
 		font-size: var(--font-size-2);
+		text-align: center;
+		font-family: var(--fontfamily-major);
+		font-size: var(--font-size-2);
+		font-weight: normal;
+		line-height: 1.3rem;
 	}
 
 	& thead tr th:nth-of-type(1){
@@ -119,14 +137,6 @@ table.scriptTable{
 		border-radius: 0px 15px 0px 0px;
 	}
 
-	& thead tr th{
-		text-align: center;
-		font-family: var(--fontfamily-minor);
-		font-size: var(--font-size-2);
-		font-weight: normal;
-	/*	border: none;
-		border: solid 5px;*/
-	}
 	& td {
 		text-align: center;
 		overflow-wrap: break-word;
@@ -135,11 +145,19 @@ table.scriptTable{
 		text-align: start;
 		overflow-wrap: break-word;
 	}
-
+	& tr.scriptForm{
+		background-color: var(--custom-color-13);
+	}	
+	& tr.scriptForm:focus-within {
+		border-bottom: solid 2px;
+		border-bottom-color: var(--custom-color-5);
+		background-color: var(--custom-color-4);
+	}
 	& tr.scriptForm td{
 		border-bottom: solid 1px;
 		border-bottom-color: var(--custom-color-2);
 	}
+
 	& tr.scriptForm td:nth-of-type(1){
 		border-left: solid 1px;
 		border-color: var(--custom-color-2);
@@ -152,24 +170,10 @@ table.scriptTable{
 		border-bottom: solid 2px;
 		border-bottom-color: var(--custom-color-1);
 	}
-	& tr.scriptForm:focus-within {
-		background-color: var(--custom-color-4);
-		border-bottom: solid 2px;
-		border-bottom-color: var(--custom-color-5);
-	}
-	& tfoot tr:nth-of-type(1) {
-		border-bottom: solid 1px var(--custom-color-1);
-		line-height: 1.5rem;
-	}
-	& tfoot tr td:0{
-		text-align: start;
 
-	}
-	& tfoot tr:nth-of-type(1) td{
-		background-color: var(--custom-color-6);
-	}
-	& td.unitQtyTotal, td.THCTotal{
+	& td.unitQtyTotal, td.THCTotal, th:nth-of-type(3), th:nth-of-type(4), th:nth-of-type(5) {
 		background-color: var(--custom-color-7);
+		color: var(--custom-color-0);
 	}
 	& td:nth-of-type(2){
 		text-align: left;
@@ -178,9 +182,7 @@ table.scriptTable{
 		background-color: var(--custom-color-8);
 	}
 	& th:nth-of-type(3), th:nth-of-type(4), th:nth-of-type(5) {
-		background-color: var(--custom-color-7);
 		border-bottom: 1px dotted var(--custom-color-1);
-		color: black;
 		vertical-align: centre;
 	}
 	& td.repeatInterval {
@@ -188,6 +190,18 @@ table.scriptTable{
 		color: var(--custom-color-10);
 /*		font-family: arial;
 		font-size: 0.7rem;*/
+	}
+	& tfoot tr:nth-of-type(1) {
+		border-bottom: single 1px var(--custom-color-1);
+		line-height: 1.5rem;
+	}
+	& tfoot tr td:0{
+		text-align: start;
+
+	}
+	& tfoot tr:nth-of-type(1) td{
+		background-color: var(--custom-color-6);
+		color: var(--custom-color-0);
 	}
 
 	& span.calculatedValue{
@@ -201,7 +215,7 @@ table.scriptTable{
 		margin-top: 4px;
 		border-radius: 2px 5px 2px 5px;
 		background-color: var(--custom-color-7);
-		color: var(--custom-color-1);
+		color: var(--custom-color-0);
 	}
 	& tr.add_cannabisDryHerb, tr.add_cannabisVapeCartridge, tr.add_cannabisOil, tr.add_cannabisEdibles  {
 		padding: 0;
@@ -212,8 +226,8 @@ table.scriptTable{
 	& tr.add_cannabisDryHerb button, tr.add_cannabisVapeCartridge button,  tr.add_cannabisOil button,  tr.add_cannabisEdibles button{
 		appearance: none;
 		-webkit-appearance: none;
-		background: none;
-		border: 1px solid blue;
+		background: linear-gradient(to right, var(--custom-color-0), var(--custom-color-11));
+		border: 1px solid var(--custom-color-1);
 		border-radius: 5px;
 		margin: 0;
 		padding: 0;
@@ -234,6 +248,26 @@ table.scriptTable{
 	& tr.add_cannabisDryHerb button:focus-visible, tr.add_cannabisVapeCartridge button:focus-visible, tr.add_cannabisOil button:focus-visible, tr.add_cannabisEdibles button:focus-visible{
 		outline: 0;
 		box-shadow: 0 0 0 0.25rem var(--button-halo-1);
+		font-weight: bold;
+	}
+	& tr.add_cannabisDryHerb button:hover, tr.add_cannabisVapeCartridge button:hover, tr.add_cannabisOil button:hover, tr.add_cannabisEdibles button:hover{
+		outline: 0;
+		box-shadow: 0 0 0 0.25rem var(--button-halo-1);
+		font-weight: bold;
+	}
+	& tr.add_cannabisDryHerb button:focus-visible i, tr.add_cannabisDryHerb button:hover i{
+		font-size: var(--font-size-2-5);
+	}
+	& tr.add_cannabisVapeCartridge button:focus-visible i, tr.add_cannabisVapeCartridge button:hover i{
+		font-size: var(--font-size-2-5);
+	}
+
+	& tr.add_cannabisOil button:focus-visible i, tr.add_cannabisOil button:hover i{
+		font-size: var(--font-size-2-5);
+	}
+
+	& tr.add_cannabisEdibles button:focus-visible i, tr.add_cannabisEdibles button:hover i{
+		font-size: var(--font-size-2-5);
 	}
 }
 
@@ -251,6 +285,9 @@ table.scriptTable{
 	border-style: none none solid none;
 	font-weight: bold;
 	/*font-size: 1.2rem;*/
+}
+.plainInput:hover{
+	border: solid 1px;
 }
 /*.plainInput[type='value']:focus{
 	font-family: var(--fontfamily-3);

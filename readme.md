@@ -13,7 +13,6 @@ aim: track how long a patient's script should last, and when to schedule their r
 * max-screen button to remove the side panels, and make calculator take up all of screen
 * color scheme changer
 * adjust formatting for oral cannabinoids tables
-* more spacing between inhaled Cannabinoids, oral cannabinoids
 * top navbar
 
 ### big functions
@@ -32,6 +31,8 @@ aim: track how long a patient's script should last, and when to schedule their r
 2026-10-26
 * buttons to add script are rows in the table, moves down once a script is added. all clickable and keyboardable
 * changed all the colors to variables, so I can tweak it easier later
+* more spacing between inhaled Cannabinoids, oral cannabinoids
+* buttons more interactive, they go bold and icon gets bigger when selected, hovers will change colors so you can see its interactive
 2026-10-25
 * updates on formatting
 * fixed the AUTO / OFF slider height issue - toggle.css has the fix, i needed to adjust it up then add negative padding
