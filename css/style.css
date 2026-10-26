@@ -18,6 +18,8 @@
 	--font-size-4: 2.6rem;
 	--font-size-5: 4.2rem;
 	--font-size-6: 6.7rem;
+
+	--button-halo-1: rgba(103, 110, 253, 0.25);
 }
 
 /* layout: flex, inline, wrapping behavior relative to parent and other objects */
@@ -141,10 +143,6 @@ table.scriptTable{
 	& tfoot tr:nth-of-type(1) td{
 		background-color: D0D0D0;
 	}
-	& tfoot {
-		border-bottom: solid 1px;
-		border-bottom-color: black;
-	}
 	& td.unitQtyTotal, td.THCTotal{
 		background-color: B1B1B1;
 	}
@@ -190,13 +188,13 @@ table.scriptTable{
 		background-color: B1B1B1;
 		color: Black;
 	}
-	& tr.add_cannabisDryHerb {
+	& tr.add_cannabisDryHerb, tr.add_cannabisVapeCartridge, tr.add_cannabisOil, tr.add_cannabisEdibles  {
 		padding: 0;
 	}
-	& tr.add_cannabisDryHerb td{
+	& tr.add_cannabisDryHerb td, tr.add_cannabisVapeCartridge td, tr.add_cannabisOil td, tr.add_cannabisEdibles td{
 		padding: 2px 0px 4px 0px;
 	}
-	& tr.add_cannabisDryHerb button{
+	& tr.add_cannabisDryHerb button, tr.add_cannabisVapeCartridge button,  tr.add_cannabisOil button,  tr.add_cannabisEdibles button{
 		appearance: none;
 		-webkit-appearance: none;
 		background: none;
@@ -218,9 +216,9 @@ table.scriptTable{
 		justify-content: center;
 		gap: 0.4em;
 	}
-	& tr.add_cannabisDryHerb button:focus-visible {
+	& tr.add_cannabisDryHerb button:focus-visible, tr.add_cannabisVapeCartridge button:focus-visible, tr.add_cannabisOil button:focus-visible, tr.add_cannabisEdibles button:focus-visible{
 		outline: 0;
-		box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+		box-shadow: 0 0 0 0.25rem var(--button-halo-1);
 	}
 }
 

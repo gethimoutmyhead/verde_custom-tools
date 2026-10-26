@@ -130,8 +130,9 @@ z.forEach(scriptType =>
 					if (existingScript.length) {
 						existingScript[existingScript.length - 1].after(DOM_newScriptForm)				
 					}else{
-						document.querySelector(`#${tableName} tbody`).prepend(DOM_newScriptForm)					
-					}
+						document.querySelector(`#${tableName} tbody`).prepend(DOM_newScriptForm)
+						document.querySelector(`#${tableName} tfoot`).appendChild(elem)
+					}			
 	
 					DOM_newScriptForm.addEventListener('click', (event) => {
 						j = event.target
