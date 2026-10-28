@@ -182,7 +182,10 @@ administrationMethods.forEach(administrationMethod => {
 	doseSettingsDOM.querySelector('button.copyButton').addEventListener('click', e => {
 		const msg = getTreatmentSummary(administrationMethod)
 		// console.log(msg)
-		writeStringToClipboard_promise({'text_string': msg})
+		// writeStringToClipboard_promise({'text_string': msg})
+		console.log(e.currentTarget.getBoundingClientRect())
+		navigator.clipboard.writeText(msg)
+
 		popupMessage(e.currentTarget, 'copied to clipboard')
 
 	})
