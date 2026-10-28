@@ -27,6 +27,11 @@ aim: track how long a patient's script should last, and when to schedule their r
 
 ## Version history
 ### V3 Fork
+2026-10-27
+* fixed clipboard glitch for android, will need to test on windows chrome/firefox
+* got rid of the wheeze button at the bottom
+* added col-group, will see if it fixes iOS table glitch
+
 2026-10-26
 * buttons to add script are rows in the table, moves down once a script is added. all clickable and keyboardable
 * changed all the colors to variables, so I can tweak it easier later
