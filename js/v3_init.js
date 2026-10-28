@@ -183,8 +183,10 @@ administrationMethods.forEach(administrationMethod => {
 		const msg = getTreatmentSummary(administrationMethod)
 		// console.log(msg)
 		// writeStringToClipboard_promise({'text_string': msg})
-		console.log(e.currentTarget.getBoundingClientRect())
-		navigator.clipboard.writeText(msg)
+		// console.log(e.currentTarget.getBoundingClientRect())
+		navigator.clipboard.writeText(msg).then(() => {
+			console.log('clip successful')
+		})
 
 		popupMessage(e.currentTarget, 'copied to clipboard')
 
